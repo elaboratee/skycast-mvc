@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    generate-unique-name: false
+    name: skycast
+
+logging:
+  level:
+    root: INFO
