@@ -1,0 +1,10 @@
+body {
+    background: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+.container {
+    text-align: center;
+    margin: auto;
+}
