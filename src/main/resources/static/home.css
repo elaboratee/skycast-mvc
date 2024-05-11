@@ -276,7 +276,9 @@ body{
                     padding-top: 50px;
                 }
                 .logo_ow_API img{
-                    width: 82%;
+                    max-width: 62%;
+                    min-width: 10%;
+                    width: auto;
                 }
                 .text_for_info_API_1{
                     padding-top: 50px;
@@ -340,6 +342,7 @@ body{
 }
 .main_weather {
     padding-top: 10px;
+    text-decoration:none;
     width: 100%;
     display: block;
     max-width: 100%;
@@ -469,11 +472,13 @@ body{
     }
 }
 
-
+.button_weather{
+    margin: 60px 37%;
+}
 
 .main_weather{
     position: absolute;
-    width: 400px;
+    width: 700px;
     padding-bottom: 10px;
     padding-top: 10px;
 
@@ -489,7 +494,7 @@ body{
 
     box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
     background: rgb(143, 61, 208);
-    margin: 60px 27%;
+
 }
 
 .main_weather:hover{
@@ -550,4 +555,67 @@ input[type="text"]:hover{
     top: 2650px;
     filter: blur(408px);
     background: rgb(193, 62, 239);
+}
+
+.weather_information_block{
+    display: block;
+    height: 800px;
+    box-sizing: border-box;
+    /* stroke_color */
+    border: 1px solid rgb(197, 54, 239);
+    border-radius: 30px;
+    background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
+}
+
+.search {
+    width: 700px;
+    height: 50px;
+    margin: 70px auto;
+    border-radius:  3px;
+    border: 1px solid rgb(197, 54, 239);
+    background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
+    font-family: "Manrope ExtraBold";
+
+    input {
+        width: 570px;
+        padding: 10px 15px;
+        float: left;
+        color: white;
+        border: 0;
+        background: transparent;
+        border-radius: 3px 0 0 3px;
+        font-family: "Manrope ExtraBold";
+        font-size: 22px;
+        &:focus {
+            outline: 0;
+            background:transparent;
+            transition: 0.5s;
+        }
+    }
+
+    button {
+        position: relative;
+        float: right;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        height: 50px;
+        width: 120px;
+        color: #fff;
+        font-size: 23px;
+        background: rgb(143, 61, 208);
+        border-left: 1px solid rgb(197, 54, 239);
+        border-radius: 0 6px 6px 0;
+        font-family: "Manrope ExtraBold";
+        &:hover {
+            background: rgba(255, 87, 255, 0.08);
+            transition: 0.5s;
+        }
+        &:active {
+            box-shadow: 0px 0px 12px 0px rgb(193, 62, 239);
+        }
+        &:focus {
+            outline: 0;
+        }
+    }
 }

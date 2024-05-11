@@ -4,14 +4,137 @@
         xmlns:th="http://www.thymeleaf.org"
         lang="en">
 <head>
-    <link rel="stylesheet" th:href="@{/weather.css}">
+    <link rel="stylesheet" th:href="@{/home.css}">
     <meta charset="UTF-8">
-    <title>SkyCast</title>
+    <title>Погода - SkyCast</title>
+    <link rel="icon" th:href="@{/images/favicon.ico}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Page for weather data</h1>
-        <h3>Not ready yet...</h3>
+<header class="Header">
+    <div class="Header_index">
+        <a href="" class="Logo_link">
+            <div class="Logo">
+                <img th:src="@{/images/Logo_bar.png}" alt="">
+            </div>
+        </a>
+        <div class="menu-bar">
+            <a href="" class="Primary">
+                Главная
+            </a>
+            <a href="" class="Weather">
+                Погода
+            </a>
+            <a href="" class="About_us">
+                О нас
+            </a>
+        </div>
+        <div class="Button_block">
+            <div class="header-menu">
+                <a href="" class="botton_auth">Вход</a>
+            </div>
+            <div class="header-menu">
+                <a href="" class="botton_ar">Регистрация</a>
+            </div>
+        </div>
     </div>
+</header>
+
+
+<div class="app-wrapper">
+    <div class="elipse_1"></div>
+    <div class="content">
+        <div class="elipse_2"></div>
+        <div class="research">
+            <h1>Выберите город в котором вы хотите узнать погоду:</h1>
+            <div class="research-bar">
+                <form class="search" action="">
+                    <input type="search">
+                    <button type="submit">ПОИСК</button>
+                </form>
+            </div>
+            </div>
+
+        <div class="weather_information_block">
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+
+    <!-- FOOTER -->
+
+
+    <div class="Footer_ar">
+        <div class="navigate_bar">
+            <a class="Logo_footer">
+                <img th:src="@{/images/footer.png}" alt="">
+            </a>
+            <div class="inf_1">
+                <div class="useful_assistant">Полезный помощник в вашем кармане</div>
+                <div class="social_logo">
+
+                    <div class="vk">
+                        <a th:href="@{https://vk.com/club225712381}">
+                            <img th:src="@{/images/vk.png}" alt="">
+                        </a>
+                    </div>
+
+                    <div class="tg">
+                        <a th:href="@{https://t.me/SkyCastApp}">
+                            <img th:src="@{/images/tg.png}" alt="">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inf_2">
+                <div class="communication">Связь с нами:</div>
+                <div class="number">Тел: 8-(960)-874-87-93</div>
+                <div class="email_communication">Email: skycastapp@gmail.com</div>
+            </div>
+            <div class="inf_3">
+                <div class="cmw">Написать нам:</div>
+                <div class='social_logo'>
+                    <div class="vk">
+                        <a th:href="@{https://vk.com/club225712381}">
+                            <img th:src="@{/images/vk.png}" alt="">
+                        </a>
+                    </div>
+                    <div class="tg">
+                        <a th:href="@{https://t.me/SkyCastApp}">
+                            <img th:src="@{/images/tg.png}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="inf_4">
+                <div class="repost">Поделитесь с друзьями</div>
+                <div class="button_repost">
+                    <a href="" class="botton_ar">
+                        Поделиться
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="OpenWeatherApiInf">
+            <div class="logo_ow">
+                <img th:src="@{/images/ow.png}" alt="">
+            </div>
+            <div class="informaitionAPI">
+                С использованием WeatherAPI – ведущим поставщиком данных о погоде, предоставляющий обширный
+                набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-</html>

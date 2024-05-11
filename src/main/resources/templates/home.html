@@ -173,17 +173,13 @@
         </div>
 
         <!-- WEATHER_BLOCK -->
-
-
-        <div class="main_weather">
-
-            <a class="button_detailed">
-                Посмотреть погоду
-            </a>
-        </div>
-        <div class="elipse_3"></div>
     </div>
-
+    <div class="button_weather">
+        <form th:action="@{/start}" method="POST">
+            <input type="submit" value="Посмотреть погоду" class="main_weather">
+        </form>
+    </div>
+    <div class="elipse_3"></div>
 
     <div class="footer">
 
