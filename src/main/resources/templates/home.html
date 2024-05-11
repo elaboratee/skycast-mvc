@@ -9,13 +9,14 @@
     <title>SkyCast</title>
     <link rel="icon" th:href="@{/images/favicon.ico}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -132,14 +133,14 @@
                                 <img th:src="@{/images/ow.png}" alt="">
                             </div>
                             <div class="text_for_info_API_1">
-                                * Разнообразие источников данных: OpenWeatherMap использует данные из различных
+                                * Разнообразие источников данных: WeatherAPI использует данные из различных
                                 источников, включая наземные метеостанции,
                                 спутники и радары, чтобы обеспечить точность и надежность информации.
                             </div>
                         </div>
                         <div class="last_row_API">
                             <div class="text_for_info_API_2">
-                                *Широкий спектр данных: OpenWeatherMap предоставляет доступ к широкому спектру данных,
+                                *Широкий спектр данных: WeatherAPI предоставляет доступ к широкому спектру данных,
                                 включая текущую погоду, почасовые и ежедневные прогнозы,
                                 исторические данные, карты погоды, данные о загрязнении воздуха и многое другое.
                             </div>
@@ -157,7 +158,7 @@
                     <div class="check_now_text_2">
                         в котором вы хотите просмотреть погоду
                     </div>
-
+                    <!-- Блок информации на главной странице
                     <div class="block_check">
                         <div class="form_city">
                             <div class="name_city">Город:</div>
@@ -166,6 +167,7 @@
                             </form>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
@@ -174,10 +176,9 @@
 
 
         <div class="main_weather">
-            <div class="block_weather">
-            </div>
+
             <a class="button_detailed">
-                Подробнее
+                Посмотреть погоду
             </a>
         </div>
         <div class="elipse_3"></div>
@@ -246,15 +247,13 @@
                     <img th:src="@{/images/ow.png}" alt="">
                 </div>
                 <div class="informaitionAPI">
-                    С использованием OpenWeatherMap – ведущим поставщиком данных о погоде, предоставляющий обширный
+                    С использованием WeatherAPI – ведущим поставщиком данных о погоде, предоставляющий обширный
                     набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
                 </div>
             </div>
         </div>
     </div>
 
-
-    <div class="elipse_4"></div>
     <div class="elipse_5"></div>
 </div>
 </body>
