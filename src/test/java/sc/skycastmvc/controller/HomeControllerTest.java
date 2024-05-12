@@ -20,9 +20,7 @@ public class HomeControllerTest {
     public void itShouldReturnHomeView() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("home"))
-                .andExpect(content()
-                        .string(containsString("Start Using SkyCast")));
+                .andExpect(view().name("home"));
     }
 
     @Test

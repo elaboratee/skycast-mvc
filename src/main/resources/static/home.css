@@ -24,20 +24,32 @@ body{
         padding-top: 20px;
         grid-column-gap: 5px;
         width: 100%;
+
         .Primary {
             padding-top: 50px;
             padding-left: 30px;
             display: flex;
             text-decoration: none;
             color: white;
-        }
 
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit
+        }
         .Weather {
             padding-top: 50px;
             padding-left: 30px;
             display: flex;
             text-decoration: none;
             color: white;
+
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit
         }
 
         .About_us {
@@ -200,7 +212,6 @@ body{
     }
     .text_for_info {
         font-size: 24px;
-
     }
     .info_img{
         padding-top: 100px;
@@ -618,4 +629,27 @@ input[type="text"]:hover{
             outline: 0;
         }
     }
+}
+
+.city_span {
+    text-align: center;
+}
+
+.city_name {
+    /* h2 */
+    background: linear-gradient(118.37deg, rgb(255, 87, 255),rgb(140, 60, 237));
+    -webkit-background-clip:
+            text;
+    -webkit-text-fill-color:
+            transparent;
+    background-clip:
+            text;
+    text-fill-color:
+            transparent;
+    font-family: Manrope;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 123px;
+    letter-spacing: 0%;
+    text-align: left;
 }

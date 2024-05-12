@@ -30,12 +30,18 @@
             </div>
         </a>
         <div class="menu-bar">
-            <a href="" class="Primary">
-                Главная
-            </a>
-            <a href="" class="Weather">
-                Погода
-            </a>
+            <form th:action="@{/}"
+                  method="GET">
+                <input type="submit"
+                       value="Главная"
+                       class="Primary">
+            </form>
+            <form th:action="@{/start}"
+                  method="GET">
+                <input type="submit"
+                       value="Погода"
+                       class="Weather">
+            </form>
             <a href="" class="About_us">
                 О нас
             </a>
@@ -175,7 +181,7 @@
         <!-- WEATHER_BLOCK -->
     </div>
     <div class="button_weather">
-        <form th:action="@{/start}" method="POST">
+        <form th:action="@{/start}" method="GET">
             <input type="submit" value="Посмотреть погоду" class="main_weather">
         </form>
     </div>

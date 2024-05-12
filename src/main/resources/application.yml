@@ -6,3 +6,8 @@ spring:
 logging:
   level:
     root: INFO
+
+weather:
+  service:
+    api-key: 59a483515dfa42b2b54122033241105
+    url: http://api.weatherapi.com/v1
