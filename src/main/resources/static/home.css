@@ -581,7 +581,7 @@ input[type="text"]:hover{
 .search {
     width: 700px;
     height: 50px;
-    margin: 70px auto;
+    margin: 20px auto;
     border-radius:  3px;
     border: 1px solid rgb(197, 54, 239);
     background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
