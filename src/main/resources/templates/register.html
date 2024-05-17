@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkyCast</title>
+</head>
+<body>
+    <h1>Register</h1>
+
+    <form th:action="@{/register}" method="POST" id="registerForm">
+      <label for="username">Username: </label>
+      <input type="text" name="username" id="username">
+
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password">
+
+      <label for="confirm">Confirm password: </label>
+      <input type="password" name="confirm" id="confirm">
+
+      <input type="submit" value="Register">
+    </form>
+</body>
+</html>
