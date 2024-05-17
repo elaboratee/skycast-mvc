@@ -39,7 +39,8 @@ public class SecurityConfig {
                         .requestMatchers("/weather/**").access("hasRole('USER')")
                         .requestMatchers("/", "/start").access("permitAll()"))
                 .formLogin(login -> login
-                        .loginPage("/login"))
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/"))
                 .build();
     }
 }
