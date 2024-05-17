@@ -28,13 +28,13 @@
         </a>
         <div class="menu-bar">
 
-            <form th:action="@{/weather/returnHome}"
+            <form th:action="@{/weather/current/returnHome}"
                   method="GET">
                 <input type="submit"
                        value="Главная"
                        class="Primary">
             </form>
-            <form th:action="@{/weather}"
+            <form th:action="@{/weather/current/returnWeather}"
                   method="GET">
                 <input type="submit"
                        value="Погода"
@@ -60,27 +60,19 @@
     <div class="elipse_1"></div>
     <div class="content">
         <div class="elipse_2"></div>
-        <div class="research">
-            <h1>Выберите город, в котором хотите узнать погоду:</h1>
-            <div class="research-bar">
-                <form class="search"
-                      th:action="@{/weather/current/get}"
-                      method="post"
-                      th:object="${weather}">
-                    <input type="search"
-                           th:field="*{cityName}"
-                           required>
-                    <button type="submit">Найти</button>
-                </form>
+            <div class="city_span">
+                <h1>Текущая погода в городе <span th:text="${weather.cityName}"
+                                                  class="city_name"></span></h1>
             </div>
-        </div>
+            <div class="weather_information_block">
+                <span th:text="${weather.getClimateData()}"></span>
+            </div>
     </div>
 </div>
 
 <div class="footer">
 
     <!-- FOOTER -->
-
 
     <div class="Footer_ar">
         <div class="navigate_bar">
