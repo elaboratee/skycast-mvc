@@ -28,7 +28,7 @@
         </a>
         <div class="menu-bar">
 
-            <form th:action="@{/weather/home}"
+            <form th:action="@{/weather/returnHome}"
                   method="GET">
                 <input type="submit"
                        value="Главная"
@@ -68,15 +68,12 @@
                       method="post"
                       th:object="${weather}">
                     <input type="search"
-                           th:field="*{cityName}">
+                           th:field="*{cityName}"
+                           required>
                     <button type="submit">Найти</button>
                 </form>
             </div>
-            </div>
-
-<!--        <div class="weather_information_block">-->
-<!--        </div>-->
-
+        </div>
     </div>
 </div>
 

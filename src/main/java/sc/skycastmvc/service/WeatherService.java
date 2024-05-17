@@ -1,5 +1,8 @@
 package sc.skycastmvc.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -10,6 +13,8 @@ import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @Data
@@ -21,7 +26,8 @@ public class WeatherService {
         this.props = props;
     }
 
-    public JSONObject getCurrentWeather(String cityName) throws JSONException {
+    public JSONObject getCurrentWeather(String cityName)
+            throws JSONException {
 
         OkHttpClient httpClient = new OkHttpClient();
 

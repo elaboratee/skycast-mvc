@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -25,7 +24,7 @@ public class HomeControllerTest {
 
     @Test
     public void itShouldRedirectToWeatherView() throws Exception {
-        mockMvc.perform(post("/start"))
+        mockMvc.perform(get("/start"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/weather"));
     }

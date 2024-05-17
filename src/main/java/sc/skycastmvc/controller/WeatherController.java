@@ -23,7 +23,7 @@ public class WeatherController {
         return "weather";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/returnHome")
     public String returnToHomePage(SessionStatus sessionStatus) {
         return "redirect:/";
     }

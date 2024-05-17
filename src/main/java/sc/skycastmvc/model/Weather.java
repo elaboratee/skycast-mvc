@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class Weather {
 
-    @NotBlank
+    @NotBlank(message = "City name should not be empty")
     private String cityName;
 
     @NotNull
