@@ -11,8 +11,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import sc.skycastmvc.model.UserEntity;
 import sc.skycastmvc.repository.UserRepository;
 
-import java.beans.BeanProperty;
-
 @Configuration
 public class SecurityConfig {
 
@@ -40,7 +38,7 @@ public class SecurityConfig {
                         .requestMatchers("/", "/start").access("permitAll()"))
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/"))
+                        .defaultSuccessUrl("/", true))
                 .build();
     }
 }

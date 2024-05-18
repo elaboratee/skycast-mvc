@@ -62,7 +62,7 @@
                 <nav class="header-menu">
                     <ul class="menu-list">
                         <li class="menu-item">
-                            <a href="" class="botton_ar" target="_blank">Назад</a>
+                            <a th:href="@{/}" class="botton_ar">Назад</a>
                         </li>
                     </ul>
                 </nav>
@@ -87,36 +87,46 @@
                             <div class="info-text">Создание учетной записи</div>
                         </div>
 
+                        <!--    <form th:action="@{/register}" method="POST" id="registerForm">-->
+                        <!--      <label for="username">Username: </label>-->
+                        <!--      <input type="text" name="username" id="username">-->
+
+                        <!--      <label for="password">Password: </label>-->
+                        <!--      <input type="password" name="password" id="password">-->
+
+                        <!--      <label for="confirm">Confirm password: </label>-->
+                        <!--      <input type="password" name="confirm" id="confirm">-->
+
+                        <!--      <input type="submit" value="Register">-->
+                        <!--    </form>-->
 
                     <!-- --------------------------ФОРМЫ--------------------------------------- -->
                         <form th:action="@{/register}" method="POST" id="registerForm">
-                        <div class="form_user">
-                            <div class="name_form_login">Логин:</div>
+                            <div class="form_user">
 
-                                <input type="text" name="login" id="username"/>
+<!--                                <div class="name_form_login">Логин:</div>-->
+                                <div class="name_form_login">
+                                    <label for="username">Логин:</label>
+                                    <input type="text" name="login" id="username"/>
+                                </div>
 
-                            <div class="name_form_password">Пароль:</div>
+<!--                                <div class="name_form_password">Пароль:</div>-->
+                                <div class="name_form_password">
+                                    <label for="password">Пароль:</label>
+                                    <input type="password" name="password" id="password"/>
+                                </div>
 
-                                <input type="password" name="password" id="password"/>
-
-                            <div class="name_form_password_repite">Повторите пароль:</div>
-
-                                <input type="password" name="repite_password" id="confirm"/>
-
-                        </div>
-
-                            <input type="submit" value="Зарегистрироваться" class="botton_input"/>
-
+<!--                                <div class="name_form_password_repite">Повторите пароль:</div>-->
+                                <div class="name_form_password_repeat">
+                                    <label for="confirm">Повторите пароль:</label>
+                                    <input type="password" name="repeat_password" id="confirm"/>
+                                </div>
+                            </div>
+                            <input type="submit" value="Зарегистрироваться" class="button_input"/>
                         </form>
-
-
-
-
-
                     </div>
                 </div>
             </div>
-
         </div>
         <div class='footer'>
 

@@ -151,14 +151,14 @@ body{
     color: white;
 }
 
-.name_form_password_repite{
+.name_form_password_repeat{
     font-size: 20px;
     padding-right:36px;
     font-family: "Unbounded ExtraLight";
     color: white;
 
 }
-.botton_input{
+.button_input{
     width: auto;
     display: block;
     max-width: 100%;
@@ -178,7 +178,7 @@ body{
     border-radius: 30px;
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
 }
-.botton_input:hover{
+.button_input:hover{
     background: rgba(255, 87, 255, 0.08);
     transition: 3s;
 }

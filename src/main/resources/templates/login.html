@@ -67,7 +67,7 @@
                 <nav class="header-menu">
                     <ul class="menu-list">
                         <li class="menu-item">
-                            <a href="" class="botton_ar" target="_blank">Назад</a>
+                            <a th:href="@{/}" class="botton_ar">Назад</a>
                         </li>
                     </ul>
                 </nav>
@@ -92,6 +92,17 @@
                             <div class="info-text">Вход в личный кабинет</div>
                         </div>
 
+<!--                        <form th:action="@{/login}"-->
+                            <!--              method="POST"-->
+                            <!--              id="loginForm">-->
+                            <!--            <label for="username">Username: </label>-->
+                            <!--            <input type="text" name="username" id="username">-->
+
+                            <!--            <label for="password">Password: </label>-->
+                            <!--            <input type="password" name="password" id="password">-->
+
+                            <!--            <input type="submit" value="Login">-->
+                            <!--        </form>-->
 
                         <form th:action="@{/login}" method="POST" id="loginForm">
                             <div class="form_user">
@@ -105,8 +116,7 @@
 
                             </div>
 
-                            <input type="submit" value="Вход" class="botton_input"/>
-
+                            <input type="submit" value="Вход" class="button_input"/>
                         </form>
                     </div>
                 </div>
