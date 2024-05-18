@@ -1,0 +1,338 @@
+body{
+    background: rgb(20, 8, 24);
+    font-size: 25px;
+    color: white;
+    overflow-wrap: break-word;
+    font-family: "Unbounded ExtraLight"
+}
+.app-wrapper{
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto
+}
+
+.Header_registration{
+    display: grid;
+    grid-template-columns: 1fr 370px;
+    grid-column-gap: 10px;
+    padding-top: 40px;
+}
+.header-menu{
+    display: flex;
+    padding-top: 35px;
+    padding-right: 50px;
+
+}
+.menu-list{
+    list-style: none;
+}
+
+.Logo_r{
+    padding-left: 120px;
+    width: 250px;
+    display: block;
+    max-width: 100%;
+}
+
+.botton_ar{
+    position: absolute;
+    width: 170px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-decoration:none;
+    font-family: "Manrope ExtraBold";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 16px;
+    /* stroke_color */
+    border: 2px solid rgb(197, 54, 239);
+    border-radius: 52.11px;
+    box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+    background: rgba(255, 87, 255, 0.08);
+}
+.botton_ar:hover{
+    background: rgba(0, 87, 255, 0.08);
+    transition: 0.5s;
+}
+.content{
+    background: rgb(20, 8, 24);
+    display: grid;
+    grid-template-rows: 1fr;
+    width: auto;
+    min-width: 80%;
+    max-width: 70%;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+.Block_ar{
+    display: block;
+    height: 880px;
+    box-sizing: border-box;
+    /* stroke_color */
+    border: 1px solid rgb(197, 54, 239);
+    border-radius: 30px;
+    background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
+}
+.block-logo img{
+    padding-top: 85px;
+    width: 250px;
+
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.Registration{
+    width: auto;
+    text-align: center;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+
+    font-size: 70px;
+    background: linear-gradient(118.37deg, rgb(255, 87, 255),rgb(140, 60, 237));
+    -webkit-background-clip:
+            text;
+    -webkit-text-fill-color:
+            transparent;
+    background-clip:
+            text;
+    font-family: "Manrope ExtraBold";
+
+}
+
+.info-text{
+    width: auto;
+    text-align: center;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 20px;
+
+}
+
+.form_user{
+    width: auto;
+    text-align: center;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 60px;
+
+}
+.form_user input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    width: 250px;
+    margin-bottom: 40px;
+    font-family: "Manrope";
+    font-size: 20px;
+    color: white;
+}
+
+.name_form_login{
+    font-size: 20px;
+    padding-right:180px;
+    font-family: "Unbounded ExtraLight";
+    color: white;
+}
+
+.name_form_email{
+    font-size: 20px;
+    padding-right:182px;
+    font-family: "Unbounded ExtraLight";
+    color: white;
+}
+.name_form_password{
+    font-size: 20px;
+    padding-right:165px;
+    font-family: "Unbounded ExtraLight";
+    color: white;
+}
+
+.name_form_password_repite{
+    font-size: 20px;
+    padding-right:36px;
+    font-family: "Unbounded ExtraLight";
+    color: white;
+
+}
+.botton_input{
+    width: auto;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 35px;
+    width: 260px;
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-decoration:none;
+    font-family: "Manrope ExtraBold";
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+    /* stroke_color */
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+
+.botton_input:hover{
+    background: rgba(255, 87, 255, 0.08);
+    transition: 3s;
+}
+
+.footer {
+    background: rgb(20, 8, 24);
+    display: block;
+    grid-template-rows: 1fr 1fr;
+    width: auto;
+    min-width: 94%;
+    max-width: 70%;
+    margin: 0 auto;
+    padding-top: 100px;
+    font-size: 20px;
+    margin-bottom: 50px;
+
+
+    .Footer_ar {
+        /* footer */
+        display: block;
+        height: 700px;
+        box-sizing: border-box;
+        border: 1px solid rgb(255, 87, 255);
+        border-radius: 30px;
+
+
+        min-width: 100%;
+        padding-top: 20px;
+        /* block-color */
+        background: linear-gradient(180.00deg, rgb(255, 87, 255) -800.29%, rgba(20, 8, 24, 0) 110.194%);
+    }
+
+    .navigate_bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-column-gap: 1px;
+        padding-top: 30px;
+
+        .Logo_footer img {
+            width: 240px;
+            max-width: 100%;
+            display: block;
+            padding-top: 30px;
+            padding-left: 40px;
+        }
+
+        .inf_1 {
+            display: grid;
+            grid-template-rows: 110px 25px;
+
+            .useful_assistant {
+                max-width: 100%;
+                display: block;
+                padding-top: 30px;
+                padding-left: 40px;
+            }
+        }
+
+        .social_logo {
+            display: grid;
+            grid-template-columns: 80px 80px;
+        }
+
+        .social_logo img {
+            width: 40px;
+            display: block;
+            max-width: 100%;
+
+            margin-left: 40px;
+        }
+
+        .inf_2 {
+            padding-top: 30px;
+
+            .communication {
+                font-family: "Unbounded";
+            }
+        }
+
+
+        .inf_3 {
+            padding-top: 30px;
+            display: grid;
+            grid-template-rows: 30px 50px;
+
+            .cmw {
+                padding-left: 37px;
+            }
+        }
+
+        .inf_4{
+            padding-top: 30px;
+            padding-left: 10px;
+            display: grid;
+            grid-template-rows: 70px 50px;
+        }
+    }
+    .OpenWeatherApiInf {
+        display: grid;
+        grid-template-columns: 1fr 1.50fr;
+        grid-column-gap: 1px;
+        padding-top: 150px;
+
+        .logo_ow img{
+            width: 350px;
+            padding-left: 60px;
+        }
+        .logo_ow{
+            display: flex;
+            align-content: flex-start;
+        }
+
+        .informaitionAPI{
+            font-size: 25px;
+            text-align: left;
+            padding-right: 80px;
+        }
+    }
+}
+.elipse_1{
+    /* Ellipse 1494 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: -300px;
+    top: 300px;
+    filter: blur(408px);
+    background: rgb(193, 62, 239);
+}
+.elipse_2{
+    /* Ellipse 1493 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: 750px;
+    top: 1000px;
+    filter: blur(408px);
+    background: rgb(193, 62, 239);
+}
+.elipse_3{
+    /* Ellipse 1492 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: -455px;
+    top: 1800px;
+    filter: blur(308px);
+    background: rgb(193, 62, 239);
+}
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
