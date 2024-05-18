@@ -66,7 +66,7 @@ body{
 }
 .Block_ar{
     display: block;
-    height: 880px;
+    height: 900px;
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -322,11 +322,14 @@ body{
     filter: blur(308px);
     background: rgb(193, 62, 239);
 }
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+
+.exist_login{
+    text-align: center;
+    font-size: 14px;
+    width: auto;
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: white;
 }
