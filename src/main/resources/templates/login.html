@@ -89,7 +89,7 @@
                             <div class="Authorization">
                                 Авторизация
                             </div>
-                            <div class="info-text">Вход в личный кабинет</div>
+                            <div class="info-text">Вход в учетную запись</div>
                         </div>
 
                         <form th:action="@{/login}" method="POST" id="loginForm">
@@ -104,26 +104,27 @@
 
                             </div>
 
-                            <input type="submit" value="Вход" class="button_input"/>
+                            <input type="submit" value="Войти" class="button_input"/>
                         </form>
-                        <a class="not_exist_login" th:href="@{/register}">У вас нет личного кабинета? Зарегистрируйтесь! </a>
+                        <a class="not_exist_login" th:href="@{/register}">
+                            У вас нет учетной записи? Зарегистрируйтесь!
+                        </a>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
+
+
+        <!--FOOTER-->
         <div class='footer'>
 
-            <!--FOOTER-->
             <div class="Footer_ar">
                 <div class="navigate_bar">
                     <a class="Logo_footer">
                         <img th:src="@{/images/footer.png}" alt="">
                     </a>
                     <div class="inf_1">
-                        <div class="useful_assistant">Полезный помощник в вашем кармане</div>
+                        <div class="useful_assistant">Полезный помощник в кармане</div>
                         <div class="social_logo">
 
                             <div class="vk">
@@ -142,7 +143,7 @@
                     </div>
                     <div class="inf_2">
                         <div class="communication">Связь с нами:</div>
-                        <div class="number">Тел: 8-(960)-874-87-93</div>
+                        <div class="number">Тел: 8 (960) 874-87-93</div>
                         <div class="email_communication">Email: skycastapp@gmail.com</div>
                     </div>
                     <div class="inf_3">
@@ -174,7 +175,7 @@
                         <img th:src="@{/images/ow.png}" alt="">
                     </div>
                     <div class="informaitionAPI">
-                        С использованием WeatherAPI – ведущим поставщиком данных о погоде, предоставляющий обширный
+                        Используя WeatherAPI – ведущего поставщика данных о погоде, предоставляющего обширный
                         набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
                     </div>
                 </div>
