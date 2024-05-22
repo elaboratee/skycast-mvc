@@ -88,14 +88,21 @@
                         </div>
 
                     <!-- --------------------------ФОРМЫ--------------------------------------- -->
-                        <form th:action="@{/register}" method="POST" id="registerForm">
+                        <form th:action="@{/register}"
+                              method="POST"
+                              id="registerForm">
+
                             <div class="form_user">
 
                                <div class="name_form_login">Логин:</div>
-                                    <input type="text" name="username" id="username"/>
+                                    <input type="text"
+                                           name="username"
+                                           id="username"/>
 
                                 <div class="name_form_password">Пароль:</div>
-                                    <input type="password" name="password" id="password"/>
+                                    <input type="password"
+                                           name="password"
+                                           id="password"/>
 
                                 <div class="name_form_password_repeat">Повторите пароль:</div>
                                     <input type="password" name="confirm" id="confirm"/>

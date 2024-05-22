@@ -9,7 +9,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @Slf4j
 @Controller
 @RequestMapping("/login")
-public class LoginController {
+public class AuthorizationController {
 
     @GetMapping
     public String login(SessionStatus sessionStatus) {

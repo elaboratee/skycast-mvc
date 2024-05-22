@@ -376,14 +376,14 @@ body{
     min-width: 94%;
     max-width: 70%;
     margin: 0 auto;
-    padding-top: 220px;
+    padding-top: 110px;
     font-size: 20px;
 
 
     .Footer_ar {
         /* footer */
         display: block;
-        height: 600px;
+        height: 300px;
         box-sizing: border-box;
         border: 1px solid rgb(255, 87, 255);
         border-radius: 30px;

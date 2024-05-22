@@ -128,6 +128,27 @@
                     </div>
                 </div>
 
+                <div class="weather_check">
+                    <div class="check_now">
+                        Узнайте текущую погоду
+                    </div>
+                    <div class="check_now_text_1">
+                        Введите свой город
+                    </div>
+                    <div class="check_now_text_2">
+                        или город, в котором хотите узнать погоду
+                    </div>
+                </div>
+
+                <!-- WEATHER_BLOCK -->
+            </div>
+            <div class="button_weather">
+                <form th:action="@{/start}" method="GET">
+                    <input type="submit" value="Узнать погоду" class="main_weather">
+                </form>
+            </div>
+            <div class="elipse_3"></div>
+
 
                 <div class="OpenWeatherInf">
                     <div class="API">
@@ -154,28 +175,28 @@
                     </div>
                 </div>
 
-                <div class="weather_check">
-                    <div class="check_now">
-                        Узнайте текущую погоду
-                    </div>
-                    <div class="check_now_text_1">
-                        Введите свой город
-                    </div>
-                    <div class="check_now_text_2">
-                        или город, в котором хотите узнать погоду
-                    </div>
-                </div>
+<!--                <div class="weather_check">-->
+<!--                    <div class="check_now">-->
+<!--                        Узнайте текущую погоду-->
+<!--                    </div>-->
+<!--                    <div class="check_now_text_1">-->
+<!--                        Введите свой город-->
+<!--                    </div>-->
+<!--                    <div class="check_now_text_2">-->
+<!--                        или город, в котором хотите узнать погоду-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
 
-        <!-- WEATHER_BLOCK -->
-    </div>
-    <div class="button_weather">
-        <form th:action="@{/start}" method="GET">
-            <input type="submit" value="Узнать погоду" class="main_weather">
-        </form>
-    </div>
-    <div class="elipse_3"></div>
+<!--        &lt;!&ndash; WEATHER_BLOCK &ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="button_weather">-->
+<!--        <form th:action="@{/start}" method="GET">-->
+<!--            <input type="submit" value="Узнать погоду" class="main_weather">-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <div class="elipse_3"></div>-->
 
     <div class="footer">
 
@@ -230,15 +251,6 @@
                             Поделиться
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="OpenWeatherApiInf">
-                <div class="logo_ow">
-                    <img th:src="@{/images/ow.png}" alt="">
-                </div>
-                <div class="informaitionAPI">
-                    Используя WeatherAPI – ведущего поставщика данных о погоде, предоставляющего обширный
-                    набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
                 </div>
             </div>
         </div>
