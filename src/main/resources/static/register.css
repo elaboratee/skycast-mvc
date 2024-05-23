@@ -193,7 +193,7 @@ body{
     .Footer_ar {
         /* footer */
         display: block;
-        height: 700px;
+        height: 600px;
         box-sizing: border-box;
         border: 1px solid rgb(255, 87, 255);
         border-radius: 30px;
