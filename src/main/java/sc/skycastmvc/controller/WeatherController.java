@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 import sc.skycastmvc.model.Weather;
 
 @Controller
@@ -24,7 +23,7 @@ public class WeatherController {
     }
 
     @GetMapping("/returnHome")
-    public String returnToHomePage(SessionStatus sessionStatus) {
+    public String returnToHomePage() {
         return "redirect:/";
     }
 }

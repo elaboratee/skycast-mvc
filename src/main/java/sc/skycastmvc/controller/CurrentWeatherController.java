@@ -37,14 +37,14 @@ public class CurrentWeatherController {
     @GetMapping("/returnHome")
     public String returnToHomePage(SessionStatus sessionStatus) {
         sessionStatus.setComplete();
-        log.info("Session status (return to home): {}", sessionStatus);
+        log.info("Session completed (return to home): {}", sessionStatus);
         return "redirect:/";
     }
 
     @GetMapping("/returnWeather")
     public String returnToWeatherPage(SessionStatus sessionStatus) {
         sessionStatus.setComplete();
-        log.info("Session status (return to weather): {}", sessionStatus);
+        log.info("Session completed (return to weather): {}", sessionStatus);
         return "redirect:/weather";
     }
 }

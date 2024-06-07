@@ -1,0 +1,186 @@
+<!--<!DOCTYPE html>-->
+<!--<html-->
+<!--        xmlns="http://www.w3.org/1999/xhtml"-->
+<!--        xmlns:th="http://www.thymeleaf.org"-->
+<!--        lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>SkyCast</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <h1>Login</h1>-->
+
+<!--    <div th:if="${error}">-->
+<!--        Unable to login. Check your username and password.-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <p>New here? Click-->
+<!--            <a th:href="@{/register}">here</a> to register.</p>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <form th:action="@{/login}"-->
+<!--              method="POST"-->
+<!--              id="loginForm">-->
+<!--            <label for="username">Username: </label>-->
+<!--            <input type="text" name="username" id="username">-->
+
+<!--            <label for="password">Password: </label>-->
+<!--            <input type="password" name="password" id="password">-->
+
+<!--            <input type="submit" value="Login">-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/login.css}">
+    <meta charset="UTF-8">
+    <title>SkyCast</title>
+    <link rel="icon" th:href="@{/images/favicon.ico}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="elipse_1"></div>
+
+        <!--HEADER-->
+        <div class="Header">
+            <header class="Header_registration">
+                <img th:src="@{images/Logo_bar.png}" class="Logo_r" alt="">
+                <nav class="header-menu">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a th:href="@{/}" class="botton_ar">Назад</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+
+        <div class="content">
+            <div class="elipse_2"></div>
+
+            <!--LOGIN BLOCK-->
+            <div class="Block">
+                <div class="Block_authorization">
+                    <div class="Block_a">
+                        <div class="block-logo">
+                            <img th:src="@{images/footer.png}" alt=""/>
+                        </div>
+                        <div class="info">
+                            <div class="Authorization">
+                                Авторизация
+                            </div>
+                            <div class="info-text">Вход в учетную запись</div>
+                        </div>
+
+                        <form th:action="@{/login}" method="POST" id="loginForm">
+                            <div class="form_user">
+                                <div class="name_form_login">Логин:</div>
+
+                                <input type="text" name="username" id="username"/>
+
+                                <div class="name_form_password">Пароль:</div>
+
+                                <input type="password" name="password" id="password"/>
+
+                            </div>
+                            <input type="submit" value="Войти" class="button_input"/>
+                        </form>
+                        <a class="not_exist_login" th:href="@{/register}">
+                            У вас нет учетной записи? Зарегистрируйтесь!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--FOOTER-->
+        <div class='footer'>
+
+            <div class="Footer_ar">
+                <div class="navigate_bar">
+                    <a class="Logo_footer">
+                        <img th:src="@{/images/footer.png}" alt="">
+                    </a>
+                    <div class="inf_1">
+                        <div class="useful_assistant">Полезный помощник в кармане</div>
+                        <div class="social_logo">
+
+                            <div class="vk">
+                                <a th:href="@{https://vk.com/club225712381}">
+                                    <img th:src="@{/images/vk.png}" alt="">
+                                </a>
+                            </div>
+
+                            <div class="tg">
+                                <a th:href="@{https://t.me/SkyCastApp}">
+                                    <img th:src="@{/images/tg.png}" alt="">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="inf_2">
+                        <div class="communication">Связь с нами:</div>
+                        <div class="number">Тел: 8 (960) 874-87-93</div>
+                        <div class="email_communication">Email: skycastapp@gmail.com</div>
+                    </div>
+                    <div class="inf_3">
+                        <div class="cmw">Написать нам:</div>
+                        <div class='social_logo'>
+                            <div class="vk">
+                                <a th:href="@{https://vk.com/club225712381}">
+                                    <img th:src="@{/images/vk.png}" alt="">
+                                </a>
+                            </div>
+                            <div class="tg">
+                                <a href={'https://t.me/SkyCastApp'}>
+                                    <img th:src="@{/images/tg.png}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inf_4">
+                        <div class="repost">Поделитесь с друзьями</div>
+                        <div class="button_repost">
+                            <a href="" class="botton_ar">
+                                Поделиться
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="OpenWeatherApiInf">
+                    <div class="logo_ow">
+                        <img th:src="@{/images/ow.png}" alt="">
+                    </div>
+                    <div class="informaitionAPI">
+                        Используя WeatherAPI – ведущего поставщика данных о погоде, предоставляющего обширный
+                        набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elipse_3"></div>
+    </div>
+</body>
