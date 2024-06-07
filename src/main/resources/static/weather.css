@@ -689,7 +689,7 @@ input[type="text"]:hover{
 .properties{
     font-size: 35px;
    text-align: center;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 .wind_text{
     padding-bottom: 10px;
@@ -698,4 +698,13 @@ input[type="text"]:hover{
 .humidity_text{
     padding-bottom: 10px;
     padding-right: 35px;
+}
+.line{
+    /* stroke_color */
+    opacity: 0.4;
+    margin:40px auto 0px;
+    width: 800px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
 }
