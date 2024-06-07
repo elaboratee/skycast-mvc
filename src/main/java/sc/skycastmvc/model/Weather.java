@@ -27,13 +27,29 @@ public class Weather {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class CurrentWeather {
-        @NotNull
-        private String wind_kph;
 
         @NotNull
         private String temp_c;
 
         @NotNull
+        private String wind_kph;
+
+        @NotNull
+        private String wind_dir;
+
+        @NotNull
+        private String pressure_mb;
+
+        @NotNull
         private String humidity;
+
+        @NotNull
+        private String cloud;
+
+        @NotNull
+        private String feelslike_c;
+
+        @NotNull
+        private String vis_km;
     }
 }

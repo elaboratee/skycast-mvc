@@ -65,18 +65,34 @@
                                                   class="city_name"></span></h1>
             </div>
             <div class="weather_information_block">
-
                 <div>
-                    <span th:text="'Wind speed (kph): ' + ${weather.getClimateData().getWind_kph()}"></span>
+                    <span th:text="'Сейчас ' + ${weather.getDateTime()}"></span>
                 </div>
 
                 <div>
-                    <span th:text="'Temperature (degrees centigrade): ' + ${weather.getClimateData().getTemp_c()}"></span>
+                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                    <img src="">
+                    <span th:text="'Ощущается как ' + ${weather.getClimateData().getFeelslike_c()} + '°'"></span>
                 </div>
 
                 <div>
-                    <span th:text="'Humidity: ' + ${weather.getClimateData().getHumidity()}"></span>
+                    <span th:text="${weather.getClimateData().getWind_dir()}"></span>
                 </div>
+
+                <div>
+                    <span th:text="${weather.getClimateData().getHumidity()} + '%'"></span>
+                </div>
+
+                <div>
+                    <span th:text="(${weather.getClimateData().getPressure_mb()} + 101000) / 133 +
+                    ' мм рт. ст.'"></span>
+                    </span>
+                </div>
+
+                <div>
+                    <span th:text="'Видимость ' + ${weather.getClimateData().getVis_km()} + ' км'"></span>
+                </div>
+
             </div>
     </div>
 </div>
