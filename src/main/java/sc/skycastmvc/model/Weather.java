@@ -5,9 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.json.JSONObject;
-import java.util.Calendar;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @Data
@@ -47,6 +46,9 @@ public class Weather {
 
         @NotNull
         private Integer temp_c;
+
+        @NotNull
+        private Condition condition;
 
         @NotNull
         private String wind_kph;
