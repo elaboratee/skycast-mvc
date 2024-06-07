@@ -100,6 +100,9 @@
 
                     <img th:src="@{/images/barmetr.png}" class="properties_img">
                     <span th:text="${#numbers.formatInteger(weather.getClimateData().getPressure_in() * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
+
+                    <span th:text="${weather.getClimateData().getCondition().getText()}"></span>
+                    <span th:text="${weather.getClimateData().getCondition().getIcon()}"></span>
                 </div>
 
             </div>

@@ -1,13 +1,11 @@
 package sc.skycastmvc.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.apache.tomcat.util.json.JSONParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -55,7 +53,8 @@ public class WeatherService {
         // Формирование URL-запроса к API
         String url = props.getUrl() + "/current.json?" +
                 "key=" + props.getApiKey() +
-                "&q=" + cityName;
+                "&q=" + cityName +
+                "&lang=ru";
         Request request = new Request.Builder()
                 .url(url)
                 .get()
