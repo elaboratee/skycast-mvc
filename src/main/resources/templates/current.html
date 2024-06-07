@@ -67,18 +67,20 @@
             <div class="weather_information_block">
                 <div class="data">
                         <div class="time">Сейчас <span th:text="${weather.getTime()}" class="city_name" ></span></div>
-                        <span th:text="${weather.getDate()}" ></span>
+                        <span th:text="${weather.getDate()}" style="font-size: 30px"></span>
                 </div>
                 <div class = "temp">
                         <div class="tempCurrent">
                             <div class="temperature">Температура</div>
                             <span th:if="${weather.getClimateData().getTemp_c() > 0}">
                                 <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
-                                <img th:src="@{/images/weather.png}" class="weater_png">
+                                <img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" class="weather_png">
                             </span>
+<!--    АТСЫЛКА                        <video class="weather_png" th:src="@{/images/sticker.webm}" controls autoplay loop muted style="border-radius: 20px"> </video>-->
+
                             <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
                                 <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
-                                <img th:src="@{/images/weather.png}" class="weater_png">
+                                <img th:src="@{/images/weather.png}" class="weather_png">
                             </span>
                             </div>
                         <div class="tempFeelslike">
@@ -89,6 +91,7 @@
                                 <span th:text="'Ощущается как ' + ${weather.getClimateData().getFeelslike_c()} + '°'"></span>
                             </span>
                         </div>
+                        <div class="text-weather"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
                 </div>
                 <div class = "line"></div>
                 <div class="properties">
@@ -100,9 +103,6 @@
 
                     <img th:src="@{/images/barmetr.png}" class="properties_img">
                     <span th:text="${#numbers.formatInteger(weather.getClimateData().getPressure_in() * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
-
-                    <span th:text="${weather.getClimateData().getCondition().getText()}"></span>
-                    <span th:text="${weather.getClimateData().getCondition().getIcon()}"></span>
                 </div>
 
             </div>

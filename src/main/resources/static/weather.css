@@ -571,7 +571,7 @@ input[type="text"]:hover{
 
 .weather_information_block{
     display: block;
-    height: 800px;
+    height: 820px;
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -664,8 +664,8 @@ input[type="text"]:hover{
     font-size: 70px;
     margin-top:20px;
 }
-.weater_png{
-    width: 140px;
+.weather_png{
+    width: 64px;
 }
 .temp{
     text-align: center;
@@ -707,4 +707,9 @@ input[type="text"]:hover{
     border: 1px solid rgb(255, 255, 255);
     border-radius: 30px;
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+.text-weather{
+    font-family: "Unbounded ExtraLight";
+    font-size: 50px;
+    padding-top: 60px;
 }
