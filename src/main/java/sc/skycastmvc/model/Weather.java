@@ -31,6 +31,14 @@ public class Weather {
         int minute = calendar.get(Calendar.MINUTE);
         return String.format("%02d:%02d", hour, minute);
     }
+    public String getDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(dateTime);
+        int date = calendar.get(Calendar.DAY_OF_WEEK);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        return String.format("%02d.%02d.%02d", date, month, year);
+    }
 
     @Data
     @AllArgsConstructor

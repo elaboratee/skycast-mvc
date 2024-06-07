@@ -669,6 +669,7 @@ input[type="text"]:hover{
 }
 .temp{
     text-align: center;
+    padding-top: 40px;
 .temperature{
     font-family: "Manrope ExtraBold";
     font-size: 60px;
@@ -677,6 +678,7 @@ input[type="text"]:hover{
 .time{
     font-family: "Manrope ExtraBold";
     font-size: 60px;
+    padding-top: 40px;
 }
 .wind_img{
     width:35px;

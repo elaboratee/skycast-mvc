@@ -66,7 +66,8 @@
             </div>
             <div class="weather_information_block">
                 <div class="data">
-                        <p class="time">Сейчас <span th:text="${weather.getTime()}" class="city_name" ></span></p>
+                        <div class="time">Сейчас <span th:text="${weather.getTime()}" class="city_name" ></span></div>
+                        <span th:text="${weather.getDate()}" ></span>
                 </div>
                 <div class = "temp">
                         <div class="tempCurrent">
