@@ -21,5 +21,19 @@ public class Weather {
     private Date dateTime = new Date();
 
     @NotNull
-    private JSONObject climateData;
+    private CurrentWeather climateData;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CurrentWeather {
+        @NotNull
+        private String wind_kph;
+
+        @NotNull
+        private String temp_c;
+
+        @NotNull
+        private String humidity;
+    }
 }

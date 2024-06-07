@@ -65,7 +65,18 @@
                                                   class="city_name"></span></h1>
             </div>
             <div class="weather_information_block">
-                <span th:text="${weather.getClimateData()}"></span>
+
+                <div>
+                    <span th:text="'Wind speed (kph): ' + ${weather.getClimateData().getWind_kph()}"></span>
+                </div>
+
+                <div>
+                    <span th:text="'Temperature (degrees centigrade): ' + ${weather.getClimateData().getTemp_c()}"></span>
+                </div>
+
+                <div>
+                    <span th:text="'Humidity: ' + ${weather.getClimateData().getHumidity()}"></span>
+                </div>
             </div>
     </div>
 </div>
