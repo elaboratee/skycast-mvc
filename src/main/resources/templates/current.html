@@ -6,7 +6,7 @@
 <head>
     <link rel="stylesheet" th:href="@{/weather.css}">
     <meta charset="UTF-8">
-    <title>Погода - SkyCast</title>
+    <title th:text="${weather.cityName} + ' - SkyCast'"></title>
     <link rel="icon" th:href="@{/images/favicon.ico}">
 
 
@@ -46,10 +46,7 @@
         </div>
         <div class="Button_block">
             <div class="header-menu">
-                <a th:href="@{/login}" class="botton_auth">Вход</a>
-            </div>
-            <div class="header-menu">
-                <a th:href="@{/register}" class="botton_ar">Регистрация</a>
+                <a th:href="@{/account}" class="botton_acc">Личный кабинет</a>
             </div>
         </div>
     </div>

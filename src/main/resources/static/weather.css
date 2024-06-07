@@ -654,3 +654,25 @@ input[type="text"]:hover{
     letter-spacing: 0%;
     text-align: left;
 }
+.botton_acc{
+position: absolute;
+width: 250px;
+padding-bottom: 10px;
+padding-top: 10px;
+    margin-left: 110px;
+margin-top: 30px;
+text-decoration:none;
+font-family: "Manrope ExtraBold";
+color: rgb(255, 255, 255);
+text-align: center;
+font-size: 16px;
+/* stroke_color */
+border: 2px solid rgb(197, 54, 239);
+border-radius: 52.11px;
+box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+background: rgba(255, 87, 255, 0.08);
+}
+.botton_acc:hover{
+    background: rgba(0, 87, 255, 0.08);
+    transition: 0.5s;
+}
