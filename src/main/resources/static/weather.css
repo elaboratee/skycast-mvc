@@ -654,3 +654,46 @@ input[type="text"]:hover{
     letter-spacing: 0%;
     text-align: left;
 }
+
+.data{
+    text-align: center;
+}
+.tempCurrent{
+
+    font-family: "Unbounded ExtraBold";
+    font-size: 70px;
+    margin-top:20px;
+}
+.weater_png{
+    width: 140px;
+}
+.temp{
+    text-align: center;
+.temperature{
+    font-family: "Manrope ExtraBold";
+    font-size: 60px;
+}
+}
+.time{
+    font-family: "Manrope ExtraBold";
+    font-size: 60px;
+}
+.wind_img{
+    width:35px;
+}
+.properties_img{
+    width:33px;
+}
+.properties{
+    font-size: 35px;
+   text-align: center;
+    padding-top: 80px;
+}
+.wind_text{
+    padding-bottom: 10px;
+    padding-right: 35px;
+}
+.humidity_text{
+    padding-bottom: 10px;
+    padding-right: 35px;
+}

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.json.JSONObject;
+import java.util.Calendar;
 
 import java.util.Date;
 
@@ -23,13 +24,21 @@ public class Weather {
     @NotNull
     private CurrentWeather climateData;
 
+    public String getTime() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(dateTime);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        return String.format("%02d:%02d", hour, minute);
+    }
+
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     public static class CurrentWeather {
 
         @NotNull
-        private String temp_c;
+        private Integer temp_c;
 
         @NotNull
         private String wind_kph;
@@ -38,7 +47,7 @@ public class Weather {
         private String wind_dir;
 
         @NotNull
-        private String pressure_mb;
+        private Integer pressure_in;
 
         @NotNull
         private String humidity;
@@ -47,7 +56,7 @@ public class Weather {
         private String cloud;
 
         @NotNull
-        private String feelslike_c;
+        private Integer feelslike_c;
 
         @NotNull
         private String vis_km;
