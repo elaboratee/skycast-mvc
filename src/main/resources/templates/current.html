@@ -4,7 +4,7 @@
         xmlns:th="http://www.thymeleaf.org"
         lang="en">
 <head>
-    <link rel="stylesheet" th:href="@{/weather.css}">
+    <link rel="stylesheet" th:href="@{/current.css}">
     <meta charset="UTF-8">
     <title th:text="${weather.cityName} + ' - SkyCast'"></title>
     <link rel="icon" th:href="@{/images/favicon.ico}">
@@ -65,8 +65,9 @@
             <div class="weather_information_block">
                 <div class="data">
                         <div class="time">Сейчас <span th:text="${weather.getTime()}" class="city_name" ></span></div>
-                        <span th:text="${weather.getDate()}" style="font-size: 30px"></span>
+                        <span th:text="${weather.getDate()}" style="font-size: 35px"></span>
                 </div>
+                <div class = "line"></div>
                 <div class = "temp">
                         <div class="tempCurrent">
                             <div class="temperature">Температура</div>
@@ -94,16 +95,27 @@
                 <div class = "line"></div>
                 <div class="properties">
                     <img th:src="@{https://yastatic.net/weather/i/icons/confident/dark/svg/ic_wind.svg}" class="wind_img">
-                    <span th:text="${weather.getClimateData().getWind_kph()} + ' м/c, ' + ${weather.getClimateData().getWind_dir()}" class="wind_text">ㅤㅤ</span>
+                        <span th:text="${weather.getClimateData().getWind_kph()} + ' м/c, ' + ${weather.getClimateData().getWind_dir()}" class="wind_text">ㅤ</span>
 
                     <img th:src="@{/images/kaplya.png}" class="properties_img">
-                    <span th:text="${weather.getClimateData().getHumidity()} + '%'" class="humidity_text">ㅤㅤ</span>
+                        <span th:text="${weather.getClimateData().getHumidity()} + '%'" class="humidity_text">ㅤㅤ</span>
 
                     <img th:src="@{/images/barmetr.png}" class="properties_img">
-                    <span th:text="${#numbers.formatInteger(weather.getClimateData().getPressure_in() * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
+                        <span th:text="${#numbers.formatInteger(weather.getClimateData().getPressure_in() * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
+                </div>
+                <div class = "line"></div>
+                <div class="map_properties">
+
+                <div class="map-block"><img class="map" th:src="@{https://static-maps.yandex.ru/v1?ll=28.978178,41.011218&lang=ru_RU&size=550,350&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></div>
+                    <div class="properties_add">
+                        <div class="cloud"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Облачность: <span class="cloud_val" th:text="${weather.getClimateData().getCloud()} + '%'"></span></div>
+                        <div class="gust"> <img th:src="@{/images/gust.png}" class="gust_png" alt=""> Порывы ветра: <span class="gust_val" th:text=" ${weather.getClimateData().getGust_kph()} + ' км/ч'"></span></div>
+                        <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${weather.getClimateData().getPrecip_mm()} + ' мм'"></span></div>
+                        <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${weather.getClimateData().getVis_km()} + ' км'"></span></div>
+
+                    </div>
                 </div>
             </div>
-<!--            <img th:src="@{https://static-maps.yandex.ru/v1?ll=${weather.getClimateData().getLon()},${weather.getClimateData().getLat()}&lang=ru_RU&size=450,450&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}">-->
     </div>
 </div>
 
