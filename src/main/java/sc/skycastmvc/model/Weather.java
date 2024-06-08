@@ -44,6 +44,7 @@ public class Weather {
     @NoArgsConstructor
     public static class CurrentWeather {
 
+
         @NotNull
         private Integer temp_c;
 
@@ -71,4 +72,5 @@ public class Weather {
         @NotNull
         private String vis_km;
     }
+
 }

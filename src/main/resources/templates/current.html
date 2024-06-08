@@ -45,6 +45,7 @@
             </a>
         </div>
         <div class="Button_block">
+            <div></div>
             <div class="header-menu">
                 <a th:href="@{/account}" class="botton_acc">Личный кабинет</a>
             </div>
@@ -73,7 +74,7 @@
                                 <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
                                 <img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" class="weather_png">
                             </span>
-<!--    АТСЫЛКА                        <video class="weather_png" th:src="@{/images/sticker.webm}" controls autoplay loop muted style="border-radius: 20px"> </video>-->
+<!-- <video class="weather_png" th:src="@{/images/sticker.webm}" controls autoplay loop muted style="border-radius: 20px"> </video>-->
 
                             <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
                                 <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
@@ -101,8 +102,8 @@
                     <img th:src="@{/images/barmetr.png}" class="properties_img">
                     <span th:text="${#numbers.formatInteger(weather.getClimateData().getPressure_in() * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
                 </div>
-
             </div>
+<!--            <img th:src="@{https://static-maps.yandex.ru/v1?ll=${weather.getClimateData().getLon()},${weather.getClimateData().getLat()}&lang=ru_RU&size=450,450&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}">-->
     </div>
 </div>
 
