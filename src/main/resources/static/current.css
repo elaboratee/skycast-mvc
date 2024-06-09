@@ -719,7 +719,8 @@ input[type="text"]:hover{
     width: 220px;
     padding-bottom: 10px;
     padding-top: 10px;
-    margin-top: 30px;
+    margin: 30px 0px 0px auto;
+    /*margin-top: 30px;*/
     text-decoration:none;
     font-family: "Manrope ExtraBold";
     color: rgb(255, 255, 255);

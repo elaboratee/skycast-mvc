@@ -106,7 +106,7 @@
                 <div class = "line"></div>
                 <div class="map_properties">
 
-                <div class="map-block"><img class="map" th:src="@{https://static-maps.yandex.ru/v1?ll=28.978178,41.011218&lang=ru_RU&size=550,350&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></div>
+                <div class="map-block"><img class="map" th:src="@{https://static-maps.yandex.ru/v1?ll=39.59,44.96&lang=ru_RU&size=550,350&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></div>
                     <div class="properties_add">
                         <div class="cloud"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Облачность: <span class="cloud_val" th:text="${weather.getClimateData().getCloud()} + '%'"></span></div>
                         <div class="gust"> <img th:src="@{/images/gust.png}" class="gust_png" alt=""> Порывы ветра: <span class="gust_val" th:text=" ${weather.getClimateData().getGust_kph()} + ' км/ч'"></span></div>
