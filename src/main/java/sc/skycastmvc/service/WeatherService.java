@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
+import sc.skycastmvc.model.CurrentWeather;
 import sc.skycastmvc.model.Weather;
 
 import java.io.IOException;
@@ -19,26 +20,26 @@ import java.io.IOException;
 public class WeatherService {
 
     private final ObjectMapper jacksonObjectMapper;
-    private WeatherServiceProps props;
+    private final WeatherServiceProps props;
 
     public WeatherService(WeatherServiceProps props, ObjectMapper jacksonObjectMapper) {
         this.props = props;
         this.jacksonObjectMapper = jacksonObjectMapper;
     }
 
-    public Weather.CurrentWeather getCurrentWeather(String cityName) {
-        // Создаем маппер JSON
+    public CurrentWeather getCurrentWeather(String cityName) {
+        // Создание JSON-маппера
         ObjectMapper objectMapper = new ObjectMapper();
 
-        // Получаем JSON-объект с климатическими данными
+        // Получение JSON-объекта с климатическими данными
         JSONObject currentWeatherJson = getCurrentWeatherJSON(cityName);
 
-        // Создаем объект, хранящий данные о текущей погоде
-        Weather.CurrentWeather currentWeather = new Weather.CurrentWeather();
+        // Создание объекта, хранящего данные о текущей погоде
+        CurrentWeather currentWeather = null;
 
         try {
-            // Выполняем маппинг атрибутов JSON-объекта на поля класса
-            currentWeather = objectMapper.readValue(currentWeatherJson.toString(), Weather.CurrentWeather.class);
+            // Выполнение маппинга атрибутов JSON-объекта на поля класса
+            currentWeather = objectMapper.readValue(currentWeatherJson.toString(), CurrentWeather.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -54,7 +55,8 @@ public class WeatherService {
         String url = props.getUrl() + "/current.json?" +
                 "key=" + props.getApiKey() +
                 "&q=" + cityName +
-                "&lang=ru";
+                "&lang=" + props.getLang();
+
         Request request = new Request.Builder()
                 .url(url)
                 .get()
