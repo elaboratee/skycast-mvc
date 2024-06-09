@@ -70,6 +70,12 @@ public class Weather {
         private Integer feelslike_c;
 
         @NotNull
+        private String precip_mm;
+
+        @NotNull
+        private String gust_kph;
+
+        @NotNull
         private String vis_km;
     }
 
