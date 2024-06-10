@@ -62,7 +62,7 @@
         <div class="elipse_2"></div>
         <div class="elipse_11"></div>
             <div class="city_span">
-                <h1>Текущая погода в городе <span th:text="${currentWeather.cityName}"
+                <h1>Текущая погода в городе <span th:text="${currentWeather.getCityName()}"
                                                   class="city_name"></span></h1>
             </div>
             <div class="weather_information_block_1">
@@ -76,31 +76,31 @@
 
                             <div class="temperature">Температура<div class="line6"></div></div>
                             <div class="temp-card">
-                                    <span th:if="${weather.getClimateData().getTemp_c() > 0}">
+                                    <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
                                         <div class="temp-main">
-                                            <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'" style="font-family: 'Unbounded'"></span>
-                                            <img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" class="weather_png" alt="">
+                                            <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'" style="font-family: 'Unbounded'"></span>
+                                            <img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" class="weather_png" alt="">
                                         </div>
                                     </span>
         <!-- <video class="weather_png" th:src="@{/images/sticker.webm}" controls autoplay loop muted style="border-radius: 20px"> </video>-->
 
-                                    <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
+                                    <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
                                         <div class="temp-main">
-                                            <span th:text="${weather.getClimateData().getTemp_c()} + '°' "class="temp-main"></span>
-                                            <img th:src="@{/images/weather.png}" class="weather_png" alt="">
+                                            <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°' "class="temp-main"></span>
+                                            <img th:src="@{/images/currentWeather.png}" class="weather_png" alt="">
                                         </div>
                                     </span>
 
 
                                 <div class="tempFeelslike">
-                                    <span th:if="${weather.getClimateData().getFeelslike_c() > 0}">
-                                        <span th:text="'Ощущается как +' + ${weather.getClimateData().getFeelslike_c()} + '°'"></span>
+                                    <span th:if="${currentWeather.getCurrent().getFeelslike_c() > 0}">
+                                        <span th:text="'Ощущается как +' + ${currentWeather.getCurrent().getFeelslike_c()} + '°'"></span>
                                     </span>
-                                    <span th:unless="${weather.getClimateData().getFeelslike_c() > 0}">
-                                        <span th:text="'Ощущается как ' + ${weather.getClimateData().getFeelslike_c()} + '°'"></span>
+                                    <span th:unless="${currentWeather.getCurrent().getFeelslike_c() > 0}">
+                                        <span th:text="'Ощущается как ' + ${currentWeather.getCurrent().getFeelslike_c()} + '°'"></span>
                                     </span>
                                 </div>
-                                <div class="text-weather"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                                <div class="text-weather"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                             </div>
                     </div>
               
@@ -122,153 +122,153 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span>0</div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span>0</div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                         <div class="swiper-slide">
                             <div class="forecast-hours">
-                                <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                                <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                                <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                                <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                                <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                             </div>
-                            <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                            <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
@@ -280,25 +280,29 @@
                 <div class="map_properties">
 
                     <div class="map-block">
-                        <div class="text-geo">Геолокация города <span class="location_title" th:text="${weather.cityName}"></span></div><div class = "line2"></div>
-                        <img class="map" th:src="@{https://static-maps.yandex.ru/v1?ll=39.59,44.96&lang=ru_RU&size=650,450&z=9&pt=39.59,44.96,org&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></div>
+                        <div class="text-geo">Геолокация города <span class="location_title" th:text="${currentWeather.cityName}"></span></div><div class = "line2"></div>
+
+                        <img class="map"
+                             th:src="@{https://static-maps.yandex.ru/v1?ll=} + ${currentWeather.getLocation().getLon()} + ',' + ${currentWeather.getLocation().getLat()}
+                        + @{&lang=ru_RU&size=650,450&z=10&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></div>
+
                         <div class="properties_add">
                             <div class="met-prop">Метеорологические характеристики <div class = "line3"></div></div>
-                            <div class="cloud"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Облачность: <span class="cloud_val" th:text="${weather.getClimateData().getCloud()} + '%'"></span></div>
-                            <div class="gust"> <img th:src="@{/images/gust.png}" class="gust_png" alt=""> Порывы ветра: <span class="gust_val" th:text=" ${weather.getClimateData().getGust_kph()} + ' км/ч'"></span></div>
-                            <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${weather.getClimateData().getPrecip_mm()} + ' мм'"></span></div>
-                            <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${weather.getClimateData().getVis_km()} + ' км'"></span></div>
+                            <div class="cloud"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Облачность: <span class="cloud_val" th:text="${currentWeather.getCurrent().getCloud()} + '%'"></span></div>
+                            <div class="gust"> <img th:src="@{/images/gust.png}" class="gust_png" alt=""> Порывы ветра: <span class="gust_val" th:text=" ${currentWeather.getCurrent().getGust_kph()} + ' км/ч'"></span></div>
+                            <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${currentWeather.getCurrent().getPrecip_mm()} + ' мм'"></span></div>
+                            <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${currentWeather.getCurrent().getVis_km()} + ' км'"></span></div>
                             <a th:href="@{/account}" class="favourites_button">В избранное</a>
                         </div>
                 </div>
                     <div class="line7"></div>
             </div>
     </div>
-        <h1>Прогноз погоды на <span class="city_name">2 ДНЯ</span> в городе <span th:text="${weather.cityName}" class="city_name">2 дня</span>:</h1>
+        <h1>Прогноз погоды на <span class="city_name">2 ДНЯ</span> в городе <span th:text="${currentWeather.cityName}" class="city_name">2 дня</span>:</h1>
         <div class="weather_information_block_2">
 
         </div>
-        <h1>Прогноз погоды на <span class="city_name">НЕДЕЛЮ</span> в городе <span th:text="${weather.cityName}" class="city_name">2 дня</span>:</h1>
+        <h1>Прогноз погоды на <span class="city_name">НЕДЕЛЮ</span> в городе <span th:text="${currentWeather.cityName}" class="city_name">2 дня</span>:</h1>
         <div class="weather_information_block_3">
 
             <div class = "line1"></div>
@@ -306,153 +310,153 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span>0</div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span>0</div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="forecast-hours">
-                            <div class="time-card"><span th:text="${weather.getTime()}"></span></div>
-                            <span th:if="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="'+' + ${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <div class="time-card"><span th:text="${currentWeather.getTime()}"></span></div>
+                            <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
 
-                            <span th:unless="${weather.getClimateData().getTemp_c() > 0}">
-                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${weather.getClimateData().getCondition().getIcon()}}" alt=""></div>
-                                    <span th:text="${weather.getClimateData().getTemp_c()} + '°'"></span>
+                            <span th:unless="${currentWeather.getCurrent().getTemp_c() > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" alt=""></div>
+                                    <span th:text="${currentWeather.getCurrent().getTemp_c()} + '°'"></span>
                             </span>
                         </div>
-                        <div class="text-forecast"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
+                        <div class="text-forecast"><span th:text="${currentWeather.getCurrent().getCondition().getText()}"></span></div>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
