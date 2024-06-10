@@ -707,6 +707,7 @@ input[type="text"]:hover{
     border-radius: 30px;
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
 }
+
 .text-weather{
     font-family: "Unbounded ExtraLight";
     font-size: 50px;
@@ -735,3 +736,4 @@ input[type="text"]:hover{
     background: rgba(0, 87, 255, 0.08);
     transition: 0.5s;
 }
+

@@ -527,13 +527,32 @@ input[type="text"]:hover{
     filter: blur(370px);
     background: rgb(193, 62, 239);
 }
+.elipse_10{
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: 1100px;
+    top: 3000px;
+    filter: blur(490px);
+    background: rgb(193, 62, 239);
+}
+.elipse_11{
+    /* Ellipse 1493 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: 1250px;
+    top: 400px;
+    filter: blur(408px);
+    background: rgb(193, 62, 239);
+}
 .elipse_2{
     /* Ellipse 1493 */
     position: absolute;
     width: 752px;
     height: 236px;
     left: 750px;
-    top: 600px;
+    top: 1500px;
     filter: blur(408px);
     background: rgb(193, 62, 239);
 }
@@ -543,7 +562,7 @@ input[type="text"]:hover{
     width: 752px;
     height: 236px;
     left: -455px;
-    top: 1650px;
+    top: 14650px;
     filter: blur(308px);
     background: rgb(193, 62, 239);
 }
@@ -553,7 +572,7 @@ input[type="text"]:hover{
     width: 752px;
     height: 236px;
     left: -455px;
-    top: 3950px;
+    top: 1950px;
     filter: blur(408px);
     background: rgb(193, 62, 239);
 }
@@ -563,21 +582,35 @@ input[type="text"]:hover{
     width: 752px;
     height: 236px;
     left: 700px;
-    top: 2650px;
+    top: 9650px;
     filter: blur(408px);
     background: rgb(193, 62, 239);
 }
 
-.weather_information_block{
-    display: block;
-    height: 1400px;
+.weather_information_block_1{
+    height: 2500px;
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
     border-radius: 30px;
     background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
 }
-
+.weather_information_block_2{
+    height: 570px;
+    box-sizing: border-box;
+    /* stroke_color */
+    border: 1px solid rgb(197, 54, 239);
+    border-radius: 30px;
+    background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
+}
+.weather_information_block_3{
+    height: 570px;
+    box-sizing: border-box;
+    /* stroke_color */
+    border: 1px solid rgb(197, 54, 239);
+    border-radius: 30px;
+    background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
+}
 .search {
     width: 700px;
     height: 50px;
@@ -658,9 +691,7 @@ input[type="text"]:hover{
     text-align: center;
 }
 .tempCurrent{
-
-    font-family: "Unbounded ExtraBold";
-    font-size: 50px;
+    font-size: 35px;
     margin-top:20px;
 }
 .weather_png{
@@ -668,8 +699,10 @@ input[type="text"]:hover{
 }
 .temp{
     text-align: center;
-    padding-top: 40px;
+    padding-top: 20px;
+
     .temperature{
+        padding-bottom: 10px;
         font-family: "Manrope ExtraBold";
         font-size: 60px;
     }
@@ -700,7 +733,7 @@ input[type="text"]:hover{
 }
 .line{
     /* stroke_color */
-    opacity: 0.4;
+    opacity: 0.3;
     margin:40px auto 0px;
     width: 800px;
     border: 1px solid rgb(255, 255, 255);
@@ -711,6 +744,8 @@ input[type="text"]:hover{
     font-family: "Unbounded ExtraLight";
     font-size: 50px;
     padding-top: 40px;
+    text-align: center;
+    width: 100%;
 }
 
 .botton_acc{
@@ -737,14 +772,17 @@ input[type="text"]:hover{
     transition: 0.5s;
 }
 .map-block{
+
     margin: 0px 0px 0px auto;
+    width: auto;
 }
 .map{
     border-radius: 30px;
-    border: 3px solid rgb(197, 54, 239);
+    border: 4px solid rgb(197, 54, 239);
     border-radius: 52.11px;
-    box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+    box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.55);
     background: rgba(255, 87, 255, 0.08);
+    width: 100%;
 }
 .cloud{
     padding-top: 10px;
@@ -795,13 +833,204 @@ input[type="text"]:hover{
     text-align: left;
     padding-top: 60px;
     margin-left: 20px;
+    width: 80%;
 }
 .map_properties{
+    margin: auto;
+    border-radius: 40.11px;
+    width: 95%;
+    height: 600px;
+    background: rgba(255, 87, 255, 0.08);
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 10px;
     padding-top: 40px;
 }
+.forecast-hours_title{
+    font-size: 60px;
+    font-family: "Manrope ExtraBold";
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px
+}
+.forecast_title{
+    background: linear-gradient(118.37deg, rgb(255, 87, 255),rgb(140, 60, 237));
+    -webkit-background-clip:
+            text;
+    -webkit-text-fill-color:
+            transparent;
+    background-clip:
+            text;
+    text-fill-color:
+            transparent;
+    font-family: Manrope;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 123px;
+    letter-spacing: 0%;
+    text-align: left;
+}
 .vis_png{
     width: 50px;
+}
+.line1{
+    opacity: 0.3;
+    margin:40px auto 40px;
+    width: 200px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+.text-geo{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.line2{
+    opacity: 0.3;
+    margin:0px auto 20px;
+    width: 600px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+
+.line3{
+    opacity: 0.3;
+    margin:0px 0px 20px;
+    width: 500px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+.line4{
+    opacity: 0.3;
+    margin:20px auto 20px;
+    width: 600px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+.line5{
+    opacity: 0.3;
+    margin:20px auto 0px;
+    width: 400px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+.line6{
+    opacity: 0.3;
+    margin:10px auto 10px;
+    width: 500px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+.line7{
+    /* stroke_color */
+    opacity: 0.3;
+    margin:40px auto 40px;
+    width: 800px;
+    border: 1px solid rgb(255, 255, 255);;
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+.swiper {
+    width: 90%;
+    height: 400px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    border-radius: 52.11px;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.15);
+
+    background: rgba(255, 87, 255, 0.08);
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.temp-main{
+    padding-top: 70px;
+    font-size: 90px;
+}
+.temp-card{
+    margin: auto;
+    border-radius: 40.11px;
+    width: 40%;
+    height: 410px;
+    background: rgba(255, 87, 255, 0.08);
+    box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
+}
+.weather_forecast-hour_png img{
+    width: 90px;
+}
+
+.time-card{
+    padding-top: 40px;
+}
+
+.forecast-hours{
+    font-size: 40px;
+}
+.text-forecast{
+    font-size: 30px;
+    margin: 30px auto;
+}
+.text-geo{
+    font-size: 35px;
+}
+.location_title{
+    background: linear-gradient(118.37deg, rgb(255, 87, 255),rgb(140, 60, 237));
+    -webkit-background-clip:
+            text;
+    -webkit-text-fill-color:
+            transparent;
+    background-clip:
+            text;
+    text-fill-color:
+            transparent;
+    font-family: Manrope;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 43px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.met-prop{
+   margin-top: 15px;
+    font-size: 35px;
+    width: 700px;
+}
+
+.favourites_button{
+    text-align:right;
+    position: absolute;
+    width: 220px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 20px 0px 0px auto;
+    /*margin-top: 30px;*/
+    text-decoration:none;
+    font-family: "Manrope ExtraBold";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 16px;
+    /* stroke_color */
+    border: 2px solid rgb(197, 54, 239);
+    border-radius: 52.11px;
+    box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.55);
+    background: rgba(255, 87, 255, 0.08);
 }
