@@ -2,19 +2,20 @@ package sc.skycastmvc.controller;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import sc.skycastmvc.model.Weather;
+import sc.skycastmvc.model.CurrentWeather;
 import sc.skycastmvc.service.WeatherService;
 
 @Slf4j
 @Controller
 @RequestMapping("/weather/current")
-@SessionAttributes("weather")
+@SessionAttributes("currentWeather")
 public class CurrentWeatherController {
 
-    private WeatherService weatherService;
+    private final WeatherService weatherService;
 
     public CurrentWeatherController(WeatherService weatherService) {
         this.weatherService = weatherService;
@@ -27,9 +28,15 @@ public class CurrentWeatherController {
 
     @PostMapping("/get")
     public String processCurrentWeather(@NotBlank String cityName,
-                                        @ModelAttribute Weather weather) {
-        weather.setCityName(cityName);
-        weather.setClimateData(weatherService.getCurrentWeather(cityName));
+                                        @ModelAttribute CurrentWeather currentWeather) {
+
+        JSONObject currentWeatherJson = weatherService.getCurrentWeatherJSON(cityName);
+
+        currentWeather.setLocation(weatherService.parseLocation(currentWeatherJson));
+        currentWeather.setCurrent(weatherService.parseCurrentClimateData(currentWeatherJson));
+        
+        log.info("CurrentWeather object: {}", currentWeather);
+
         return "redirect:/weather/current";
     }
 

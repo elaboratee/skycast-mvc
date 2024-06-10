@@ -6,7 +6,7 @@
 <head>
     <link rel="stylesheet" th:href="@{/current.css}">
     <meta charset="UTF-8">
-    <title th:text="${weather.cityName} + ' - SkyCast'"></title>
+    <title th:text="${currentWeather.cityName} + ' - SkyCast'"></title>
     <link rel="icon" th:href="@{/images/favicon.ico}">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -62,17 +62,18 @@
         <div class="elipse_2"></div>
         <div class="elipse_11"></div>
             <div class="city_span">
-                <h1>Текущая погода в городе <span th:text="${weather.cityName}"
+                <h1>Текущая погода в городе <span th:text="${currentWeather.cityName}"
                                                   class="city_name"></span></h1>
             </div>
             <div class="weather_information_block_1">
                 <div class="data">
-                        <div class="time">Сейчас <span th:text="${weather.getTime()}" class="city_name" ></span></div>
-                        <span th:text="${weather.getDate()}" style="font-size: 35px"></span>
+                        <div class="time">Сейчас <span th:text="${currentWeather.getTime()}" class="city_name" ></span></div>
+                        <span th:text="${currentWeather.getDate()}" style="font-size: 35px"></span>
                 </div>
                 <div class = "line5"></div>
                 <div class = "temp">
                         <div class="tempCurrent">
+
                             <div class="temperature">Температура<div class="line6"></div></div>
                             <div class="temp-card">
                                     <span th:if="${weather.getClimateData().getTemp_c() > 0}">
@@ -102,16 +103,17 @@
                                 <div class="text-weather"><span th:text="${weather.getClimateData().getCondition().getText()}"></span></div>
                             </div>
                     </div>
+              
                 <div class = "line"></div>
                 <div class="properties">
                     <img th:src="@{https://yastatic.net/weather/i/icons/confident/dark/svg/ic_wind.svg}" class="wind_img">
-                        <span th:text="${weather.getClimateData().getWind_kph()} + ' м/c, ' + ${weather.getClimateData().getWind_dir()}" class="wind_text">ㅤ</span>
+                        <span th:text="${currentWeather.getCurrent().getWind_kph()} + ' м/c, ' + ${currentWeather.getCurrent().getWind_dir()}" class="wind_text">ㅤ</span>
 
                     <img th:src="@{/images/kaplya.png}" class="properties_img">
-                        <span th:text="${weather.getClimateData().getHumidity()} + '%'" class="humidity_text">ㅤㅤ</span>
+                        <span th:text="${currentWeather.getCurrent().getHumidity()} + '%'" class="humidity_text">ㅤㅤ</span>
 
                     <img th:src="@{/images/barmetr.png}" class="properties_img">
-                        <span th:text="${#numbers.formatInteger(weather.getClimateData().getPressure_in() * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
+                        <span th:text="${#numbers.formatInteger(currentWeather.getCurrent().getPressure_in() * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
                 </div>
                 <div class="line"></div>
                 <div class="forecast-hours_title">Прогоз погоды по <span class="forecast_title">ЧАСАМ</span><div class="line4"></div></div>
