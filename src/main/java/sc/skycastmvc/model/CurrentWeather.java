@@ -18,7 +18,6 @@ import java.util.TimeZone;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Slf4j
 public final class CurrentWeather extends Weather {
 
     private String cityName;
@@ -47,10 +46,10 @@ public final class CurrentWeather extends Weather {
         calendar.setTime(dateTime);
         calendar.setTimeZone(TimeZone.getTimeZone(getLocation().getTz_id()));
 
-        int date = calendar.get(Calendar.DAY_OF_WEEK);
-        int month = calendar.get(Calendar.MONTH);
+        int date = calendar.get(Calendar.DATE);
+        int month = calendar.get(Calendar.MONTH) + 1;
         int year = calendar.get(Calendar.YEAR);
 
-        return String.format("%02d.%02d.%02d", date, month, year);
+        return String.format("%02d.%02d.%04d", date, month, year);
     }
 }

@@ -17,6 +17,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public abstract class Weather {
 
-    @NotNull
-    protected Location location;
+    private Location location;
 }
