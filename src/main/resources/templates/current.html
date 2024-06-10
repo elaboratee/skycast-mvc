@@ -10,7 +10,7 @@
     <link rel="icon" th:href="@{/images/favicon.ico}">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,7 @@
                                 <div class="temp-card-inner">
                                     <span th:if="${currentWeather.getCurrent().getTemp_c() > 0}">
                                         <div class="temp-main">
-                                            <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'" class="temp-main" style="font-family: 'Unbounded'"></span>
+                                            <span th:text="'+' + ${currentWeather.getCurrent().getTemp_c()} + '°'" class="temp-main"></span>
                                             <img th:src="@{'http:'+ ${currentWeather.getCurrent().getCondition().getIcon()}}" class="weather_png" alt="">
                                         </div>
                                     </span>
@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                     </div>
-              
+
                 <div class = "line"></div>
                 <div class="properties">
                     <img th:src="@{https://yastatic.net/weather/i/icons/confident/dark/svg/ic_wind.svg}" class="wind_img">
@@ -120,6 +120,16 @@
                 <div class="line"></div>
                 <div class="forecast-hours_title">Прогоз погоды по <span class="forecast_title">ЧАСАМ</span><div class="line4"></div></div>
                 <div class = "line1"></div>
+
+
+<!--                    <ul>
+            <li th:each="taco : ${tacoOrder.tacos}">
+                <span th:text="${taco.name}">taco name</span>
+            </li>
+        </ul>
+-->
+
+
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -562,5 +572,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </body>
