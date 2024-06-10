@@ -3,6 +3,7 @@ package sc.skycastmvc.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -10,42 +11,56 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
-import sc.skycastmvc.model.Weather;
+import sc.skycastmvc.model.CurrentClimateData;
+import sc.skycastmvc.model.Location;
 
 import java.io.IOException;
 
 @Service
 @Data
+@Slf4j
 public class WeatherService {
 
-    private final ObjectMapper jacksonObjectMapper;
-    private WeatherServiceProps props;
+    private final ObjectMapper objectMapper;
 
-    public WeatherService(WeatherServiceProps props, ObjectMapper jacksonObjectMapper) {
+    private final WeatherServiceProps props;
+
+    public WeatherService(WeatherServiceProps props, ObjectMapper objectMapper) {
         this.props = props;
-        this.jacksonObjectMapper = jacksonObjectMapper;
+        this.objectMapper = objectMapper;
     }
 
-    public Weather.CurrentWeather getCurrentWeather(String cityName) {
-        // Создаем маппер JSON
-        ObjectMapper objectMapper = new ObjectMapper();
+    public Location parseLocation(JSONObject jsonObject) {
 
-        // Получаем JSON-объект с климатическими данными
-        JSONObject currentWeatherJson = getCurrentWeatherJSON(cityName);
+        // Парсинг JSON-объекта "location" из ответа API
+        JSONObject locationJson = jsonObject.getJSONObject("location");
 
-        // Создаем объект, хранящий данные о текущей погоде
-        Weather.CurrentWeather currentWeather = new Weather.CurrentWeather();
-
+        Location location = new Location();
         try {
-            // Выполняем маппинг атрибутов JSON-объекта на поля класса
-            currentWeather = objectMapper.readValue(currentWeatherJson.toString(), Weather.CurrentWeather.class);
+            // Выполнение маппинга атрибутов JSON-объекта на поля Location
+            location = objectMapper.readValue(locationJson.toString(), Location.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return currentWeather;
+        return location;
     }
 
-    private JSONObject getCurrentWeatherJSON(String cityName)
+    public CurrentClimateData parseCurrentClimateData(JSONObject jsonObject) {
+
+        // Парсинг JSON-объекта "current" из ответа API
+        JSONObject currentJson = jsonObject.getJSONObject("current");
+
+        CurrentClimateData currentClimateData = new CurrentClimateData();
+        try {
+            // Выполнение маппинга атрибутов JSON-объекта на поля CurrentClimateData
+            currentClimateData = objectMapper.readValue(currentJson.toString(), CurrentClimateData.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return currentClimateData;
+    }
+
+    public JSONObject getCurrentWeatherJSON(String cityName)
             throws JSONException {
 
         OkHttpClient httpClient = new OkHttpClient();
@@ -54,7 +69,8 @@ public class WeatherService {
         String url = props.getUrl() + "/current.json?" +
                 "key=" + props.getApiKey() +
                 "&q=" + cityName +
-                "&lang=ru";
+                "&lang=" + props.getLang();
+
         Request request = new Request.Builder()
                 .url(url)
                 .get()
@@ -65,7 +81,8 @@ public class WeatherService {
             // Обработка ответа API
             if (response.isSuccessful()) {
                 JSONObject json = new JSONObject(response.body().string());
-                return json.getJSONObject("current");
+//                return json.getJSONObject("current");
+                return json;
             } else {
                 throw new JSONException("Weather request failed: " + response.code());
             }
