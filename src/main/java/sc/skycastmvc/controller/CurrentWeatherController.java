@@ -2,6 +2,7 @@ package sc.skycastmvc.controller;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -28,8 +29,14 @@ public class CurrentWeatherController {
     @PostMapping("/get")
     public String processCurrentWeather(@NotBlank String cityName,
                                         @ModelAttribute CurrentWeather currentWeather) {
-        currentWeather.setCityName(cityName);
-        currentWeather.setClimateData(weatherService.getCurrentWeather(cityName));
+
+        JSONObject currentWeatherJson = weatherService.getCurrentWeatherJSON(cityName);
+
+        currentWeather.setLocation(weatherService.parseLocation(currentWeatherJson));
+        currentWeather.setCurrent(weatherService.parseCurrentClimateData(currentWeatherJson));
+        
+        log.info("CurrentWeather object: {}", currentWeather);
+
         return "redirect:/weather/current";
     }
 

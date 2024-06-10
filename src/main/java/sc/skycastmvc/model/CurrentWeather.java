@@ -2,9 +2,11 @@ package sc.skycastmvc.model;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Класс, реализующий асбтрактный класс {@link Weather}.
@@ -13,71 +15,42 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@Slf4j
 public final class CurrentWeather extends Weather {
 
-    @NotNull
+    private String cityName;
+
     private Date dateTime = new Date();
 
-    @NotNull
-    private String tz_id;
-
-    @NotNull
-    private CurrentClimateData climateData;
+    private CurrentClimateData current;
 
     public String getTime() {
+
         Calendar calendar = Calendar.getInstance();
+
         calendar.setTime(dateTime);
+        calendar.setTimeZone(TimeZone.getTimeZone(getLocation().getTz_id()));
+
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
+
         return String.format("%02d:%02d", hour, minute);
     }
 
     public String getDate() {
+
         Calendar calendar = Calendar.getInstance();
+
         calendar.setTime(dateTime);
+        calendar.setTimeZone(TimeZone.getTimeZone(getLocation().getTz_id()));
+
         int date = calendar.get(Calendar.DAY_OF_WEEK);
         int month = calendar.get(Calendar.MONTH);
         int year = calendar.get(Calendar.YEAR);
+
         return String.format("%02d.%02d.%02d", date, month, year);
-    }
-
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class CurrentClimateData {
-        @NotNull
-        private Integer temp_c;
-
-        @NotNull
-        private Condition condition;
-
-        @NotNull
-        private String wind_kph;
-
-        @NotNull
-        private String wind_dir;
-
-        @NotNull
-        private Integer pressure_in;
-
-        @NotNull
-        private String humidity;
-
-        @NotNull
-        private String cloud;
-
-        @NotNull
-        private Integer feelslike_c;
-
-        @NotNull
-        private String precip_mm;
-
-        @NotNull
-        private String gust_kph;
-
-        @NotNull
-        private String vis_km;
     }
 }
