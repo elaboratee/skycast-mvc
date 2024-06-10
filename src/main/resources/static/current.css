@@ -588,7 +588,7 @@ input[type="text"]:hover{
 }
 
 .weather_information_block_1{
-    height: 2500px;
+    height: 2400px;
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -782,17 +782,18 @@ input[type="text"]:hover{
     border-radius: 52.11px;
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.55);
     background: rgba(255, 87, 255, 0.08);
-    width: 100%;
+    width: 560px;
 }
 .cloud{
     padding-top: 10px;
-    font-size: 35px;
     font-family: "Unbounded Light";
 }
 .vis{
     padding-top: 10px;
-    font-size: 35px;
     font-family: "Unbounded Light";
+}
+.vis img{
+    width: 40px;
 }
 .vis_val{
     color: #ffffff;
@@ -804,7 +805,6 @@ input[type="text"]:hover{
 }
 .precip{
     padding-top: 10px;
-    font-size: 35px;
     font-family: "Unbounded Light";
 }
 .precip_val{
@@ -813,7 +813,6 @@ input[type="text"]:hover{
 }
 .gust{
     padding-top: 10px;
-    font-size: 35px;
     font-family: "Unbounded Light";
 }
 .gust_val{
@@ -821,13 +820,13 @@ input[type="text"]:hover{
     font-family: "Unbounded ExtraLight";
 }
 .precip_png{
-    width: 40px;
+    width: 30px;
 }
 .cloud_png{
-    width:50px;
+    width:35px;
 }
 .gust_png{
-    width: 40px;
+    width: 35px;
 }
 .properties_add{
     text-align: left;
@@ -839,7 +838,7 @@ input[type="text"]:hover{
     margin: auto;
     border-radius: 40.11px;
     width: 95%;
-    height: 600px;
+    height: 550px;
     background: rgba(255, 87, 255, 0.08);
 
     display: grid;
@@ -889,7 +888,7 @@ input[type="text"]:hover{
 .line2{
     opacity: 0.3;
     margin:0px auto 20px;
-    width: 600px;
+    width: 500px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 30px;
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
@@ -898,7 +897,7 @@ input[type="text"]:hover{
 .line3{
     opacity: 0.3;
     margin:0px 0px 20px;
-    width: 500px;
+    width: 450px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 30px;
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
@@ -937,8 +936,8 @@ input[type="text"]:hover{
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
 }
 .swiper {
-    width: 90%;
-    height: 400px;
+    width: 80%;
+    height: 60%;
 }
 
 .swiper-slide {
@@ -966,10 +965,25 @@ input[type="text"]:hover{
     padding-top: 70px;
     font-size: 90px;
 }
+.tempFeelslike{
+    padding-top: 20px;
+}
+.temp-main img{
+    width: 90px;
+}
 .temp-card{
     margin: auto;
     border-radius: 40.11px;
-    width: 40%;
+    width: 58%;
+    height: 410px;
+    background: rgba(255, 87, 255, 0.08);
+    box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
+}
+
+.temp-card-inner{
+    margin: auto;
+    border-radius: 40.11px;
+    width: 59%;
     height: 410px;
     background: rgba(255, 87, 255, 0.08);
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
@@ -979,14 +993,14 @@ input[type="text"]:hover{
 }
 
 .time-card{
-    padding-top: 40px;
+    padding-top: 35px;
 }
 
 .forecast-hours{
-    font-size: 40px;
+    font-size: 35px;
 }
 .text-forecast{
-    font-size: 30px;
+    font-size: 35px;
     margin: 30px auto;
 }
 .text-geo{
