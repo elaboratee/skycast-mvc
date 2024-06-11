@@ -66,6 +66,7 @@
                       method="post"
                       th:object="${weather}">
                     <input type="search"
+                           id="cityInput"
                            th:field="*{cityName}"
                            required>
                     <button type="submit">Найти</button>
@@ -74,6 +75,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="footer">
 
