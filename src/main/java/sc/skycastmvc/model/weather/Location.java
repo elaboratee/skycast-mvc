@@ -1,9 +1,6 @@
-package sc.skycastmvc.model;
+package sc.skycastmvc.model.weather;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 /**
  * Информационный класс, хранящий данные о географическом

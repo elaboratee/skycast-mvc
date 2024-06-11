@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import sc.skycastmvc.model.Weather;
+import sc.skycastmvc.model.weather.Weather;
 import sc.skycastmvc.service.WeatherService;
 
 @Slf4j

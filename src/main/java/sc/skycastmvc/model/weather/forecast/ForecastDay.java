@@ -1,4 +1,4 @@
-package sc.skycastmvc.model;
+package sc.skycastmvc.model.weather.forecast;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

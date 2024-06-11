@@ -10,10 +10,13 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
-import sc.skycastmvc.model.*;
+import sc.skycastmvc.model.weather.Location;
+import sc.skycastmvc.model.weather.current.CurrentClimateData;
+import sc.skycastmvc.model.weather.forecast.ForecastClimateData;
+import sc.skycastmvc.model.weather.forecast.ForecastDay;
+import sc.skycastmvc.model.weather.forecast.ForecastHour;
 
 import java.io.IOException;
 

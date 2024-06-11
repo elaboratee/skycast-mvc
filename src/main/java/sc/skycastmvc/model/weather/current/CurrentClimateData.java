@@ -1,6 +1,8 @@
-package sc.skycastmvc.model;
+package sc.skycastmvc.model.weather.current;
 
 import lombok.Data;
+import sc.skycastmvc.model.weather.Condition;
+import sc.skycastmvc.model.weather.Weather;
 
 /**
  * Информационный класс, использующийся для хранения текущих климатических данных

@@ -1,8 +1,10 @@
-package sc.skycastmvc.model;
+package sc.skycastmvc.model.weather;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sc.skycastmvc.model.weather.current.CurrentClimateData;
+import sc.skycastmvc.model.weather.forecast.ForecastClimateData;
 
 import java.util.Calendar;
 import java.util.Date;

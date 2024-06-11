@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import sc.skycastmvc.model.Weather;
+import sc.skycastmvc.model.weather.Weather;
 
 @Controller
 @RequestMapping("/weather")
