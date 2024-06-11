@@ -42,14 +42,22 @@
                        value="Погода"
                        class="Weather">
             </form>
-            <a href="" class="About_us">
-                О нас
-            </a>
+            <form th:action="@{/weather/current/returnAbout}"
+                  method="GET">
+                <input type="submit"
+                       value="О нас"
+                       class="About_us">
+            </form>
         </div>
         <div class="Button_block">
             <div></div>
             <div class="header-menu">
-                <a th:href="@{/account}" class="botton_acc">Личный кабинет</a>
+                <form th:action="@{/weather/current/returnAccount}"
+                      method="GET">
+                    <input type="submit"
+                           value="Личный кабинет"
+                           class="botton_acc">
+                </form>
             </div>
         </div>
     </div>

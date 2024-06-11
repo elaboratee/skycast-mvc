@@ -54,4 +54,18 @@ public class CurrentWeatherController {
         log.info("Session completed (return to weather): {}", sessionStatus);
         return "redirect:/weather";
     }
+
+    @GetMapping("/returnAbout")
+    public String returnToAboutUs(SessionStatus sessionStatus) {
+        sessionStatus.setComplete();
+        log.info("Session completed (return to about us): {}", sessionStatus);
+        return "redirect:/about";
+    }
+
+    @GetMapping("/returnAccount")
+    public String returnToAccount(SessionStatus sessionStatus) {
+        sessionStatus.setComplete();
+        log.info("Session completed (return to account): {}", sessionStatus);
+        return "redirect:/account";
+    }
 }
