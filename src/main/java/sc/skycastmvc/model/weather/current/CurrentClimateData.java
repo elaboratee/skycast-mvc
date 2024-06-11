@@ -1,13 +1,12 @@
-package sc.skycastmvc.model;
+package sc.skycastmvc.model.weather.current;
 
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import sc.skycastmvc.model.weather.Condition;
+import sc.skycastmvc.model.weather.Weather;
 
 /**
  * Информационный класс, использующийся для хранения текущих климатических данных
- * @see CurrentWeather
+ * @see Weather
  */
 @Data
 public class CurrentClimateData {

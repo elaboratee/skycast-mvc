@@ -14,5 +14,10 @@
       "name": "weather.service.lang",
       "type": "java.lang.String",
       "description": "Weather description language."
+    },
+    {
+      "name": "weather.service.days",
+      "type": "java.lang.Integer",
+      "description": "Number of forecast days."
     }
 ] }

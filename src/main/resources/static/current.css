@@ -59,6 +59,12 @@ body{
             display: flex;
             text-decoration: none;
             color: white;
+
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit
         }
 
         .Primary:hover{
@@ -588,7 +594,7 @@ input[type="text"]:hover{
 }
 
 .weather_information_block_1{
-    height: 2400px;
+
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -744,8 +750,10 @@ input[type="text"]:hover{
     font-family: "Unbounded ExtraLight";
     font-size: 50px;
     padding-top: 40px;
+    padding-bottom: 40px;
     text-align: center;
     width: 100%;
+
 }
 
 .botton_acc{
@@ -838,7 +846,7 @@ input[type="text"]:hover{
     margin: auto;
     border-radius: 40.11px;
     width: 95%;
-    height: 550px;
+    padding-bottom: 50px;
     background: rgba(255, 87, 255, 0.08);
 
     display: grid;
@@ -975,7 +983,6 @@ input[type="text"]:hover{
     margin: auto;
     border-radius: 40.11px;
     width: 58%;
-    height: 410px;
     background: rgba(255, 87, 255, 0.08);
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
 }
@@ -984,7 +991,7 @@ input[type="text"]:hover{
     margin: auto;
     border-radius: 40.11px;
     width: 59%;
-    height: 410px;
+
     background: rgba(255, 87, 255, 0.08);
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
 }

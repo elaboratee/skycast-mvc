@@ -6,13 +6,13 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import sc.skycastmvc.model.CurrentWeather;
+import sc.skycastmvc.model.weather.Weather;
 import sc.skycastmvc.service.WeatherService;
 
 @Slf4j
 @Controller
 @RequestMapping("/weather/current")
-@SessionAttributes("currentWeather")
+@SessionAttributes("weather")
 public class CurrentWeatherController {
 
     private final WeatherService weatherService;
@@ -27,15 +27,16 @@ public class CurrentWeatherController {
     }
 
     @PostMapping("/get")
-    public String processCurrentWeather(@NotBlank String cityName,
-                                        @ModelAttribute CurrentWeather currentWeather) {
+    public String processWeather(@NotBlank String cityName,
+                                 @ModelAttribute Weather weather) {
 
-        JSONObject currentWeatherJson = weatherService.getCurrentWeatherJSON(cityName);
+        JSONObject weatherJson = weatherService.getCurrentWeatherJSON(cityName);
 
-        currentWeather.setLocation(weatherService.parseLocation(currentWeatherJson));
-        currentWeather.setCurrent(weatherService.parseCurrentClimateData(currentWeatherJson));
+        weather.setLocation(weatherService.parseLocation(weatherJson));
+        weather.setCurrent(weatherService.parseCurrentClimateData(weatherJson));
+        weather.setForecast(weatherService.parseForecastClimateData(weatherJson));
         
-        log.info("CurrentWeather object: {}", currentWeather);
+        log.info("Weather object: {}", weather);
 
         return "redirect:/weather/current";
     }
@@ -52,5 +53,19 @@ public class CurrentWeatherController {
         sessionStatus.setComplete();
         log.info("Session completed (return to weather): {}", sessionStatus);
         return "redirect:/weather";
+    }
+
+    @GetMapping("/returnAbout")
+    public String returnToAboutUs(SessionStatus sessionStatus) {
+        sessionStatus.setComplete();
+        log.info("Session completed (return to about us): {}", sessionStatus);
+        return "redirect:/about";
+    }
+
+    @GetMapping("/returnAccount")
+    public String returnToAccount(SessionStatus sessionStatus) {
+        sessionStatus.setComplete();
+        log.info("Session completed (return to account): {}", sessionStatus);
+        return "redirect:/account";
     }
 }

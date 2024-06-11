@@ -1,4 +1,4 @@
-package sc.skycastmvc.model;
+package sc.skycastmvc.model.weather;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 /**
  * Информационный класс, испольщуюшийся для хранения вспомогательных данных
  * о климате, таких как описание погоды и соответствующая ему иконка
- * @see CurrentClimateData
  */
 @Data
 @AllArgsConstructor
