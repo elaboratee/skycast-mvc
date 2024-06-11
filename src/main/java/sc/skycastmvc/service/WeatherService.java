@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
 import sc.skycastmvc.model.weather.Location;
 import sc.skycastmvc.model.weather.current.CurrentClimateData;
+import sc.skycastmvc.model.weather.forecast.DayClimate;
 import sc.skycastmvc.model.weather.forecast.ForecastClimateData;
 import sc.skycastmvc.model.weather.forecast.ForecastDay;
 import sc.skycastmvc.model.weather.forecast.ForecastHour;
@@ -110,6 +111,7 @@ public class WeatherService {
             ForecastDay[] forecastDays = new ForecastDay[forecastDayJson.length()];
             for (int i = 0; i < forecastDayJson.length(); i++) {
                 JSONObject dayJson = forecastDayJson.getJSONObject(i);
+                JSONObject dayClimateJson = dayJson.getJSONObject("day");
 
                 ForecastDay forecastDay = new ForecastDay();
 
@@ -123,12 +125,14 @@ public class WeatherService {
                 }
                 forecastDays[i] = objectMapper.readValue(dayJson.toString(), ForecastDay.class);
                 forecastDays[i].setHours(forecastHours);
+                forecastDays[i].setDay(objectMapper.readValue(dayClimateJson.toString(), DayClimate.class));
             }
             forecastClimateData.setForecastDays(forecastDays);
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        log.info("Climate data: {}", forecastClimateData);
         return forecastClimateData;
     }
 }

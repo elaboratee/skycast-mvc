@@ -180,53 +180,48 @@
         <div class="weather_information_block_2">
             <div class="swiperTDF twoDayForecastSwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide"
+                         th:each="dayForecast, iterStat : ${weather.forecast.forecastDays}"
+                         th:if="${iterStat.index == 1 or iterStat.index == 2}">
                         <div class="forecastTwoDay">
-
                             <div class="tempAvgAndText">
                                 <div class="tempCurrent">
-
                                     <div class="temperature">Температура<div class="line8"></div></div>
                                     <div class="temp-card-forecast-two-day">
                                         <div class="temp-card-inner-forecast-two-day">
-                                    <span th:if="${weather.current.temp_c > 0}">
+                                    <span th:if="${dayForecast.day.avgtemp_c > 0}">
                                         <div class="temp-main">
-                                            <span th:text="'+' + ${weather.current.temp_c} + '°'" class="temp-main"></span>
-                                            <img th:src="@{'http:'+ ${weather.current.condition.icon}}" class="weather_png" alt="">
+                                            <span th:text="'+' + ${dayForecast.day.avgtemp_c} + '°'" class="temp-main"></span>
+                                            <div>
+                                                <img th:src="@{'http:'+ ${dayForecast.day.condition.icon}}" class="weather_png" alt="">
+                                            </div>
                                         </div>
                                     </span>
                                             <!-- <video class="weather_png" th:src="@{/images/sticker.webm}" controls autoplay loop muted style="border-radius: 20px"> </video>-->
 
-                                            <span th:unless="${weather.current.temp_c > 0}">
+                                            <span th:unless="${dayForecast.day.avgtemp_c > 0}">
                                         <div class="temp-main">
-                                            <span th:text="${weather.current.temp_c} + '°' " class="temp-main"></span>
-                                            <img th:src="@{'http:'+ ${weather.current.condition.icon}}" class="weather_png" alt="">
+                                            <span th:text="${dayForecast.day.avgtemp_c} + '°' " class="temp-main"></span>
+                                            <div>
+                                                <img th:src="@{'http:'+ ${dayForecast.day.condition.icon}}" class="weather_png" alt="">
+                                            </div>
                                         </div>
                                     </span>
 
-
-                                            <div class="tempFeelslike">
-                                    <span th:if="${weather.current.feelslike_c > 0}">
-                                        <span th:text="'Ощущается как +' + ${weather.current.feelslike_c} + '°'"></span>
-                                    </span>
-                                                <span th:unless="${weather.current.feelslike_c > 0}">
-                                        <span th:text="'Ощущается как ' + ${weather.current.feelslike_c} + '°'"></span>
-                                    </span>
-                                            </div>
-                                            <div class="text-weather-two-Day"><span th:text="${weather.current.condition.text}"></span></div>
+                                            <div class="text-weather-two-Day"><span th:text="${dayForecast.day.condition.text}"></span></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="meteoProps">
                                 <div class="properties_add-two-day">
-                                    <div class="date-row">Дата: <span th:text="${weather.getDate()}" class="city_name"></span></div>
+                                    <div class="date-row">Дата: <span th:text="${dayForecast.getDateAndMonthName()}" class="city_name"></span></div>
                                     <div class="met-prop">Метеорологические характеристики <div class = "line3"></div></div>
-                                    <div class="wind"><img th:src="@{https://yastatic.net/weather/i/icons/confident/dark/svg/ic_wind.svg}" class="wind_img"> Ветер: <span th:text="${weather.current.wind_kph} + ' м/c, ' + ${weather.current.wind_dir}" class="wind_text">ㅤ</span></div>
-                                    <div class="humidity"><img th:src="@{/images/kaplya.png}" class="properties_img"> Влажность: <span th:text="${weather.current.humidity} + '%'" class="humidity_text"></span></div>
-                                    <div class="chance-rain"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Вероятность дождя: <span class="cloud_val" th:text="${weather.getCurrent().getCloud()} + '%'"></span></div>
-                                    <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${weather.getCurrent().getPrecip_mm()} + ' мм'"></span></div>
-                                    <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${weather.getCurrent().getVis_km()} + ' км'"></span></div>
+                                    <div class="wind"><img th:src="@{https://yastatic.net/weather/i/icons/confident/dark/svg/ic_wind.svg}" class="wind_img"> Ветер: <span th:text="${dayForecast.day.maxwind_kph} + ' км/ч'" class="wind_text">ㅤ</span></div>
+                                    <div class="humidity"><img th:src="@{/images/kaplya.png}" class="properties_img"> Влажность: <span th:text="${dayForecast.day.avghumidity} + '%'" class="humidity_text"></span></div>
+                                    <div class="chance-rain"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Вероятность дождя: <span class="cloud_val" th:text="${dayForecast.day.daily_chance_of_rain} + '%'"></span></div>
+                                    <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${dayForecast.day.totalprecip_mm} + ' мм'"></span></div>
+                                    <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${dayForecast.day.avgvis_km} + ' км'"></span></div>
                                 </div>
                             </div>
                         </div>
