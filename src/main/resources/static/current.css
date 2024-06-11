@@ -588,7 +588,7 @@ input[type="text"]:hover{
 }
 
 .weather_information_block_1{
-    height: 2400px;
+
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -840,7 +840,7 @@ input[type="text"]:hover{
     margin: auto;
     border-radius: 40.11px;
     width: 95%;
-    height: 550px;
+    padding-bottom: 50px;
     background: rgba(255, 87, 255, 0.08);
 
     display: grid;
