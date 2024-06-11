@@ -602,7 +602,6 @@ input[type="text"]:hover{
     background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
 }
 .weather_information_block_2{
-    height: 570px;
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -755,6 +754,14 @@ input[type="text"]:hover{
     width: 100%;
 
 }
+.text-weather-two-Day{
+    font-family: "Unbounded ExtraLight";
+    font-size: 50px;
+    padding-top: 40px;
+    padding-bottom: 90px;
+    text-align: center;
+    width: 100%;
+}
 
 .botton_acc{
     text-align:right;
@@ -815,6 +822,23 @@ input[type="text"]:hover{
     padding-top: 10px;
     font-family: "Unbounded Light";
 }
+.wind{
+    padding-top: 10px;
+    font-family: "Unbounded Light";
+}
+
+.precip img{
+    padding-right:5px;
+}
+.humidity{
+    padding-top: 10px;
+    font-family: "Unbounded Light";
+}
+.chance-rain{
+    padding-top: 10px;
+    font-family: "Unbounded Light";
+}
+
 .precip_val{
     color: #ffffff;
     font-family: "Unbounded ExtraLight";
@@ -943,11 +967,28 @@ input[type="text"]:hover{
     border-radius: 30px;
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
 }
+.line8{
+    opacity: 0.3;
+    margin:10px auto 10px;
+    width: 500px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
 .swiper {
     width: 80%;
     height: 60%;
 }
 
+.swiperTDF{
+    width: 94%;
+    height: 100%;
+    padding-top: 40px;
+    margin: auto;
+    padding-bottom: 40px;
+
+
+}
 .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -1054,4 +1095,38 @@ input[type="text"]:hover{
     border-radius: 52.11px;
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.55);
     background: rgba(255, 87, 255, 0.08);
+}
+
+.forecastTwoDay{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+.tempAvgAndText{
+    padding-bottom: 50px;
+}
+
+.temp-card-inner-forecast-two-day{
+    margin: auto;
+    border-radius: 40.11px;
+    width: 70%;
+    background: rgba(255, 87, 255, 0.08);
+    box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
+    padding-bottom: 1;
+}
+
+.temp-card-forecast-two-day{
+    margin: auto;
+    border-radius: 40.11px;
+    width:80%;
+    background: rgba(255, 87, 255, 0.08);
+    box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
+}
+.properties_add-two-day{
+    text-align: left;
+    padding-top: 20px;
+    margin-left: 20px;
+    width: 80%;
+    font-size: 35px;
+    padding-bottom: 80px;
 }
