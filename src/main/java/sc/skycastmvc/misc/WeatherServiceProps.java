@@ -19,6 +19,6 @@ public class WeatherServiceProps {
     @Value("${weather.service.lang}")
     private String lang;
 
-    @Value("${weather.service.days}")
+    @Value("3")
     private Integer days;
 }

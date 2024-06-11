@@ -609,7 +609,6 @@ input[type="text"]:hover{
     background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
 }
 .weather_information_block_3{
-    height: 570px;
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -757,7 +756,7 @@ input[type="text"]:hover{
 .text-weather-two-Day{
     font-family: "Unbounded ExtraLight";
     font-size: 50px;
-    padding-top: 40px;
+    padding-top: 10px;
     padding-bottom: 90px;
     text-align: center;
     width: 100%;
@@ -975,20 +974,22 @@ input[type="text"]:hover{
     border-radius: 30px;
     background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
 }
+.line9{
+    opacity: 0.3;
+    margin:40px auto 40px;
+    width: 200px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
 .swiper {
-    width: 80%;
+    width: 85%;
     height: 60%;
 }
-
-.swiperTDF{
-    width: 94%;
-    height: 100%;
-    padding-top: 40px;
-    margin: auto;
+.hourForecastSwiperTwoDay{
     padding-bottom: 40px;
-
-
 }
+
 .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -1042,8 +1043,17 @@ input[type="text"]:hover{
 
 .time-card{
     padding-top: 35px;
+    font-size: 35px;
 }
-
+.temperature-week{
+    font-size: 60px;
+    text-align: center;
+    padding-top: 40px;
+}
+.weather_png-TD{
+    padding-top: 20px;
+    width: 90px;
+}
 .forecast-hours{
     font-size: 35px;
 }
@@ -1118,7 +1128,7 @@ input[type="text"]:hover{
 .temp-card-forecast-two-day{
     margin: auto;
     border-radius: 40.11px;
-    width:80%;
+    width:90%;
     background: rgba(255, 87, 255, 0.08);
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
 }
