@@ -744,8 +744,10 @@ input[type="text"]:hover{
     font-family: "Unbounded ExtraLight";
     font-size: 50px;
     padding-top: 40px;
+    padding-bottom: 40px;
     text-align: center;
     width: 100%;
+
 }
 
 .botton_acc{
@@ -975,7 +977,6 @@ input[type="text"]:hover{
     margin: auto;
     border-radius: 40.11px;
     width: 58%;
-    height: 410px;
     background: rgba(255, 87, 255, 0.08);
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
 }
@@ -984,7 +985,7 @@ input[type="text"]:hover{
     margin: auto;
     border-radius: 40.11px;
     width: 59%;
-    height: 410px;
+
     background: rgba(255, 87, 255, 0.08);
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.35);
 }
