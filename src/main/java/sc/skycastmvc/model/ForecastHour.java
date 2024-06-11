@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * Информационный класс, использующийся для хранения климатических данных в
@@ -20,4 +19,10 @@ public class ForecastHour {
     private Integer temp_c;
 
     private Condition condition;
+
+    public String getTime() {
+        int hour = time.getHour();
+        int minute = time.getMinute();
+        return String.format("%02d:%02d", hour, minute);
+    }
 }
