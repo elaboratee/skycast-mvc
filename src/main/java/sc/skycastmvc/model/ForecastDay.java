@@ -1,0 +1,21 @@
+package sc.skycastmvc.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
+import java.time.LocalDate;
+import java.util.Date;
+
+/**
+ * Информационный класс, использующийся для хранения даты <code>date</code>
+ * и массива почасовых климатических данных <code>hour</code>
+ * @see ForecastHour
+ */
+@Data
+public class ForecastDay {
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
+    private ForecastHour[] hours;
+}

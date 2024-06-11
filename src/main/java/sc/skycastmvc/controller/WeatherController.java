@@ -5,16 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import sc.skycastmvc.model.CurrentWeather;
+import sc.skycastmvc.model.Weather;
 
 @Controller
 @RequestMapping("/weather")
-@SessionAttributes("currentWeather")
+@SessionAttributes("weather")
 public class WeatherController {
 
-    @ModelAttribute("currentWeather")
-    public CurrentWeather currentWeather() {
-        return new CurrentWeather();
+    @ModelAttribute("weather")
+    public Weather Weather() {
+        return new Weather();
     }
 
     @GetMapping

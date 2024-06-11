@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 /**
  * Информационный класс, испольщуюшийся для хранения вспомогательных данных
  * о климате, таких как описание погоды и соответствующая ему иконка
- * @see CurrentClimateData
  */
 @Data
 @AllArgsConstructor

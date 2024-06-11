@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 /**
  * Информационный класс, хранящий данные о географическом
  * местоположении города и его часовом поясе
- * @see Weather
  */
 @Data
 public class Location {

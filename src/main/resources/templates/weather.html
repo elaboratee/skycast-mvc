@@ -64,7 +64,7 @@
                 <form class="search"
                       th:action="@{/weather/current/get}"
                       method="post"
-                      th:object="${currentWeather}">
+                      th:object="${weather}">
                     <input type="search"
                            th:field="*{cityName}"
                            required>

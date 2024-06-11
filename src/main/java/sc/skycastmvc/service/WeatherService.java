@@ -7,12 +7,13 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
-import sc.skycastmvc.model.CurrentClimateData;
-import sc.skycastmvc.model.Location;
+import sc.skycastmvc.model.*;
 
 import java.io.IOException;
 
@@ -28,6 +29,39 @@ public class WeatherService {
     public WeatherService(WeatherServiceProps props, ObjectMapper objectMapper) {
         this.props = props;
         this.objectMapper = objectMapper;
+    }
+
+    public JSONObject getCurrentWeatherJSON(String cityName)
+            throws JSONException {
+
+        OkHttpClient httpClient = new OkHttpClient();
+
+        // Формирование URL-запроса к API
+        String url = props.getUrl() + "/forecast.json?" +
+                "key=" + props.getApiKey() +
+                "&q=" + cityName +
+                "&lang=" + props.getLang() +
+                "&days=" + props.getDays();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        // Выполнение запроса
+        try (Response response = httpClient.newCall(request).execute()) {
+
+            log.info("Request executed: {}", request);
+
+            // Обработка ответа API
+            if (response.isSuccessful()) {
+                return new JSONObject(response.body().string());
+            } else {
+                throw new JSONException("Weather request failed: " + response.code());
+            }
+        } catch (IOException e) {
+            throw new JSONException("Weather request failed: " + e.getMessage());
+        }
     }
 
     public Location parseLocation(JSONObject jsonObject) {
@@ -60,34 +94,38 @@ public class WeatherService {
         return currentClimateData;
     }
 
-    public JSONObject getCurrentWeatherJSON(String cityName)
-            throws JSONException {
+    public ForecastClimateData parseForecastClimateData(JSONObject jsonObject) {
 
-        OkHttpClient httpClient = new OkHttpClient();
+        ForecastClimateData forecastClimateData = new ForecastClimateData();
+        try {
+            // Парсинг объекта "forecast" из ответа API
+            JSONObject forecastJson = jsonObject.getJSONObject("forecast");
 
-        // Формирование URL-запроса к API
-        String url = props.getUrl() + "/current.json?" +
-                "key=" + props.getApiKey() +
-                "&q=" + cityName +
-                "&lang=" + props.getLang();
+            // Парсинг массива объектов "forecastday" из объекта "forecast"
+            JSONArray forecastDayJson = forecastJson.getJSONArray("forecastday");
 
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
+            ForecastDay[] forecastDays = new ForecastDay[forecastDayJson.length()];
+            for (int i = 0; i < forecastDayJson.length(); i++) {
+                JSONObject dayJson = forecastDayJson.getJSONObject(i);
 
-        // Выполнение запроса
-        try (Response response = httpClient.newCall(request).execute()) {
-            // Обработка ответа API
-            if (response.isSuccessful()) {
-                JSONObject json = new JSONObject(response.body().string());
-//                return json.getJSONObject("current");
-                return json;
-            } else {
-                throw new JSONException("Weather request failed: " + response.code());
+                ForecastDay forecastDay = new ForecastDay();
+
+                // Парсинг массива объектов "hour"
+                JSONArray forecastHourJson = dayJson.getJSONArray("hour");
+
+                ForecastHour[] forecastHours = new ForecastHour[forecastHourJson.length()];
+                for (int j = 0; j < forecastHourJson.length(); j++) {
+                    JSONObject hour = forecastHourJson.getJSONObject(j);
+                    forecastHours[j] = objectMapper.readValue(hour.toString(), ForecastHour.class);
+                }
+                forecastDays[i] = objectMapper.readValue(dayJson.toString(), ForecastDay.class);
+                forecastDays[i].setHours(forecastHours);
             }
-        } catch (IOException e) {
-            throw new JSONException("Weather request failed: " + e.getMessage());
+            forecastClimateData.setForecastDays(forecastDays);
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
         }
+        return forecastClimateData;
     }
 }
