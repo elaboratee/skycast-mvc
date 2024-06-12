@@ -1,10 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
 <head>
+    <link rel="stylesheet" th:href="@{/about.css}">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Погода - SkyCast</title>
+    <link rel="icon" th:href="@{/images/favicon.ico}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 </head>
 <body>
+<header class="Header">
+    <div class="Header_index">
+        <a href="" class="Logo_link">
+            <div class="Logo">
+                <img th:src="@{/images/Logo_bar.png}" alt="">
+            </div>
+        </a>
+        <div class="menu-bar">
 
+            <form th:action="@{/weather/returnHome}"
+                  method="GET">
+                <input type="submit"
+                       value="Главная"
+                       class="Primary">
+            </form>
+            <form th:action="@{/weather}"
+                  method="GET">
+                <input type="submit"
+                       value="Погода"
+                       class="Weather">
+            </form>
+            <a href="" class="About_us">
+                О нас
+            </a>
+        </div>
+        <div class="Button_block">
+            <div></div>
+            <div class="header-menu">
+                <a th:href="@{/account}" class="botton_acc">Личный кабинет</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="background">
+    <div id="circle">
+        <div id="circle-glow"></div>
+        <div id="circle-inner"></div>
+    </div>
+</div>
+
+<div id="app">
+    <div id="nav">
+        <div id="nav-items">
+            <div class="nav-item">
+                <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="nav-item">
+                <i class="fa-solid fa-comment"></i>
+            </div>
+            <div class="nav-item">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="nav-item">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="nav-item">
+                <i class="fa-solid fa-image"></i>
+            </div>
+            <div class="nav-item">
+                <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <div class="nav-item">
+                <i class="fa-solid fa-dice"></i>
+            </div>
+        </div>
+    </div>
+    <div class="about_us">
+        <div class="group">Выполнила группа <span class="city_name">245</span></div>  <div class="logo-rad"><img  th:src="@{images/logo_RSREU.png}"  alt=""/></div>
+    </div>
+    <div id="profiles">
+
+        <div class="profile">
+            <div class="profile-content">
+                <div class="profile-pic">
+                    <img class="profile-pic-image" th:src="@{images/ilya.jpg}" alt=""/>
+                </div>
+                <h3 class="profile-name">Илья Сокол</h3><div class="developer">Backend-Разработчик <br> Тестировщик</div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-content">
+                <div class="profile-pic">
+                    <img class="profile-pic-image" th:src="@{images/kirill.jpg}" alt=""/>
+                </div>
+                <h3 class="profile-name">Кирилл Лапин</h3><div class="developer">Frontend-Разработчик <br>Веб-дизайнер</div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-content">
+                <div class="profile-pic">
+                    <img class="profile-pic-image" th:src="@{images/dima.jpg}" alt=""/>
+                </div>
+                <h3 class="profile-name">Дмитрий Москвитин</h3><div class="developer">Аналитик</div>
+            </div>
+        </div>
+<div class="footer">
+
+    <!-- FOOTER -->
+
+
+    <div class="Footer_ar">
+        <div class="navigate_bar">
+            <a class="Logo_footer">
+                <img th:src="@{/images/footer.png}" alt="">
+            </a>
+            <div class="inf_1">
+                <div class="useful_assistant">Полезный помощник в вашем кармане</div>
+                <div class="social_logo">
+
+                    <div class="vk">
+                        <a th:href="@{https://vk.com/club225712381}">
+                            <img th:src="@{/images/vk.png}" alt="">
+                        </a>
+                    </div>
+
+                    <div class="tg">
+                        <a th:href="@{https://t.me/SkyCastApp}">
+                            <img th:src="@{/images/tg.png}" alt="">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inf_2">
+                <div class="communication">Связь с нами:</div>
+                <div class="number">Тел: 8-(960)-874-87-93</div>
+                <div class="email_communication">Email: skycastapp@gmail.com</div>
+            </div>
+            <div class="inf_3">
+                <div class="cmw">Написать нам:</div>
+                <div class='social_logo'>
+                    <div class="vk">
+                        <a th:href="@{https://vk.com/club225712381}">
+                            <img th:src="@{/images/vk.png}" alt="">
+                        </a>
+                    </div>
+                    <div class="tg">
+                        <a th:href="@{https://t.me/SkyCastApp}">
+                            <img th:src="@{/images/tg.png}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="inf_4">
+                <div class="repost">Поделитесь с друзьями</div>
+                <div class="button_repost">
+                    <a href="" class="botton_ar">
+                        Поделиться
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="OpenWeatherApiInf">
+            <div class="logo_ow">
+                <img th:src="@{/images/ow.png}" alt="">
+            </div>
+            <div class="informaitionAPI">
+                С использованием WeatherAPI – ведущим поставщиком данных о погоде, предоставляющий обширный
+                набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-</html>
