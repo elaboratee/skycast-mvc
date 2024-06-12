@@ -5,6 +5,10 @@ import lombok.Data;
 import sc.skycastmvc.model.weather.Condition;
 
 import java.time.LocalDateTime;
+import java.time.format.TextStyle;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Информационный класс, использующийся для хранения климатических данных в

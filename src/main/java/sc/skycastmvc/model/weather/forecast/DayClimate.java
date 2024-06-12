@@ -23,7 +23,5 @@ public class DayClimate {
 
     private Double daily_chance_of_rain;
 
-    private Double daily_chance_of_snow;
-
     private Condition condition;
 }
