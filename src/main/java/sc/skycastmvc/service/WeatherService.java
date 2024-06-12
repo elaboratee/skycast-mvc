@@ -45,7 +45,9 @@ public class WeatherService {
                 "key=" + props.getApiKey() +
                 "&q=" + cityName +
                 "&lang=" + props.getLang() +
-                "&days=" + props.getDays();
+                "&days=" + "8";
+
+        log.error("URL: {}", url);
 
         Request request = new Request.Builder()
                 .url(url)

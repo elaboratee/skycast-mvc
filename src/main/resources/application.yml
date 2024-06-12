@@ -5,7 +5,7 @@ spring:
 
 weather:
   service:
-    api-key: 59a483515dfa42b2b54122033241105
+    api-key: 16f1d682ca8647a0b9b211336241206
     url: http://api.weatherapi.com/v1
     lang: ru
     days: 8

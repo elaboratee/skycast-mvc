@@ -4,9 +4,9 @@
         xmlns:th="http://www.thymeleaf.org"
         lang="en">
 <head>
-    <link rel="stylesheet" th:href="@{/account.css}">
+    <link rel="stylesheet" th:href="@{/search.css}">
     <meta charset="UTF-8">
-    <title>Личный кабинет - SkyCast</title>
+    <title>Погода - SkyCast</title>
     <link rel="icon" th:href="@{/images/favicon.ico}">
 
 
@@ -52,7 +52,8 @@
             <form th:action="@{/account}"
                   method="GET">
                 <input type="submit"
-                       value="Личный кабинет" class="button_acc">
+                       value="Личный кабинет"
+                       class="button_acc">
             </form>
         </div>
     </div>
@@ -61,52 +62,26 @@
 
 <div class="app-wrapper">
     <div class="elipse_1"></div>
-    <div class="page-content page-container" id="page-content">
-        <div class="padding">
-            <div class="row container d-flex justify-content-center">
-                <div class="col-xl-6 col-md-12">
-                    <div class="card user-card-full">
-                        <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile">
-                                <div class="card-block text-center text-white">
-                                    <div class="group">
-                                        Личный кабинет
-                                    </div>
-
-                                    <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="card-block">
-                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Информация</h6>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Имя пользователя</p>
-                                            <h6 class="text-muted f-w-400">
-                                                <span th:text="${user.username}"></span>
-                                            </h6>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Пароль</p>
-                                            <h6 class="text-muted f-w-400">
-                                                <span th:text="${user.password}"></span>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="delete"><a th:href="@{/account}" class="button_del">Удалить аккаунт</a></div>
-                                    </div>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="content">
+        <div class="elipse_2"></div>
+        <div class="research">
+            <h1>Выберите город, в котором хотите узнать погоду:</h1>
+            <div class="research-bar">
+                <form class="search"
+                      th:action="@{/weather/get}"
+                      method="post"
+                      th:object="${weather}">
+                    <input type="search"
+                           id="cityInput"
+                           th:field="*{cityName}"
+                           required>
+                    <button type="submit">Найти</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="footer">
 

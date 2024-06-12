@@ -36,15 +36,18 @@
                        value="Главная"
                        class="Primary">
             </form>
-            <form th:action="@{/weather}"
+            <form th:action="@{/search}"
                   method="GET">
                 <input type="submit"
                        value="Погода"
                        class="Weather">
             </form>
-            <a href="" class="About_us">
-                О нас
-            </a>
+            <form th:action="@{/about}"
+                  method="GET">
+                <input type="submit"
+                       value="О нас"
+                       class="About_us">
+            </form>
         </div>
         <div class="Button_block">
             <div class="header-menu">

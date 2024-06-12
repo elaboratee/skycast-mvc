@@ -28,27 +28,33 @@
         </a>
         <div class="menu-bar">
 
-            <form th:action="@{/weather/returnHome}"
+            <form th:action="@{/}"
                   method="GET">
                 <input type="submit"
                        value="Главная"
                        class="Primary">
             </form>
-            <form th:action="@{/weather}"
+            <form th:action="@{/search}"
                   method="GET">
                 <input type="submit"
                        value="Погода"
                        class="Weather">
             </form>
-            <a href="" class="About_us">
-                О нас
-            </a>
+            <form th:action="@{/about}"
+                  method="GET">
+                <input type="submit"
+                       value="О нас"
+                       class="About_us">
+            </form>
         </div>
         <div class="Button_block">
             <div></div>
-            <div class="header-menu">
-                <a th:href="@{/account}" class="botton_acc">Личный кабинет</a>
-            </div>
+            <form th:action="@{/account}"
+                  method="GET">
+                <input type="submit"
+                       value="Личный кабинет"
+                       class="button_acc">
+            </form>
         </div>
     </div>
 </header>
@@ -89,7 +95,7 @@
         </div>
     </div>
     <div class="about_us">
-        <div class="group">Выполнили студенты группы <span class="city_name">245</span></div>
+        <div class="group">Разработали студенты группы <span class="city_name">245</span></div>
     </div>
     <div class="logo-rad"><img  th:src="@{images/logo_RSREU.png}"  alt=""/></div>
     <div class = "line9"></div>
