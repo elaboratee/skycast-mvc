@@ -3,10 +3,6 @@ spring:
     generate-unique-name: false
     name: skycast
 
-logging:
-  level:
-    root: INFO
-
 weather:
   service:
     api-key: 59a483515dfa42b2b54122033241105
