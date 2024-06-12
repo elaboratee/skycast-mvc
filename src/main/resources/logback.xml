@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="logs/app.log"/>
+
+    <appender name="FILE_ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- max archived file size -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- total size of all archived files -->
+            <totalSizeCap>100MB</totalSizeCap>
+            <!-- archived files will be kept for -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d - %p - %c{1} - [%t] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss.SSS} - [%t] - %-5level - %logger{36} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <logger name="sc.skycastmvc.controller" level="info" additivity="false">
+        <appender-ref ref="FILE_ROLLING"/>
+    </logger>
+
+    <logger name="sc.skycastmvc.controller" level="info" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="sc.skycastmvc.service" level="error" additivity="false">
+        <appender-ref ref="FILE_ROLLING"/>
+    </logger>
+
+    <logger name="sc.skycastmvc.service" level="error" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="FILE_ROLLING"/>
+    </root>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
