@@ -61,10 +61,12 @@ public class WeatherService {
             if (response.isSuccessful()) {
                 return new JSONObject(response.body().string());
             } else {
-                throw new JSONException("Weather request failed: " + response.code());
+                log.error("Request failed: {}", response.code());
+                throw new JSONException("Request failed: " + response.code());
             }
         } catch (IOException e) {
-            throw new JSONException("Weather request failed: " + e.getMessage());
+            log.error("Request can not be executed: {}", request);
+            throw new JSONException("Request can not be executed: " + e.getMessage());
         }
     }
 
@@ -78,7 +80,7 @@ public class WeatherService {
             // Выполнение маппинга атрибутов JSON-объекта на поля Location
             location = objectMapper.readValue(locationJson.toString(), Location.class);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            log.error("Location can not be parsed: {}", locationJson);
         }
         return location;
     }
@@ -93,17 +95,18 @@ public class WeatherService {
             // Выполнение маппинга атрибутов JSON-объекта на поля CurrentClimateData
             currentClimateData = objectMapper.readValue(currentJson.toString(), CurrentClimateData.class);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            log.error("CurrentClimateData can not be parsed: {}", currentJson);
         }
         return currentClimateData;
     }
 
     public ForecastClimateData parseForecastClimateData(JSONObject jsonObject) {
 
+        // Парсинг объекта "forecast" из ответа API
+        JSONObject forecastJson = jsonObject.getJSONObject("forecast");
+
         ForecastClimateData forecastClimateData = new ForecastClimateData();
         try {
-            // Парсинг объекта "forecast" из ответа API
-            JSONObject forecastJson = jsonObject.getJSONObject("forecast");
 
             // Парсинг массива объектов "forecastday" из объекта "forecast"
             JSONArray forecastDayJson = forecastJson.getJSONArray("forecastday");
@@ -130,9 +133,9 @@ public class WeatherService {
             forecastClimateData.setForecastDays(forecastDays);
 
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            log.error("ForecastClimateData can not be parsed: {}", forecastJson);
         }
-        log.info("Climate data: {}", forecastClimateData);
+
         return forecastClimateData;
     }
 }

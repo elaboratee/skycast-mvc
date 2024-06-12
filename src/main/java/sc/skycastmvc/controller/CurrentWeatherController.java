@@ -2,6 +2,7 @@ package sc.skycastmvc.controller;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -33,8 +34,14 @@ public class CurrentWeatherController {
                                  @ModelAttribute Weather weather,
                                  @AuthenticationPrincipal UserEntity user) {
 
-        JSONObject weatherJson = weatherService.getClimateDataJSON(cityName);
         log.info("User ({}, {}) requested JSON for {}", user.getId(), user.getUsername(), cityName);
+
+        JSONObject weatherJson;
+        try {
+            weatherJson = weatherService.getClimateDataJSON(cityName);
+        } catch (JSONException e) {
+            return "redirect:/error";
+        }
 
         weather.setLocation(weatherService.parseLocation(weatherJson));
         weather.setCurrent(weatherService.parseCurrentClimateData(weatherJson));
