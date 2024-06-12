@@ -35,7 +35,7 @@ public class WeatherService {
         this.objectMapper = objectMapper;
     }
 
-    public JSONObject getCurrentWeatherJSON(String cityName)
+    public JSONObject getClimateDataJSON(String cityName)
             throws JSONException {
 
         OkHttpClient httpClient = new OkHttpClient();

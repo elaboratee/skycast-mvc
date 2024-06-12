@@ -30,7 +30,7 @@ public class CurrentWeatherController {
     public String processWeather(@NotBlank String cityName,
                                  @ModelAttribute Weather weather) {
 
-        JSONObject weatherJson = weatherService.getCurrentWeatherJSON(cityName);
+        JSONObject weatherJson = weatherService.getClimateDataJSON(cityName);
 
         weather.setLocation(weatherService.parseLocation(weatherJson));
         weather.setCurrent(weatherService.parseCurrentClimateData(weatherJson));
