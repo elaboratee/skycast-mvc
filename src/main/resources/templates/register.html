@@ -105,6 +105,11 @@
 <!--                                       name="password"-->
 <!--                                       id="password"/>-->
 
+<!--                                <div class="name_form_password_repeat">Повторите пароль:</div>-->
+<!--                                <input type="password"-->
+<!--                                       name="confirm"-->
+<!--                                       id="confirm"/>-->
+
                                 <label for="username">Логин:</label>
                                 <input type="text"
                                        name="username"
@@ -123,10 +128,15 @@
                                       th:if="${#fields.hasErrors('password')}"
                                       th:errors="*{password}">Ошибка пароля</span>
 
-                                <div class="name_form_password_repeat">Повторите пароль:</div>
+                                <label for="confirm">Повторите пароль:</label>
                                 <input type="password"
                                        name="confirm"
-                                       id="confirm"/>
+                                       id="confirm"
+                                       th:field="*{matchingPassword}"/>
+                                <span class="validation_error"
+                                      th:if="${#fields.hasErrors('matchingPassword')}"
+                                      th:errors="*{matchingPassword}">Пароли не совпадают</span>
+
                             </div>
                             <input type="submit" value="Зарегистрироваться" class="button_input"/>
                         </form>
