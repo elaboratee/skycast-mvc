@@ -29,6 +29,6 @@ public class HomeController {
 
     @GetMapping("/start")
     public String startUsage() {
-        return "redirect:/weather";
+        return "redirect:/search";
     }
 }
