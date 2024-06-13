@@ -47,7 +47,16 @@
                        class="About_us">
             </form>
         </div>
-        <div class="Button_block">
+        <div class="Button_block" sec:authorize="isAnonymous()">
+            <div class="header-menu">
+                <a th:href="@{/login}" class="botton_auth">Вход</a>
+            </div>
+            <div class="header-menu">
+                <a th:href="@{/register}" class="botton_ar">Регистрация</a>
+            </div>
+        </div>
+
+        <div class="Button_block" sec:authorize="isAuthenticated()">
             <div></div>
             <form th:action="@{/account}"
                   method="GET">
@@ -126,7 +135,8 @@
             </div>
         </div>
     </div>
-</div><div class = "line9"></div>
+</div>
+
 <div class="footer">
 
     <!-- FOOTER -->
@@ -158,7 +168,7 @@
             <div class="inf_2">
                 <div class="communication">Связь с нами:</div>
                 <div class="number">Тел: 8-(960)-874-87-93</div>
-                <div class="email_communication">Email: skycastapp@gmail.com</div>
+                <div class="email_communication">Email: skycast2024@gmail.com</div>
             </div>
             <div class="inf_3">
                 <div class="cmw">Написать нам:</div>

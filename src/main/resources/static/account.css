@@ -990,6 +990,9 @@ input[type="text"]:hover{
     font-size: 70px;
     text-align: left;
 }
+.fix-padding{
+    margin-top: 80px;
+}
 .group{
     font-size: 50px;
     font-family: "Unbounded ExtraLight";
