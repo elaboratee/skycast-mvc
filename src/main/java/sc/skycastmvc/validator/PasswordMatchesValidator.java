@@ -15,6 +15,15 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
     public boolean isValid(Object obj,
                            ConstraintValidatorContext context) {
         RegistrationForm form = (RegistrationForm) obj;
-        return form.getPassword().equals(form.getMatchingPassword());
+        if (!form.getPassword().equals(form.getMatchingPassword())) {
+            // Отключаем стандартную ошибку
+            context.disableDefaultConstraintViolation();
+            // Создаем кастомную ошибку
+            context.buildConstraintViolationWithTemplate("Пароли не совпадают")
+                    .addPropertyNode("matchingPassword")
+                    .addConstraintViolation();
+            return false;
+        }
+        return true;
     }
 }
