@@ -188,3 +188,21 @@ a.more-link {
     filter: blur(370px);
     background: rgba(193, 62, 239, 0.45);
 }
+.button_acc{
+    margin: auto;
+    width: 220px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 30px 0px 0px auto;
+    /*margin-top: 30px;*/
+    text-decoration:none;
+    font-family: "Manrope ExtraBold";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 16px;
+    /* stroke_color */
+    border: 2px solid rgb(197, 54, 239);
+    border-radius: 52.11px;
+    box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+    background: rgba(255, 87, 255, 0.08);
+}
