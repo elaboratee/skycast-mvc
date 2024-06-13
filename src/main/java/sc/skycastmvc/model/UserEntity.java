@@ -25,6 +25,7 @@ public class UserEntity implements UserDetails {
     private Long id;
 
     private final String username;
+
     private final String password;
 
     @Override
