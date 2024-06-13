@@ -7,7 +7,9 @@ import sc.skycastmvc.validator.PasswordMatchesValidator;
 import java.lang.annotation.*;
 
 /**
- * Проверяет, совпадают ли поля <code>password</code> и <code></code>
+ * Проверяет, совпадают ли поля <code>password</code> и <code>matchingPassword</code>
+ * класса {@link sc.skycastmvc.misc.RegistrationForm}
+ * @see PasswordMatchesValidator
  */
 @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)

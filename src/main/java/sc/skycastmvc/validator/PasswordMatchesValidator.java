@@ -5,6 +5,11 @@ import jakarta.validation.ConstraintValidatorContext;
 import sc.skycastmvc.annotation.PasswordMatches;
 import sc.skycastmvc.misc.RegistrationForm;
 
+/**
+ * Отвечает за валидацию совпадения паролей формы регистрации пользователя
+ * {@link RegistrationForm}. При несовпадении паролей выбрасывает кастомную ошибку
+ * @see PasswordMatches
+ */
 public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
 
     @Override
