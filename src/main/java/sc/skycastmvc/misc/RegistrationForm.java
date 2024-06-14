@@ -11,15 +11,15 @@ import sc.skycastmvc.model.UserEntity;
 @PasswordMatches
 public class RegistrationForm {
 
-    @NotBlank(message = "Имя пользователя не должно быть пустым")
-    @Size(min = 1, max = 20, message = "Имя пользователя должно иметь длину от 1 до 20 знаков")
+    @NotBlank(message = "⃰ Имя пользователя не должно быть пустым")
+    @Size(min = 1, max = 20, message = "⃰ Имя пользователя должно иметь длину от 1 до 20 знаков")
     private String username;
 
-    @NotBlank(message = "Пароль не должен быть пустым")
-    @Size(min = 6, max = 16, message = "Пароль должен иметь длину от 6 до 16 знаков")
+    @NotBlank(message = "⃰ Пароль не должен быть пустым")
+    @Size(min = 6, max = 16, message = "⃰ Пароль должен иметь длину от 6 до 16 знаков")
     private String password;
 
-    @NotBlank(message = "Проверочный пароль не должен быть пустым")
+    @NotBlank(message = "⃰ Проверочный пароль не должен быть пустым")
     private String matchingPassword;
 
     public UserEntity toUserEntity(PasswordEncoder passwordEncoder) {

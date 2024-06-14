@@ -93,16 +93,13 @@
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="delete"><a th:href="@{/account}" class="button_del">Удалить аккаунт</a></div>
-                                    </div>
+
 
                                     <div class="row">
-                                        <div class="delete">
+                                        <div class="logout">
                                             <form th:action="@{/logout}" method="get">
-                                                <input type="submit" value="Выйти из аккаунта">
+                                                <input type="submit" class="button_logout" value="Выйти из аккаунта">
                                             </form>
-<!--                                        <a th:href="@{/logout}" class="button_del">Выйти из аккаунта</a>-->
                                         </div>
                                     </div>
                                 </div>
