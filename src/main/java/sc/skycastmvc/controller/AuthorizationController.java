@@ -14,8 +14,8 @@ import sc.skycastmvc.model.UserEntity;
 public class AuthorizationController {
 
     @GetMapping
-    public String login(SessionStatus sessionStatus,
-                        @AuthenticationPrincipal UserEntity user) {
+    public String getLoginForm(SessionStatus sessionStatus,
+                               @AuthenticationPrincipal UserEntity user) {
         if (user != null) {
             sessionStatus.setComplete();
             log.info("Session completed for user: ({}, {})", user.getId(), user.getUsername());

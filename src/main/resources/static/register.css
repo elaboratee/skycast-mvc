@@ -66,7 +66,6 @@ body{
 }
 .Block_ar{
     display: block;
-    height: 900px;
     box-sizing: border-box;
     /* stroke_color */
     border: 1px solid rgb(197, 54, 239);
@@ -124,7 +123,6 @@ body{
     border: none;
     border-bottom: 1px solid #ffffff;
     width: 250px;
-    margin-bottom: 40px;
     font-family: "Manrope";
     font-size: 20px;
     color: white;
@@ -329,7 +327,13 @@ body{
     width: auto;
     display: block;
     max-width: 300px;
-    margin: 0 auto;
-    margin-top: 50px;
+    margin: 50px auto 50px;
     color: white;
+}
+.validation_error{
+    font-size: 10px;
+    color: #CC4BF6;
+}
+.block_form{
+    margin-bottom: 40px;
 }

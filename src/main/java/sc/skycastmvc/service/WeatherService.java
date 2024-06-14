@@ -47,8 +47,6 @@ public class WeatherService {
                 "&lang=" + props.getLang() +
                 "&days=" + "8";
 
-        log.error("URL: {}", url);
-
         Request request = new Request.Builder()
                 .url(url)
                 .get()

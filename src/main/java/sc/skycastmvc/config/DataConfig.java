@@ -21,7 +21,7 @@ public class DataConfig {
     @Bean
     public CommandLineRunner loadUsers(UserRepository userRepository) {
         return args -> {
-            userRepository.save(new UserEntity("admin", passwordEncoder.encode("0000")));
+            userRepository.save(new UserEntity("admin", passwordEncoder.encode("qqwwee")));
         };
     }
 }

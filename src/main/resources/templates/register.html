@@ -89,23 +89,46 @@
 
                     <!-- --------------------------ФОРМЫ--------------------------------------- -->
                         <form th:action="@{/register}"
+                              th:object="${registrationForm}"
                               method="POST"
-                              id="registerForm">
+                              id="registrationForm">
 
                             <div class="form_user">
-
-                               <div class="name_form_login">Логин:</div>
+                                <div class="block_form">
+                                    <div class="name_form_login">Логин:</div>
                                     <input type="text"
                                            name="username"
-                                           id="username"/>
-
-                                <div class="name_form_password">Пароль:</div>
+                                           id="username"
+                                           th:field="*{username}"/>
+                                    <div class="validation_error_block"><span class="validation_error"
+                                          th:if="${#fields.hasErrors('username')}"
+                                          th:errors="*{username}">Ошибка имени пользователя</span>
+                                    </div>
+                                </div>
+                                <div class="block_form">
+                                    <div class="name_form_password">Пароль:</div>
                                     <input type="password"
                                            name="password"
-                                           id="password"/>
-
-                                <div class="name_form_password_repeat">Повторите пароль:</div>
-                                    <input type="password" name="confirm" id="confirm"/>
+                                           id="password"
+                                           th:field="*{password}"/>
+                                    <div class="validation_error_block">
+                                    <span class="validation_error"
+                                          th:if="${#fields.hasErrors('password')}"
+                                          th:errors="*{password}">Ошибка пароля</span>
+                                    </div>
+                                </div>
+                                <div class="block_form">
+                                    <div class="name_form_password_repeat">Повторите пароль:</div>
+                                    <input type="password"
+                                           name="confirm"
+                                           id="confirm"
+                                           th:field="*{matchingPassword}"/>
+                                    <div class="validation_error_block">
+                                    <span class="validation_error"
+                                          th:if="${#fields.hasErrors('matchingPassword')}"
+                                          th:errors="*{matchingPassword}">Пароли не совпадают</span>
+                                    </div>
+                                </div>
                             </div>
                             <input type="submit" value="Зарегистрироваться" class="button_input"/>
                         </form>
