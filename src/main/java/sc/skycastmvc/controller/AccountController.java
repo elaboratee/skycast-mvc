@@ -42,7 +42,7 @@ public class AccountController {
         return "account";
     }
 
-    @PostMapping
+    @PostMapping("/change_password")
     public String changePassword(@Valid PasswordChangeForm form,
                                  @AuthenticationPrincipal UserEntity user,
                                  Errors errors) {
