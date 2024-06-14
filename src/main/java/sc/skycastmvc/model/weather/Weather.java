@@ -1,5 +1,6 @@
 package sc.skycastmvc.model.weather;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ import java.util.TimeZone;
 @AllArgsConstructor
 public final class Weather {
 
+    @NotBlank(message = "Название города не должно быть пустым")
     private String cityName;
 
     private Date dateTime = new Date();
