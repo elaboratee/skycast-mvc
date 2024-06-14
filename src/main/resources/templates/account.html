@@ -89,15 +89,20 @@
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Пароль</p>
                                             <h6 class="text-muted f-w-400">
-                                                <span th:text="${user.password}"></span>
+<!--                                                <span th:text="${user.password}"></span>-->
+                                                <a>Изменить пароль</a>
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="delete"><a th:href="@{/account}" class="button_del">Удалить аккаунт</a></div>
-                                    </div>
 
-                                    </ul>
+
+                                    <div class="row">
+                                        <div class="logout">
+                                            <form th:action="@{/logout}" method="get">
+                                                <input type="submit" class="button_logout" value="Выйти из аккаунта">
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +144,7 @@
             <div class="inf_2">
                 <div class="communication">Связь с нами:</div>
                 <div class="number">Тел: 8-(960)-874-87-93</div>
-                <div class="email_communication">Email: skycastapp@gmail.com</div>
+                <div class="email_communication">Email: skycast2024@gmail.com</div>
             </div>
             <div class="inf_3">
                 <div class="cmw">Написать нам:</div>

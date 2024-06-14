@@ -1,10 +1,13 @@
 package sc.skycastmvc.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
@@ -26,6 +29,11 @@ public class RegistrationController {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @ModelAttribute("registrationForm")
+    public RegistrationForm registrationForm() {
+        return new RegistrationForm();
+    }
+
     @GetMapping
     public String register(SessionStatus sessionStatus,
                            @AuthenticationPrincipal UserEntity user) {
@@ -37,7 +45,13 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String processRegistration(RegistrationForm form) {
+    public String processRegistration(@Valid RegistrationForm form,
+                                      Errors errors) {
+
+        if (errors.hasErrors()) {
+            return "register";
+        }
+
         userRepository.save(form.toUserEntity(passwordEncoder));
         log.info("User registered successfully: {}", form.toString());
         return "redirect:/login";

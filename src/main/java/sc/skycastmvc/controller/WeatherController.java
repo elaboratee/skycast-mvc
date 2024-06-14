@@ -1,6 +1,5 @@
 package sc.skycastmvc.controller;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,15 +29,15 @@ public class WeatherController {
     }
 
     @PostMapping("/get")
-    public String processWeather(@NotBlank String cityName,
-                                 @ModelAttribute Weather weather,
+    public String processWeather(@ModelAttribute Weather weather,
                                  @AuthenticationPrincipal UserEntity user) {
 
-        log.info("User ({}, {}) requested JSON for {}", user.getId(), user.getUsername(), cityName);
+        log.info("User ({}, {}) requested JSON for {}",
+                user.getId(), user.getUsername(), weather.getCityName());
 
         JSONObject weatherJson;
         try {
-            weatherJson = weatherService.getClimateDataJSON(cityName);
+            weatherJson = weatherService.getClimateDataJSON(weather.getCityName());
         } catch (JSONException e) {
             return "redirect:/error";
         }
