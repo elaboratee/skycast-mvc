@@ -34,8 +34,10 @@ public class SecurityConfig {
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/search", "/weather/**").access("hasRole('USER')")
-                        .requestMatchers("/**").access("permitAll()"))
+                        .requestMatchers("/search", "/weather/**", "/account/**")
+                            .access("hasRole('USER')")
+                        .requestMatchers("/**")
+                            .access("permitAll()"))
                 .formLogin(login -> login
                         .loginPage("/login")
                         .defaultSuccessUrl("/")

@@ -83,15 +83,35 @@
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Имя пользователя</p>
                                             <h6 class="text-muted f-w-400">
-                                                <span th:text="${user.username}"></span>
+                                                <span th:text="${username}"></span>
                                             </h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Пароль</p>
                                             <h6 class="text-muted f-w-400">
-<!--                                                <span th:text="${user.password}"></span>-->
-                                                <a>Изменить пароль</a>
+                                                <div>Изменить пароль</div>
                                             </h6>
+
+                                            <form th:action="@{/account/change_password}"
+                                                  th:object="${passwordChangeForm}"
+                                                  id="passwordChangeForm"
+                                                  method="post">
+
+                                                <input type="password"
+                                                       name="newPassword"
+                                                       id="newPassword"
+                                                       th:field="*{newPassword}">
+
+                                                <div class="validation_error_block">
+                                                    <span class="validation_error"
+                                                          th:if="${#fields.hasErrors('newPassword')}"
+                                                          th:errors="*{newPassword}">Ошибка нового пароля</span>
+                                                </div>
+
+                                                <input type="submit"
+                                                       value="Изменить пароль">
+                                            </form>
+
                                         </div>
                                     </div>
 
