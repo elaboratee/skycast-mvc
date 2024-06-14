@@ -98,10 +98,13 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="delete"><a th:href="@{/logout}" class="button_del">Выйти из аккаунта</a></div>
+                                        <div class="delete">
+                                            <form th:action="@{/logout}" method="get">
+                                                <input type="submit" value="Выйти из аккаунта">
+                                            </form>
+<!--                                        <a th:href="@{/logout}" class="button_del">Выйти из аккаунта</a>-->
+                                        </div>
                                     </div>
-
-                                    </ul>
                                 </div>
                             </div>
                         </div>

@@ -38,7 +38,7 @@ public class SecurityConfig {
                         .requestMatchers("/**").access("permitAll()"))
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/", true))
+                        .defaultSuccessUrl("/"))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")

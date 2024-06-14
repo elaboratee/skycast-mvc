@@ -21,7 +21,7 @@ public class HomeController {
                        @AuthenticationPrincipal UserEntity user) {
 
         String referer = request.getHeader("Referer");
-        if (referer != null && referer.contains("login")) {
+        if (user != null && referer != null && referer.contains("login")) {
             log.info("User authenticated: ({}, {})", user.getId(), user.getUsername());
         }
         return "home";
