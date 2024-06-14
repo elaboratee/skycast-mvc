@@ -32,7 +32,7 @@ public class UserAlreadyExistsValidator implements ConstraintValidator<UserAlrea
             // Отключаем стандартную ошибку
             context.disableDefaultConstraintViolation();
             // Создаем кастомную ошибку
-            context.buildConstraintViolationWithTemplate("Такой пользователь уже существует")
+            context.buildConstraintViolationWithTemplate("⃰ Такой пользователь уже существует")
                     .addPropertyNode("username")
                     .addConstraintViolation();
             return false;
