@@ -26,7 +26,7 @@ public class SecurityConfig {
             if (user != null) {
                 return user;
             }
-            throw new UsernameNotFoundException("User '" + username + "' not found");
+            throw new UsernameNotFoundException("Пользователь '" + username + "' не найден");
         };
     }
 
@@ -38,7 +38,8 @@ public class SecurityConfig {
                         .requestMatchers("/**").access("permitAll()"))
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/"))
+                        .defaultSuccessUrl("/")
+                        .failureUrl("/login?error=true"))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
