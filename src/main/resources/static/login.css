@@ -216,7 +216,6 @@ body{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-column-gap: 1px;
         padding-top: 30px;
-
         .Logo_footer img {
             width: 240px;
             max-width: 100%;
