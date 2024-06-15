@@ -1056,7 +1056,6 @@ input[type="text"]:hover{
 }
 
 .button_logout{
-    text-align:right;
     position: absolute;
     width: 220px;
     padding-bottom: 10px;
@@ -1155,4 +1154,40 @@ h6 {
     margin: 0 10px 0 0;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+.col-sm-6 input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    width: 250px;
+    margin-bottom: 40px;
+    font-family: "Manrope";
+    font-size: 20px;
+    color: white;
+}
+.button_input{
+    width: auto;
+    display: block;
+    max-width: 100%;
+
+    width: 260px;
+    font-size: 16px !important;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+    text-decoration:none !important;
+    font-family: "Manrope ExtraBold" !important;
+    color: rgb(255, 255, 255) !important;
+    text-align: center !important;
+
+    /* stroke_color */
+    border: 1px solid rgb(255, 255, 255) !important;
+    border-radius: 30px !important;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%) !important;
+}
+
+.name_form_password_repeat{
+    font-size: 20px;
+    font-family: "Unbounded ExtraLight";
+    color: white;
 }

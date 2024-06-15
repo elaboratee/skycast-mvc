@@ -3,7 +3,6 @@ package sc.skycastmvc.misc;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import sc.skycastmvc.annotation.PasswordMatches;
 import sc.skycastmvc.annotation.UserAlreadyExists;

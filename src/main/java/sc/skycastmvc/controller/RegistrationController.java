@@ -21,6 +21,7 @@ import sc.skycastmvc.repository.UserRepository;
 public class RegistrationController {
 
     private final UserRepository userRepository;
+
     private final PasswordEncoder passwordEncoder;
 
     public RegistrationController(UserRepository userRepository,
@@ -53,7 +54,7 @@ public class RegistrationController {
         }
 
         userRepository.save(form.toUserEntity(passwordEncoder));
-        log.info("User registered successfully: {}", form.toString());
+        log.info("User registered successfully: {}", form);
         return "redirect:/login";
     }
 }

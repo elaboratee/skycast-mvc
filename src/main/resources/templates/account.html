@@ -83,30 +83,51 @@
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Имя пользователя</p>
                                             <h6 class="text-muted f-w-400">
-                                                <span th:text="${user.username}"></span>
+                                                <span th:text="${username}"></span>
                                             </h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Пароль</p>
                                             <h6 class="text-muted f-w-400">
-<!--                                                <span th:text="${user.password}"></span>-->
-                                                <a>Изменить пароль</a>
                                             </h6>
+                                            <form th:action="@{/account/change_password}"
+                                                  th:object="${passwordChangeForm}"
+                                                  id="passwordChangeForm"
+                                                  method="post">
+                                                <div class="name_form_password_repeat">Изменить пароль:
+                                                    <div class="inputNewPassword">
+                                                        <input type="password"
+                                                               name="newPassword"
+                                                               id="newPassword"
+                                                               th:field="*{newPassword}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="validation_error_block">
+                                                    <span class="validation_error"
+                                                          th:if="${#fields.hasErrors('newPassword')}"
+                                                          th:errors="*{newPassword}">Ошибка нового пароля</span>
+                                                </div>
+
+                                                <input type="submit"
+                                                       value="Изменить пароль"
+                                                        class="button_input"/>
+                                            </form>
+
                                         </div>
                                     </div>
 
 
                                     <div class="row">
-                                        <div class="logout">
-                                            <form th:action="@{/logout}" method="get">
-                                                <input type="submit" class="button_logout" value="Выйти из аккаунта">
-                                            </form>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="logout">
+                    <form th:action="@{/logout}" method="get">
+                        <input type="submit" class="button_logout" value="Выйти из аккаунта">
+                    </form>
                 </div>
             </div>
         </div>

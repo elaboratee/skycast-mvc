@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,6 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor(force = true)
-@RequiredArgsConstructor
 public class UserEntity implements UserDetails {
 
     @Id
@@ -26,7 +26,12 @@ public class UserEntity implements UserDetails {
 
     private final String username;
 
-    private final String password;
+    private String password;
+
+    public UserEntity(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
