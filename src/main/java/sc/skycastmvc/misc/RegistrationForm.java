@@ -1,6 +1,7 @@
 package sc.skycastmvc.misc;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,7 +25,7 @@ public class RegistrationForm {
     @NotBlank(message = "⃰ Проверочный пароль не должен быть пустым")
     private String matchingPassword;
 
-    public UserEntity toUserEntity(PasswordEncoder passwordEncoder) {
+    public UserEntity toUserEntity(@NotNull PasswordEncoder passwordEncoder) {
         return new UserEntity(
                 username,
                 passwordEncoder.encode(password)

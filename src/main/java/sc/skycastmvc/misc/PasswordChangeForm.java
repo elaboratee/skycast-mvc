@@ -8,6 +8,6 @@ import lombok.Data;
 public class PasswordChangeForm {
 
     @NotBlank(message = "⃰ Новый пароль не должен быть пустым")
-    @Size(min = 6, max = 16, message = "⃰ Ноывй пароль должен иметь длину от 6 до 16 знаков")
+    @Size(min = 6, max = 16, message = "⃰ Новый пароль должен иметь длину от 6 до 16 знаков")
     private String newPassword;
 }
