@@ -9,20 +9,6 @@ weather:
     lang: ru
     days: 8
 
-#spring:
-#  datasource:
-#    username: elaborate
-#    password: G_3mA@7F
-#    url: jdbc:postgresql://localhost:5432/skycast
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
-#        format_sql: true
-
 ---
 spring:
   datasource:
@@ -30,8 +16,13 @@ spring:
     url: jdbc:h2:mem:testdb
     username: sa
     password:
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+
+  flyway:
+    locations: classpath:db/migration/h2
+    baseline-on-migrate: true
 
   config:
     activate:
@@ -48,14 +39,9 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-  #  jpa:
-#    hibernate:
-#      ddl-auto: update
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
-#        format_sql: true
+  flyway:
+    locations: classpath:db/migration/postgresql
+    baseline-on-migrate: true
 
   config:
     activate:
