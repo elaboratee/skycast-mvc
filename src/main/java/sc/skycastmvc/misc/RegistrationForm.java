@@ -7,7 +7,7 @@ import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import sc.skycastmvc.annotation.PasswordMatches;
 import sc.skycastmvc.annotation.UserAlreadyExists;
-import sc.skycastmvc.model.UserEntity;
+import sc.skycastmvc.entity.UserEntity;
 
 @Data
 @PasswordMatches

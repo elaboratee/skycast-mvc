@@ -2,7 +2,7 @@ package sc.skycastmvc.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import sc.skycastmvc.model.UserEntity;
+import sc.skycastmvc.entity.UserEntity;
 import sc.skycastmvc.repository.UserRepository;
 
 @Service

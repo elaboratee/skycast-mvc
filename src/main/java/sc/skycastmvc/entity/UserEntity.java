@@ -1,17 +1,13 @@
-package sc.skycastmvc.model;
+package sc.skycastmvc.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,6 +23,9 @@ public class UserEntity implements UserDetails {
     private final String username;
 
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ChosenCity> chosenCities = new ArrayList<>();
 
     public UserEntity(String username, String password) {
         this.username = username;

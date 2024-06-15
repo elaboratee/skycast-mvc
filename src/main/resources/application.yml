@@ -1,7 +1,6 @@
 spring:
-  datasource:
-    generate-unique-name: false
-    name: skycast
+  profiles:
+    active: dev
 
 weather:
   service:
@@ -9,3 +8,55 @@ weather:
     url: http://api.weatherapi.com/v1
     lang: ru
     days: 8
+
+#spring:
+#  datasource:
+#    username: elaborate
+#    password: G_3mA@7F
+#    url: jdbc:postgresql://localhost:5432/skycast
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+
+---
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  config:
+    activate:
+      on-profile: dev
+
+---
+spring:
+  datasource:
+    username: elaborate
+    password: G_3mA@7F
+    url: jdbc:postgresql://localhost:5432/skycast
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  #  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+
+  config:
+    activate:
+      on-profile: prod

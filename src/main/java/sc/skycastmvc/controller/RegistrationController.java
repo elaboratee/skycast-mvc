@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import sc.skycastmvc.misc.RegistrationForm;
-import sc.skycastmvc.model.UserEntity;
+import sc.skycastmvc.entity.UserEntity;
 import sc.skycastmvc.repository.UserRepository;
 
 @Slf4j
