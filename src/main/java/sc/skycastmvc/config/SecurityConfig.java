@@ -36,12 +36,11 @@ public class SecurityConfig {
                 .authorizeRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/search", "/weather/**", "/account/**")
                             .access("hasRole('USER')")
-                        .requestMatchers("/**")
+                        .requestMatchers("/**", "/login", "/register")
                             .access("permitAll()"))
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/")
-                        .failureUrl("/login?error=true"))
+                        .defaultSuccessUrl("/"))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
