@@ -89,14 +89,17 @@
 
                 <div>
                     <div th:each="favouriteCity : ${favouriteCities}">
-                        <form th:action="@{/search/favourite_city}"
+
+                        <form th:action="@{/weather/get}"
                               method="POST">
                             <input type="hidden"
+                                   id="favouriteCityInput"
                                    th:name="favouriteCityName"
                                    th:value="${favouriteCity.cityName}">
                             <input type="submit"
                                    th:value="${favouriteCity.cityName}">
                         </form>
+
                     </div>
                 </div>
 

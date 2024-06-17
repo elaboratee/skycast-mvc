@@ -1,17 +1,22 @@
 package sc.skycastmvc.service;
 
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.entity.ChosenCity;
 import sc.skycastmvc.entity.UserEntity;
 import sc.skycastmvc.exception.CityIsAlreadyFavourite;
+import sc.skycastmvc.exception.CityIsNotFavourite;
 import sc.skycastmvc.repository.ChosenCityRepository;
 import sc.skycastmvc.repository.UserRepository;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -69,6 +74,32 @@ public class UserService {
 
         // Сохраняем изменения в базе данных
         chosenCityRepository.save(chosenCity);
+
+        return user;
+    }
+
+    public UserEntity deleteChosenCity(UserEntity user,
+                                       String cityName) throws CityIsNotFavourite {
+
+        // Получаем список избранных городов пользователя
+        List<ChosenCity> chosenCities = user.getChosenCities();
+
+        // Если город не является избранным для данного пользователя
+        if (!isFavouriteCity(chosenCities, cityName)) {
+            throw new CityIsNotFavourite("Данный город не является избранным для пользователя" +
+                    user.getUsername());
+        }
+
+        // Получаем из БД сущность города по названию и пользователю
+        ChosenCity chosenCityToDelete = chosenCityRepository.findByCityNameAndUser(cityName, user).get();
+
+        log.info("Fetched while deleting {}", chosenCityToDelete);
+
+        // Удаляем город из избранных пользователя
+        user.removeChosenCity(chosenCityToDelete);
+
+        // Сохраняем изменения в базе данных
+        chosenCityRepository.delete(chosenCityToDelete);
 
         return user;
     }

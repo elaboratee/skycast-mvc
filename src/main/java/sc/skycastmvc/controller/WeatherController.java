@@ -23,16 +23,18 @@ public class WeatherController {
 
     private final WeatherService weatherService;
 
-    private final UserService userService;
-
-    public WeatherController(WeatherService weatherService, UserService userService) {
+    public WeatherController(WeatherService weatherService) {
         this.weatherService = weatherService;
-        this.userService = userService;
     }
 
     @GetMapping
     public String showWeatherForm() {
         return "weather";
+    }
+
+    @GetMapping("/getFavouriteCity")
+    public String getRedirectFromFavouriteCity() {
+        return "redirect:/weather/get";
     }
 
     @PostMapping("/get")
@@ -54,22 +56,6 @@ public class WeatherController {
         weather.setForecast(weatherService.parseForecastClimateData(weatherJson));
 
         log.info("User ({}, {}) received object: {} ", user.getId(), user.getUsername(), weather);
-
-        return "redirect:/weather";
-    }
-
-    @PostMapping("/add_city_to_favourites")
-    public String addCityToFavourites(@AuthenticationPrincipal UserEntity user,
-                                      @ModelAttribute Weather weather) {
-
-        String cityName = weather.getCityName();
-        try {
-            userService.addChosenCity(user, cityName);
-        } catch (CityIsAlreadyFavourite e) {
-            log.error("City {} is already favourite for user ({}, {})", cityName, user.getId(), user.getUsername());
-        }
-
-        log.info("User ({}, {}) added city {} to favourites", user.getId(), user.getUsername(), cityName);
 
         return "redirect:/weather";
     }

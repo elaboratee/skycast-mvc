@@ -168,7 +168,7 @@
                             <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${weather.getCurrent().getPrecip_mm()} + ' мм'"></span></div>
                             <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${weather.getCurrent().getVis_km()} + ' км'"></span></div>
 
-                            <form th:action="@{/weather/add_city_to_favourites}"
+                            <form th:action="@{/favourite_city/add}"
                                   method="post">
                                 <input type="submit"
                                        value="В избранное"

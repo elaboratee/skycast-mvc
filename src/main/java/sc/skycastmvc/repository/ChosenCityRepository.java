@@ -11,4 +11,6 @@ public interface ChosenCityRepository extends JpaRepository<ChosenCity, Long> {
     Optional<ChosenCity> findByCityName(String cityName);
 
     Optional<ChosenCity> findByUser(UserEntity userEntity);
+
+    Optional<ChosenCity> findByCityNameAndUser(String city, UserEntity userEntity);
 }
