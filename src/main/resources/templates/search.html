@@ -88,26 +88,29 @@
                 </form>
 
                 <div>
-                    <div th:each="favouriteCity : ${favouriteCities}">
-
-                        <form th:action="@{/weather/get}"
-                              method="POST">
-                            <input type="hidden"
-                                   id="favouriteCityInput"
-                                   th:name="favouriteCityName"
-                                   th:value="${favouriteCity.cityName}">
+                    <h4>Список избранных городов:</h4>
+                    <div class="favouriteCityBlock"  th:each="favouriteCity : ${favouriteCities}">
+                        <button class="favouriteCity" th:data-keyword="${favouriteCity.cityName}">• <span class="favouriteCityText" th:text="${favouriteCity.cityName}"></span></button>
+                        <form th:action="@{/}"
+                              method="GET">
                             <input type="submit"
-                                   th:value="${favouriteCity.cityName}">
+                                   value="✖"
+                                   class="deleteFavouriteCity">
                         </form>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    const buttons = document.querySelectorAll('button[data-keyword]');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            document.getElementById("cityInput").value = button.dataset.keyword;
+        });
+    });
+</script>
 
 <div class="footer">
     <!-- FOOTER -->
