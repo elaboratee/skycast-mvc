@@ -62,7 +62,7 @@ public class WeatherController {
     public String addCityToFavourites(@AuthenticationPrincipal UserEntity user,
                                       @ModelAttribute Weather weather) {
 
-        String cityName = weather.getCityName();
+        String cityName = weather.getLocation().getName();
         try {
             userService.addChosenCity(user, cityName);
         } catch (CityIsAlreadyFavourite e) {
