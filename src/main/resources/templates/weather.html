@@ -155,9 +155,9 @@
                     <div class="map-block">
                         <div class="text-geo">Геолокация города <span class="location_title" th:text="${weather.getLocation().getName()}"></span></div><div class = "line2"></div>
 
-                        <img class="map"
+                        <a th:href="@{https://yandex.ru/maps/?ll=}+ ${weather.getLocation().getLon()} + @{%2C} + ${weather.getLocation().getLat()} + @{&z=11}"><img class="map"
                              th:src="@{https://static-maps.yandex.ru/v1?ll=} + ${weather.getLocation().getLon()} + ',' + ${weather.getLocation().getLat()}
-                        + @{&lang=ru_RU&size=650,450&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></div>
+                        + @{&lang=ru_RU&size=650,450&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></a></div>
 
                         <div class="properties_add">
                             <div class="met-prop">Метеорологические характеристики <div class = "line3"></div></div>
