@@ -1,14 +1,10 @@
-package sc.skycastmvc.model.weather.forecast;
+package sc.skycastmvc.model.forecast;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import sc.skycastmvc.model.weather.Condition;
+import sc.skycastmvc.model.Condition;
 
 import java.time.LocalDateTime;
-import java.time.format.TextStyle;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 /**
  * Информационный класс, использующийся для хранения климатических данных в

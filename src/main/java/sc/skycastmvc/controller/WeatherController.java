@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import sc.skycastmvc.entity.UserEntity;
-import sc.skycastmvc.model.weather.Weather;
+import sc.skycastmvc.exception.CityIsAlreadyFavourite;
+import sc.skycastmvc.model.Weather;
+import sc.skycastmvc.service.UserService;
 import sc.skycastmvc.service.WeatherService;
 
 @Slf4j
@@ -18,9 +20,11 @@ import sc.skycastmvc.service.WeatherService;
 public class WeatherController {
 
     private final WeatherService weatherService;
+    private final UserService userService;
 
-    public WeatherController(WeatherService weatherService) {
+    public WeatherController(WeatherService weatherService, UserService userService) {
         this.weatherService = weatherService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -47,6 +51,22 @@ public class WeatherController {
         weather.setForecast(weatherService.parseForecastClimateData(weatherJson));
 
         log.info("User ({}, {}) received object: {} ", user.getId(), user.getUsername(), weather);
+
+        return "redirect:/weather";
+    }
+
+    @PostMapping("/add_city_to_favourites")
+    public String addCityToFavourites(@AuthenticationPrincipal UserEntity user,
+                                      @ModelAttribute Weather weather) {
+
+        String cityName = weather.getCityName();
+        try {
+            userService.addChosenCity(user, cityName);
+        } catch (CityIsAlreadyFavourite e) {
+            log.error("City {} is already favourite for user ({}, {})", cityName, user.getId(), user.getUsername());
+        } catch (Exception e) {
+            return "redirect:/error";
+        }
 
         return "redirect:/weather";
     }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import sc.skycastmvc.entity.UserEntity;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     UserEntity findByUsername(String username);
 }

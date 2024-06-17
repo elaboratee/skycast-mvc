@@ -1,4 +1,4 @@
-package sc.skycastmvc.model.weather;
+package sc.skycastmvc.model;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

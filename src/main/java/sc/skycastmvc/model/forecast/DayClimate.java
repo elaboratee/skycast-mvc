@@ -1,7 +1,7 @@
-package sc.skycastmvc.model.weather.forecast;
+package sc.skycastmvc.model.forecast;
 
 import lombok.Data;
-import sc.skycastmvc.model.weather.Condition;
+import sc.skycastmvc.model.Condition;
 
 /**
  * Информационный класс, использующийся для хранения усредненных

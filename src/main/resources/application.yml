@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: prod
 
 weather:
   service:
@@ -19,10 +19,12 @@ spring:
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
 
   flyway:
     locations: classpath:db/migration/h2
-    baseline-on-migrate: true
+    enabled: false
 
   config:
     activate:
@@ -36,12 +38,16 @@ spring:
     url: jdbc:postgresql://localhost:5432/skycast
     driver-class-name: org.postgresql.Driver
 
+
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
 
   flyway:
     locations: classpath:db/migration/postgresql
-    baseline-on-migrate: true
+    enabled: false
+  #    baseline-on-migrate: true
 
   config:
     activate:

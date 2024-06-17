@@ -126,7 +126,7 @@
                         <span th:text="${#numbers.formatInteger(weather.current.pressure_in * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
                 </div>
                 <div class="line"></div>
-                <div class="forecast-hours_title">Прогоз погоды по <span class="forecast_title">ЧАСАМ</span><div class="line4"></div></div>
+                <div class="forecast-hours_title">Прогноз погоды по <span class="forecast_title">ЧАСАМ</span><div class="line4"></div></div>
                 <div class = "line1"></div>
 
                 <div class="swiper hourForecastSwiper">
@@ -167,7 +167,13 @@
                             <div class="gust"> <img th:src="@{/images/gust.png}" class="gust_png" alt=""> Порывы ветра: <span class="gust_val" th:text=" ${weather.getCurrent().getGust_kph()} + ' км/ч'"></span></div>
                             <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${weather.getCurrent().getPrecip_mm()} + ' мм'"></span></div>
                             <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${weather.getCurrent().getVis_km()} + ' км'"></span></div>
-                            <a th:href="@{/account}" class="favourites_button">В избранное</a>
+
+                            <form th:action="@{/weather/add_city_to_favourites}"
+                                  method="post">
+                                <input type="submit"
+                                       value="В избранное"
+                                       class="favourites_button">
+                            </form>
                         </div>
                 </div>
                     <div class="line7"></div>

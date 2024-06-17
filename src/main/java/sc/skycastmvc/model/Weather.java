@@ -1,15 +1,14 @@
-package sc.skycastmvc.model.weather;
+package sc.skycastmvc.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sc.skycastmvc.model.weather.current.CurrentClimateData;
-import sc.skycastmvc.model.weather.forecast.ForecastClimateData;
+import sc.skycastmvc.model.current.CurrentClimateData;
+import sc.skycastmvc.model.forecast.ForecastClimateData;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.TimeZone;
 
 /**
