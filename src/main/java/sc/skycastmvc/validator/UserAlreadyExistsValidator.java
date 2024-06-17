@@ -28,7 +28,7 @@ public class UserAlreadyExistsValidator implements ConstraintValidator<UserAlrea
     public boolean isValid(Object obj,
                            ConstraintValidatorContext context) {
         RegistrationForm form = (RegistrationForm) obj;
-        if (userRepository.findByUsername(form.getUsername()) != null) {
+        if (userRepository.findByUsername(form.getUsername()).isPresent()) {
             // Отключаем стандартную ошибку
             context.disableDefaultConstraintViolation();
             // Создаем кастомную ошибку

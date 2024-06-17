@@ -37,7 +37,7 @@ public class UserService {
     @Transactional
     public UserEntity changePassword(String username,
                                      String newPassword) {
-        UserEntity updatedUser = userRepository.findByUsername(username);
+        UserEntity updatedUser = userRepository.findByUsername(username).get();
         updatedUser.setPassword(passwordEncoder.encode(newPassword));
         return userRepository.save(updatedUser);
     }

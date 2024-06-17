@@ -86,6 +86,20 @@
                            required>
                     <button type="submit">Найти</button>
                 </form>
+
+                <div>
+                    <div th:each="favouriteCity : ${favouriteCities}">
+                        <form th:action="@{/search/favourite_city}"
+                              method="POST">
+                            <input type="hidden"
+                                   th:name="favouriteCityName"
+                                   th:value="${favouriteCity.cityName}">
+                            <input type="submit"
+                                   th:value="${favouriteCity.cityName}">
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -93,10 +107,7 @@
 
 
 <div class="footer">
-
     <!-- FOOTER -->
-
-
     <div class="Footer_ar">
         <div class="navigate_bar">
             <a class="Logo_footer">
@@ -105,7 +116,6 @@
             <div class="inf_1">
                 <div class="useful_assistant">Полезный помощник в вашем кармане</div>
                 <div class="social_logo">
-
                     <div class="vk">
                         <a th:href="@{https://vk.com/club225712381}">
                             <img th:src="@{/images/vk.png}" alt="">
@@ -117,7 +127,6 @@
                             <img th:src="@{/images/tg.png}" alt="">
                         </a>
                     </div>
-
                 </div>
             </div>
             <div class="inf_2">

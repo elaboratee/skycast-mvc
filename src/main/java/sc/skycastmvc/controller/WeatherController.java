@@ -13,6 +13,8 @@ import sc.skycastmvc.model.Weather;
 import sc.skycastmvc.service.UserService;
 import sc.skycastmvc.service.WeatherService;
 
+import java.sql.SQLException;
+
 @Slf4j
 @Controller
 @RequestMapping("/weather")
@@ -20,6 +22,7 @@ import sc.skycastmvc.service.WeatherService;
 public class WeatherController {
 
     private final WeatherService weatherService;
+
     private final UserService userService;
 
     public WeatherController(WeatherService weatherService, UserService userService) {
@@ -64,9 +67,9 @@ public class WeatherController {
             userService.addChosenCity(user, cityName);
         } catch (CityIsAlreadyFavourite e) {
             log.error("City {} is already favourite for user ({}, {})", cityName, user.getId(), user.getUsername());
-        } catch (Exception e) {
-            return "redirect:/error";
         }
+
+        log.info("User ({}, {}) added city {} to favourites", user.getId(), user.getUsername(), cityName);
 
         return "redirect:/weather";
     }
