@@ -390,11 +390,35 @@
             <div class="inf_4">
                 <div class="repost">Поделитесь с друзьями</div>
                 <div class="button_repost">
-                    <a href="" class="botton_ar">
-                        Поделиться
-                    </a>
+                    <form>
+                        <input type="hidden" id="hidden-value" value="https://t.me/SkyCastApp">
+                    </form>
+                    <button class="button_acc" onclick="copyHiddenValue()">Поделиться</button>
                 </div>
             </div>
+            <script>
+                function copyHiddenValue() {
+                    // Получаем значение из скрытого поля
+                    var hiddenValue = document.getElementById("hidden-value").value;
+
+                    // Создаем временный элемент input
+                    var tempInput = document.createElement("input");
+                    tempInput.value = hiddenValue;
+                    document.body.appendChild(tempInput);
+
+                    // Выделяем текст в элементе input
+                    tempInput.select();
+
+                    // Копируем выделенный текст
+                    document.execCommand("copy");
+
+                    // Удаляем временный элемент
+                    document.body.removeChild(tempInput);
+
+                    // Вывод сообщения (необязательно)
+                    alert("Ссылка скопирована!");
+                }
+            </script>
         </div>
         <div class="OpenWeatherApiInf">
             <div class="logo_ow">
