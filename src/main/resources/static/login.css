@@ -229,7 +229,7 @@ body{
             grid-template-rows: 110px 25px;
 
             .useful_assistant {
-                max-width: 100%;
+                max-width: 82%;
                 display: block;
                 padding-top: 30px;
                 padding-left: 40px;
