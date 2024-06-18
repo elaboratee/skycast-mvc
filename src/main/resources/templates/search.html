@@ -87,7 +87,7 @@
                     <button type="submit">Найти</button>
                 </form>
 
-                <div>
+                <div th:if="${favouriteCities.size() > 0}">
                     <h4>Список избранных городов:</h4>
                     <div class="favouriteCityBlock"  th:each="favouriteCity : ${favouriteCities}">
                         <button class="favouriteCity" th:data-keyword="${favouriteCity.cityName}">

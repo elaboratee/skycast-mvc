@@ -20,7 +20,6 @@ public class ChosenCity {
     @Column(length = 100, nullable = false)
     private final String cityName;
 
-//    @ManyToOne(cascade = CascadeType.REMOVE)
     @ManyToOne
     private UserEntity user;
 }

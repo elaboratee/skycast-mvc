@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -105,8 +104,6 @@ public class UserService {
 
         // Получаем объект из сущности
         ChosenCity chosenCityToDelete = chosenCityToDeleteOptional.get();
-
-        log.error("city id {}", chosenCityToDelete.getId());
 
         // Дополняем объект для корректного удаления
         chosenCityToDelete.setUser(user);
