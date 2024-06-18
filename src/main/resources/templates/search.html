@@ -90,9 +90,14 @@
                 <div>
                     <h4>Список избранных городов:</h4>
                     <div class="favouriteCityBlock"  th:each="favouriteCity : ${favouriteCities}">
-                        <button class="favouriteCity" th:data-keyword="${favouriteCity.cityName}">• <span class="favouriteCityText" th:text="${favouriteCity.cityName}"></span></button>
-                        <form th:action="@{/}"
-                              method="GET">
+                        <button class="favouriteCity" th:data-keyword="${favouriteCity.cityName}">
+                            • <span class="favouriteCityText" th:text="${favouriteCity.cityName}"></span>
+                        </button>
+                        <form th:action="@{/favourite_city/delete}"
+                              method="POST">
+                            <input type="hidden"
+                                   th:name="cityToDelete"
+                                   th:value="${favouriteCity.cityName}">
                             <input type="submit"
                                    value="✖"
                                    class="deleteFavouriteCity">

@@ -28,7 +28,7 @@ public class UserEntity implements UserDetails {
     @Column(length = 60, nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<ChosenCity> chosenCities = new ArrayList<>();
 
     public UserEntity(String username, String password) {

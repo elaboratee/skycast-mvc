@@ -2,8 +2,6 @@ package sc.skycastmvc.service;
 
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.entity.ChosenCity;
@@ -14,6 +12,7 @@ import sc.skycastmvc.repository.ChosenCityRepository;
 import sc.skycastmvc.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -52,6 +51,8 @@ public class UserService {
      * в список избранных городов пользователя <code>user</code>
      * @param user пользователь, в список которого необходимо добавить избранный город
      * @param cityName название добавляемого города
+     * @return измененная сущность <code>UserEntity</code>
+     * @throws CityIsAlreadyFavourite если добавляемый город уже является избранным для <code>user</code>
      */
     @Transactional
     public UserEntity addChosenCity(UserEntity user,
@@ -78,6 +79,14 @@ public class UserService {
         return user;
     }
 
+    /**
+     * Используется для удаления города с названием <code>cityName</code>
+     * из списка избранных городов пользователя <code>user</code>
+     * @param user пользователь, из списка которого необходимо добавить избранный город
+     * @param cityName название удаляемого города
+     * @return измененная сущность <code>UserEntity</code>
+     * @throws CityIsNotFavourite если удаляемый город не является избранным для <code>user</code>
+     */
     public UserEntity deleteChosenCity(UserEntity user,
                                        String cityName) throws CityIsNotFavourite {
 
@@ -90,16 +99,26 @@ public class UserService {
                     user.getUsername());
         }
 
-        // Получаем из БД сущность города по названию и пользователю
-        ChosenCity chosenCityToDelete = chosenCityRepository.findByCityNameAndUser(cityName, user).get();
+        // Получаем из БД сущность города по названию и идентификатору пользователя
+        Optional<ChosenCity> chosenCityToDeleteOptional = chosenCityRepository
+                .findByCityNameAndUser(cityName, user);
 
-        log.info("Fetched while deleting {}", chosenCityToDelete);
+        // Получаем объект из сущности
+        ChosenCity chosenCityToDelete = chosenCityToDeleteOptional.get();
 
-        // Удаляем город из избранных пользователя
+        log.error("city id {}", chosenCityToDelete.getId());
+
+        // Дополняем объект для корректного удаления
+        chosenCityToDelete.setUser(user);
+
+        // Удаляем город из избранных городов пользователя
         user.removeChosenCity(chosenCityToDelete);
 
-        // Сохраняем изменения в базе данных
-        chosenCityRepository.delete(chosenCityToDelete);
+        // Сохранение изменений в БД
+        userRepository.save(user);
+
+        // Удаляем город из базы данных
+        chosenCityRepository.deleteById(chosenCityToDelete.getId());
 
         return user;
     }

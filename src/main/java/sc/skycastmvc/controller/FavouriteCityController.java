@@ -10,9 +10,9 @@ import sc.skycastmvc.exception.CityIsNotFavourite;
 import sc.skycastmvc.model.Weather;
 import sc.skycastmvc.service.UserService;
 
+@Slf4j
 @Controller
 @RequestMapping("/favourite_city")
-@Slf4j
 @SessionAttributes("weather")
 public class FavouriteCityController {
 

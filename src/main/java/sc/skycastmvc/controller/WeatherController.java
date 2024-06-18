@@ -32,11 +32,6 @@ public class WeatherController {
         return "weather";
     }
 
-    @GetMapping("/getFavouriteCity")
-    public String getRedirectFromFavouriteCity() {
-        return "redirect:/weather/get";
-    }
-
     @PostMapping("/get")
     public String processWeather(@ModelAttribute Weather weather,
                                  @AuthenticationPrincipal UserEntity user) {
