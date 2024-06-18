@@ -12,12 +12,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
-import sc.skycastmvc.model.weather.Location;
-import sc.skycastmvc.model.weather.current.CurrentClimateData;
-import sc.skycastmvc.model.weather.forecast.DayClimate;
-import sc.skycastmvc.model.weather.forecast.ForecastClimateData;
-import sc.skycastmvc.model.weather.forecast.ForecastDay;
-import sc.skycastmvc.model.weather.forecast.ForecastHour;
+import sc.skycastmvc.model.Location;
+import sc.skycastmvc.model.current.CurrentClimateData;
+import sc.skycastmvc.model.forecast.DayClimate;
+import sc.skycastmvc.model.forecast.ForecastClimateData;
+import sc.skycastmvc.model.forecast.ForecastDay;
+import sc.skycastmvc.model.forecast.ForecastHour;
 
 import java.io.IOException;
 

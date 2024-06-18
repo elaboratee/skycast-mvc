@@ -7,9 +7,13 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import sc.skycastmvc.model.UserEntity;
-import sc.skycastmvc.model.weather.Weather;
+import sc.skycastmvc.entity.UserEntity;
+import sc.skycastmvc.exception.CityIsAlreadyFavourite;
+import sc.skycastmvc.model.Weather;
+import sc.skycastmvc.service.UserService;
 import sc.skycastmvc.service.WeatherService;
+
+import java.sql.SQLException;
 
 @Slf4j
 @Controller

@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.support.SessionStatus;
 import sc.skycastmvc.misc.PasswordChangeForm;
-import sc.skycastmvc.model.UserEntity;
-import sc.skycastmvc.repository.UserRepository;
+import sc.skycastmvc.entity.UserEntity;
 import sc.skycastmvc.service.UserService;
 
 @Slf4j

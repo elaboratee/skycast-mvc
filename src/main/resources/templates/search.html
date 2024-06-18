@@ -86,17 +86,39 @@
                            required>
                     <button type="submit">Найти</button>
                 </form>
+
+                <div th:if="${favouriteCities.size() > 0}">
+                    <h4>Список избранных городов:</h4>
+                    <div class="favouriteCityBlock"  th:each="favouriteCity : ${favouriteCities}">
+                        <button class="favouriteCity" th:data-keyword="${favouriteCity.cityName}">
+                            • <span class="favouriteCityText" th:text="${favouriteCity.cityName}"></span>
+                        </button>
+                        <form th:action="@{/favourite_city/delete}"
+                              method="POST">
+                            <input type="hidden"
+                                   th:name="cityToDelete"
+                                   th:value="${favouriteCity.cityName}">
+                            <input type="submit"
+                                   value="✖"
+                                   class="deleteFavouriteCity">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    const buttons = document.querySelectorAll('button[data-keyword]');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            document.getElementById("cityInput").value = button.dataset.keyword;
+        });
+    });
+</script>
 
 <div class="footer">
-
     <!-- FOOTER -->
-
-
     <div class="Footer_ar">
         <div class="navigate_bar">
             <a class="Logo_footer">
@@ -104,21 +126,6 @@
             </a>
             <div class="inf_1">
                 <div class="useful_assistant">Полезный помощник в вашем кармане</div>
-                <div class="social_logo">
-
-                    <div class="vk">
-                        <a th:href="@{https://vk.com/club225712381}">
-                            <img th:src="@{/images/vk.png}" alt="">
-                        </a>
-                    </div>
-
-                    <div class="tg">
-                        <a th:href="@{https://t.me/SkyCastApp}">
-                            <img th:src="@{/images/tg.png}" alt="">
-                        </a>
-                    </div>
-
-                </div>
             </div>
             <div class="inf_2">
                 <div class="communication">Связь с нами:</div>
@@ -143,11 +150,35 @@
             <div class="inf_4">
                 <div class="repost">Поделитесь с друзьями</div>
                 <div class="button_repost">
-                    <a href="" class="botton_ar">
-                        Поделиться
-                    </a>
+                    <form>
+                        <input type="hidden" id="hidden-value" value="https://t.me/SkyCastApp">
+                    </form>
+                    <button class="button_acc" onclick="copyHiddenValue()">Поделиться</button>
                 </div>
             </div>
+            <script>
+                function copyHiddenValue() {
+                    // Получаем значение из скрытого поля
+                    var hiddenValue = document.getElementById("hidden-value").value;
+
+                    // Создаем временный элемент input
+                    var tempInput = document.createElement("input");
+                    tempInput.value = hiddenValue;
+                    document.body.appendChild(tempInput);
+
+                    // Выделяем текст в элементе input
+                    tempInput.select();
+
+                    // Копируем выделенный текст
+                    document.execCommand("copy");
+
+                    // Удаляем временный элемент
+                    document.body.removeChild(tempInput);
+
+                    // Вывод сообщения (необязательно)
+                    alert("Ссылка скопирована!");
+                }
+            </script>
         </div>
         <div class="OpenWeatherApiInf">
             <div class="logo_ow">

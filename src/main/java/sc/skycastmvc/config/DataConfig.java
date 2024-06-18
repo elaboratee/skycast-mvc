@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import sc.skycastmvc.model.UserEntity;
+import sc.skycastmvc.entity.UserEntity;
 import sc.skycastmvc.repository.UserRepository;
 
 @Configuration

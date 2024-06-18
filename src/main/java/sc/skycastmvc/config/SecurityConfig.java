@@ -8,8 +8,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import sc.skycastmvc.model.UserEntity;
+import sc.skycastmvc.entity.UserEntity;
 import sc.skycastmvc.repository.UserRepository;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 @Configuration
 public class SecurityConfig {
@@ -22,9 +25,9 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
         return username -> {
-            UserEntity user = userRepository.findByUsername(username);
-            if (user != null) {
-                return user;
+            Optional<UserEntity> user = userRepository.findByUsername(username);
+            if (user.isPresent()) {
+                return user.get();
             }
             throw new UsernameNotFoundException("Пользователь '" + username + "' не найден");
         };

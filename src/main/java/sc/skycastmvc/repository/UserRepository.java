@@ -2,10 +2,13 @@ package sc.skycastmvc.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import sc.skycastmvc.model.UserEntity;
+import sc.skycastmvc.entity.UserEntity;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    UserEntity findByUsername(String username);
+    Optional<UserEntity> findByUsername(String username);
 }
