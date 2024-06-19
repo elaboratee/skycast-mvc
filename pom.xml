@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>sc</groupId>
 	<artifactId>skycast-mvc</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>skycast-mvc</name>
 	<description>skycast-mvc</description>
 	<properties>
@@ -101,6 +101,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>${project.name}</finalName>
 	</build>
 </project>
