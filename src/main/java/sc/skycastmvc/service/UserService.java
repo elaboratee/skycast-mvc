@@ -69,7 +69,7 @@ public class UserService {
         ChosenCity chosenCity = new ChosenCity(cityName);
 
         // Добавляем избранный город пользователю
-        user.addChosenCity(chosenCity);
+        user.addCity(chosenCity);
 
         // Сохраняем изменения в базе данных
         chosenCityRepository.save(chosenCity);

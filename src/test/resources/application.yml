@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2://mem:db;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:testDB;DB_CLOSE_DELAY=-1
     username: sa
     password: sa
     driver-class-name: org.h2.Driver
@@ -10,3 +10,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+weather:
+  service:
+    api-key: 16f1d682ca8647a0b9b211336241206
+    url: http://api.weatherapi.com/v1
+    lang: ru
+    days: 8
