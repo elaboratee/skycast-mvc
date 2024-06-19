@@ -11,7 +11,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import sc.skycastmvc.entity.UserEntity;
 import sc.skycastmvc.repository.UserRepository;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Configuration
