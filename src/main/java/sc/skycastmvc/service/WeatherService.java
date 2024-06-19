@@ -35,12 +35,20 @@ public class WeatherService {
         this.objectMapper = objectMapper;
     }
 
+    /**
+     * Производит запрос к API и возвращает
+     * тело ответа в виде JSON
+     * @param cityName имя города, для которого производится запрос климатических данных
+     * @return <code>JSONObject</code>, содержащий тело ответа API
+     * @throws JSONException выбрасывается в случае, если запрос к API не может быть выполнен
+     * или запрос вернул код ошибки
+     */
     public JSONObject getClimateDataJSON(String cityName)
             throws JSONException {
 
         OkHttpClient httpClient = new OkHttpClient();
 
-        // Формирование URL-запроса к API
+        // Формирование запроса к API
         String url = props.getUrl() + "/forecast.json?" +
                 "key=" + props.getApiKey() +
                 "&q=" + cityName +
@@ -70,6 +78,12 @@ public class WeatherService {
         }
     }
 
+    /**
+     * Парсит JSON-объект с климатическими данными
+     * и возвращает объект {@link Location}
+     * @param jsonObject климатические данные в формате <code>JSON</code>
+     * @return {@link Location}, содержащий данные о названии и местоположении города
+     */
     public Location parseLocation(JSONObject jsonObject) {
 
         // Парсинг JSON-объекта "location" из ответа API
@@ -77,7 +91,7 @@ public class WeatherService {
 
         Location location = new Location();
         try {
-            // Выполнение маппинга атрибутов JSON-объекта на поля Location
+            // Маппинг атрибутов JSON-объекта на поля Location
             location = objectMapper.readValue(locationJson.toString(), Location.class);
         } catch (JsonProcessingException e) {
             log.error("Location can not be parsed: {}", locationJson);
@@ -85,6 +99,12 @@ public class WeatherService {
         return location;
     }
 
+    /**
+     * Парсит JSON-объект с климатическими данными
+     * и возвращает объект {@link CurrentClimateData}
+     * @param jsonObject климатические данные в формате <code>JSON</code>
+     * @return {@link CurrentClimateData}, содержащий данные о текущей погоде в городе
+     */
     public CurrentClimateData parseCurrentClimateData(JSONObject jsonObject) {
 
         // Парсинг JSON-объекта "current" из ответа API
@@ -100,6 +120,12 @@ public class WeatherService {
         return currentClimateData;
     }
 
+    /**
+     * Парсит JSON-объект с климатическими данными
+     * и возвращает объект {@link ForecastClimateData}
+     * @param jsonObject климатические данные в формате <code>JSON</code>
+     * @return {@link ForecastClimateData}, содержащий данные о прогнозе погоды в городе
+     */
     public ForecastClimateData parseForecastClimateData(JSONObject jsonObject) {
 
         // Парсинг объекта "forecast" из ответа API
@@ -113,19 +139,23 @@ public class WeatherService {
 
             ForecastDay[] forecastDays = new ForecastDay[forecastDayJson.length()];
             for (int i = 0; i < forecastDayJson.length(); i++) {
+                // Парсинг очередного дня прогноза
                 JSONObject dayJson = forecastDayJson.getJSONObject(i);
+                // Парсинг средних значений климатических данных дня прогноза
                 JSONObject dayClimateJson = dayJson.getJSONObject("day");
 
                 ForecastDay forecastDay = new ForecastDay();
 
-                // Парсинг массива объектов "hour"
+                // Парсинг массива объектов "hour" с почасовым прогнозом
                 JSONArray forecastHourJson = dayJson.getJSONArray("hour");
 
                 ForecastHour[] forecastHours = new ForecastHour[forecastHourJson.length()];
                 for (int j = 0; j < forecastHourJson.length(); j++) {
+                    // Парсинг очередного часа дневного прогноза
                     JSONObject hour = forecastHourJson.getJSONObject(j);
                     forecastHours[j] = objectMapper.readValue(hour.toString(), ForecastHour.class);
                 }
+                // Маппинг атрибутов JSON-объектов на поля ForecastDay
                 forecastDays[i] = objectMapper.readValue(dayJson.toString(), ForecastDay.class);
                 forecastDays[i].setHours(forecastHours);
                 forecastDays[i].setDay(objectMapper.readValue(dayClimateJson.toString(), DayClimate.class));
