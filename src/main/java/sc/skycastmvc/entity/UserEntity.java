@@ -61,7 +61,7 @@ public class UserEntity implements UserDetails {
         return true;
     }
 
-    public void addChosenCity(ChosenCity chosenCity) {
+    public void addCity(ChosenCity chosenCity) {
         chosenCities.add(chosenCity);
         chosenCity.setUser(this);
     }
