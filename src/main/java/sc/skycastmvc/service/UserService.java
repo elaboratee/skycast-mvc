@@ -85,6 +85,7 @@ public class UserService {
      * @return измененная сущность <code>UserEntity</code>
      * @throws CityIsNotFavourite если удаляемый город не является избранным для <code>user</code>
      */
+    @Transactional
     public UserEntity deleteChosenCity(UserEntity user,
                                        String cityName) throws CityIsNotFavourite {
 
