@@ -1,0 +1,780 @@
+
+body{
+    background: rgb(20, 8, 24);
+    font-size: 25px;
+    color: white;
+    overflow-wrap: break-word;
+    font-family: "Unbounded ExtraLight";
+}
+
+.app-wrapper{
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto
+}
+
+.Header_index {
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr;
+    grid-column-gap: 10px;
+    padding-top: 40px;
+
+    .menu-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-top: 20px;
+        grid-column-gap: 5px;
+        width: 100%;
+
+        .Primary {
+            padding-top: 50px;
+            padding-left: 30px;
+            display: flex;
+            text-decoration: none;
+            color: white;
+
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit
+        }
+        .Weather {
+            padding-top: 50px;
+            padding-left: 30px;
+            display: flex;
+            text-decoration: none;
+            color: white;
+
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit
+        }
+
+        .About_us {
+            padding-top: 50px;
+            padding-left: 30px;
+            display: flex;
+            text-decoration: none;
+            color: white;
+
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit
+        }
+
+        .Primary:hover{
+            color: rgb(197, 54, 239);
+            transition: 0.5s;
+        }
+        .Weather:hover{
+            color: rgb(197, 54, 239);
+            transition: 0.5s;
+        }
+        .About_us:hover{
+            color: rgb(197, 54, 239);
+            transition: 0.5s;
+        }
+    }
+    .Logo img {
+        padding-left: 90px;
+        width: 250px;
+        display: block;
+        max-width: 100%;
+    }
+
+    .Button_block {
+        display: grid;
+        grid-template-columns: 0.4fr 0.4fr;
+        grid-column-gap: 10px;
+        padding-top: 30px;
+        .botton_auth{
+        }
+    }
+
+    .botton_auth:hover{
+        background: rgba(255, 87, 255, 0.08);
+        transition: 0.5s;
+    }
+
+    .botton_auth{
+        position: absolute;
+        width: 170px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin-top: 30px;
+        text-decoration: none;
+        font-family: "Manrope ExtraBold";
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-size: 16px;
+
+        box-sizing: border-box;
+        /* stroke_color */
+        border: 2px solid rgb(197, 54, 239);
+        border-radius: 52.11px;
+
+        box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+        background: rgb(143, 61, 208);
+    }
+
+}
+.botton_ar{
+    position: absolute;
+    width: 170px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    text-decoration:none;
+    font-family: "Manrope ExtraBold";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 16px;
+    /* stroke_color */
+    border: 2px solid rgb(197, 54, 239);
+    border-radius: 52.11px;
+    box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+    background: rgba(255, 87, 255, 0.08);
+}
+.botton_ar:hover{
+    background: rgba(0, 87, 255, 0.08);
+    transition: 0.5s;
+}
+.content{
+    background: rgb(20, 8, 24);
+    width: auto;
+    min-width: 80%;
+    max-width: 70%;
+    margin: auto auto;
+}
+.block-main{
+    display: block;
+    .skycast_title{
+        display: grid;
+        grid-template-rows: 1fr 0.5fr;
+
+
+        .skycast{
+            display: block;
+            background: linear-gradient(90.00deg, rgb(0, 133, 255),rgb(219, 0, 255));
+            -webkit-background-clip:
+                    text;
+            -webkit-text-fill-color:
+                    transparent;
+            background-clip:
+                    text;
+            text-fill-color:
+                    transparent;
+            font-family: Unbounded;
+            font-size: 200px;
+            font-weight: 700;
+            line-height: 110.5%;
+            letter-spacing: 0%;
+            text-align: center;
+        }
+        .skycast_info{
+            display: grid;
+            grid-template-columns: 400px;
+            padding-left: 20px;
+            margin: auto 0;
+            font-family: Unbounded;
+        }
+
+        .arrow img{
+            width: 150px;
+            display: block;
+            margin: auto auto;
+            padding-top: 10px;
+        }
+    }
+
+
+
+
+
+    .window_rain img{
+        max-width: 97%;
+        width: auto;
+        margin: auto auto;
+    }
+    .city_sky img{
+        max-width: 106%;
+        width: auto;
+        margin: auto auto;
+    }
+    .title_info {
+        font-size: 30px;
+        font-family: "Unbounded";
+    }
+
+    .info-text{
+        font-size: 25px;
+        font-family: "Unbounded";
+        text-align: left;
+    }
+    .text_for_info {
+        font-size: 24px;
+    }
+    .info_img{
+        padding-top: 100px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-row-gap: 40px;
+
+        .first_img{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 40px;
+
+            .right_block{
+                display: grid;
+                grid-template-rows: 0.1fr 1fr 1fr;
+
+            }
+        }
+        .last_img{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 30px;
+
+            .left_block{
+                display: grid;
+                grid-template-rows: 0.95fr 1fr;
+            }
+        }
+    }
+    .OpenWeatherInf {
+        padding-top: 100px;
+        width: auto;
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+        .API{
+            /* h2 */
+            background: linear-gradient(118.37deg, rgb(255, 87, 255),rgb(140, 60, 237));
+            -webkit-background-clip:
+                    text;
+            -webkit-text-fill-color:
+                    transparent;
+            background-clip:
+                    text;
+            text-fill-color:
+                    transparent;
+            font-family: Manrope;
+            font-size: 70px;
+            font-weight: 700;
+            line-height: 123px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        .API_block {
+
+            box-sizing: border-box;
+            /* stroke_color */
+            height: 500px;
+            border: 1px solid rgb(197, 54, 239);
+            border-radius: 30px;
+            background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -82.479%, rgba(255, 87, 255, 0) 107.811%);
+
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+
+
+            .first_row_API{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                .logo_ow_API{
+                    padding-left: 50px;
+                    padding-top: 50px;
+                }
+                .logo_ow_API img{
+                    max-width: 62%;
+                    min-width: 10%;
+                    width: auto;
+                }
+                .text_for_info_API_1{
+                    padding-top: 50px;
+                    padding-right: 30px;
+                }
+            }
+            .last_row_API{
+                padding-top: 50px;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+    }
+    .weather_check{
+        padding-top: 50px;
+        .name_city{
+            padding-right:  165px;
+            padding-top: 40px;
+        }
+        .check_now{
+            background: linear-gradient(118.37deg, rgb(255, 87, 255),rgb(140, 60, 237));
+            -webkit-background-clip:
+                    text;
+            -webkit-text-fill-color:
+                    transparent;
+            background-clip:
+                    text;
+            text-fill-color:
+                    transparent;
+            font-family: Manrope;
+            font-size: 70px;
+            font-weight: 700;
+            line-height: 107px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        .form_city{
+            text-align: center;
+        }
+        .check_now_text_2{
+            padding-left: 207px ;
+        }
+        .block_check input{
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #ffffff;
+            width: 250px;
+            margin-bottom: 40px;
+            font-family: "Manrope";
+            font-size: 20px;
+            color: white;
+        }
+
+        .block_check input:hover{
+            transition: 0.5s;
+            border-bottom-color: rgb(197, 54, 239);
+        }
+
+
+    }
+}
+.main_weather {
+    padding-top: 10px;
+    text-decoration:none;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    .block_weather {
+        box-sizing: border-box;
+        /* stroke_color */
+        height: 700px;
+        border: 1px solid rgb(197, 54, 239);
+        border-radius: 30px;
+        background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -82.479%, rgba(255, 87, 255, 0) 107.811%);
+    }
+}
+.footer {
+    background: rgb(20, 8, 24);
+    display: block;
+    grid-template-rows: 1fr 1fr;
+    width: auto;
+    min-width: 94%;
+    max-width: 70%;
+    margin: 0 auto;
+    padding-top: 110px;
+    font-size: 20px;
+
+
+    .Footer_ar {
+        /* footer */
+        display: block;
+        height: 570px;
+        box-sizing: border-box;
+        border: 1px solid rgb(255, 87, 255);
+        border-radius: 30px;
+        margin-bottom: 50px;
+
+
+        min-width: 100%;
+        padding-top: 20px;
+        /* block-color */
+        background: linear-gradient(180.00deg, rgb(255, 87, 255) -800.29%, rgba(20, 8, 24, 0) 110.194%);
+    }
+
+    .navigate_bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-column-gap: 1px;
+        padding-top: 30px;
+
+        .Logo_footer img {
+            width: 240px;
+            max-width: 100%;
+            display: block;
+            padding-top: 30px;
+            padding-left: 40px;
+        }
+
+        .inf_1 {
+            display: grid;
+            grid-template-rows: 110px 25px;
+
+            .useful_assistant {
+                max-width: 82%;
+                display: block;
+                padding-top: 30px;
+                padding-left: 40px;
+            }
+        }
+
+        .social_logo {
+            display: grid;
+            grid-template-columns: 80px 80px;
+        }
+
+        .social_logo img {
+            width: 40px;
+            display: block;
+            max-width: 100%;
+
+            margin-left: 40px;
+        }
+
+        .inf_2 {
+            padding-top: 30px;
+
+            .communication {
+                font-family: "Unbounded";
+            }
+        }
+
+
+        .inf_3 {
+            padding-top: 30px;
+            display: grid;
+            grid-template-rows: 30px 50px;
+
+            .cmw {
+                padding-left: 37px;
+            }
+        }
+
+        .inf_4{
+            padding-top: 30px;
+            padding-left: 10px;
+            display: grid;
+            grid-template-rows: 70px 50px;
+        }
+    }
+    .OpenWeatherApiInf {
+        display: grid;
+        grid-template-columns: 1fr 1.50fr;
+        grid-column-gap: 1px;
+        padding-top: 100px;
+
+        .logo_ow img{
+            width: 380px;
+            padding-left: 60px;
+        }
+        .logo_ow{
+            display: flex;
+            align-content: flex-start;
+        }
+
+        .informaitionAPI{
+            font-size: 25px;
+            text-align: left;
+            padding-right: 80px;
+        }
+    }
+}
+
+.button_weather{
+    margin: 60px 37%;
+}
+
+.main_weather{
+    position: absolute;
+    width: 400px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    font-family: "Manrope ExtraBold";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 27px;
+
+    box-sizing: border-box;
+    /* stroke_color */
+    border: 2px solid rgb(197, 54, 239);
+    border-radius: 52.11px;
+
+    box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+    background: rgb(143, 61, 208);
+
+}
+
+.main_weather:hover{
+    background: rgba(255, 87, 255, 0.08);
+    transition: 0.5s;
+}
+
+input[type="text"]:hover{
+    transition: 0.5s;
+    border-bottom-color: rgb(197, 54, 239);
+}
+.elipse_1{
+    /* Ellipse 1494 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: -300px;
+    top: 10px;
+    filter: blur(370px);
+    background: rgb(193, 62, 239);
+}
+.elipse_2{
+    /* Ellipse 1493 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: 750px;
+    top: 600px;
+    filter: blur(408px);
+    background: rgb(193, 62, 239);
+}
+.elipse_3{
+    /* Ellipse 1492 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: -455px;
+    top: 1650px;
+    filter: blur(308px);
+    background: rgb(193, 62, 239);
+}
+.elipse_4{
+    /* Ellipse 1492 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: -455px;
+    top: 3950px;
+    filter: blur(408px);
+    background: rgb(193, 62, 239);
+}
+.elipse_5{
+    /* Ellipse 1492 */
+    position: absolute;
+    width: 752px;
+    height: 236px;
+    left: 700px;
+    top: 2650px;
+    filter: blur(408px);
+    background: rgb(193, 62, 239);
+}
+
+.weather_information_block{
+    display: block;
+    height: 820px;
+    box-sizing: border-box;
+    /* stroke_color */
+    border: 1px solid rgb(197, 54, 239);
+    border-radius: 30px;
+    background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
+}
+
+.search {
+    width: 700px;
+    height: 50px;
+    margin: 20px auto;
+    border-radius:  3px;
+    border: 1px solid rgb(197, 54, 239);
+    background: linear-gradient(169.95deg, rgba(118, 118, 118, 0.26) -218.144%,rgba(255, 87, 255, 0) 113.274%);
+    font-family: "Manrope ExtraBold";
+
+    input {
+        width: 570px;
+        padding: 10px 15px;
+        float: left;
+        color: white;
+        border: 0;
+        background: transparent;
+        border-radius: 3px 0 0 3px;
+        font-family: "Manrope ExtraBold";
+        font-size: 22px;
+        &:focus {
+            outline: 0;
+            background:transparent;
+            transition: 0.5s;
+        }
+    }
+
+    button {
+        position: relative;
+        float: right;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        height: 50px;
+        width: 120px;
+        color: #fff;
+        font-size: 23px;
+        background: rgb(143, 61, 208);
+        border-left: 1px solid rgb(197, 54, 239);
+        border-radius: 0 6px 6px 0;
+        font-family: "Manrope ExtraBold";
+        &:hover {
+            background: rgba(255, 87, 255, 0.08);
+            transition: 0.5s;
+        }
+        &:active {
+            box-shadow: 0px 0px 12px 0px rgb(193, 62, 239);
+        }
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+.city_span {
+    text-align: center;
+}
+
+.city_name {
+    /* h2 */
+    background: linear-gradient(118.37deg, rgb(255, 87, 255),rgb(140, 60, 237));
+    -webkit-background-clip:
+            text;
+    -webkit-text-fill-color:
+            transparent;
+    background-clip:
+            text;
+    text-fill-color:
+            transparent;
+    font-family: Manrope;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 123px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.data{
+    text-align: center;
+}
+.tempCurrent{
+
+    font-family: "Unbounded ExtraBold";
+    font-size: 70px;
+    margin-top:20px;
+}
+.weather_png{
+    width: 64px;
+}
+.temp{
+    text-align: center;
+    padding-top: 40px;
+    .temperature{
+        font-family: "Manrope ExtraBold";
+        font-size: 60px;
+    }
+}
+.time{
+    font-family: "Manrope ExtraBold";
+    font-size: 60px;
+    padding-top: 40px;
+}
+.wind_img{
+    width:35px;
+}
+.properties_img{
+    width:33px;
+}
+.properties{
+    font-size: 35px;
+    text-align: center;
+    padding-top: 40px;
+}
+.wind_text{
+    padding-bottom: 10px;
+    padding-right: 35px;
+}
+.humidity_text{
+    padding-bottom: 10px;
+    padding-right: 35px;
+}
+.line{
+    /* stroke_color */
+    opacity: 0.4;
+    margin:40px auto 0px;
+    width: 800px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background: linear-gradient(135.31deg, rgba(255, 255, 255, 0.12) 8.255%,rgba(115, 113, 255, 0.12) 100%);
+}
+
+.text-weather{
+    font-family: "Unbounded ExtraLight";
+    font-size: 50px;
+    padding-top: 60px;
+}
+
+.button_acc{
+    text-align:right;
+    position: absolute;
+    width: 220px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    text-decoration:none;
+    font-family: "Manrope ExtraBold";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 16px;
+    /* stroke_color */
+    border: 2px solid rgb(197, 54, 239);
+    border-radius: 52.11px;
+    box-shadow: 0px 0px 22px 0px rgba(176, 102, 255, 0.15);
+    background: rgba(255, 87, 255, 0.08);
+}
+.button_acc:hover {
+    background: rgba(0, 87, 255, 0.08);
+    transition: 0.5s;
+}
+.favouriteCity{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-align: left;
+}
+.favouriteCity:hover{
+    color: rgb(197, 54, 239);
+    transition: 0.5s;
+}
+.favouritesCityText{
+    font-size: 20px;
+}
+.deleteFavouriteCity{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+.deleteFavouriteCity:hover{
+    color: red;
+    transition: 0.5s;
+}
+
+.favouriteCityBlock{
+    display: grid;
+    grid-template-columns: 0.15fr 20px;
+    grid-column-gap: 1px;
+}

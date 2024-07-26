@@ -4,10 +4,12 @@
         xmlns:th="http://www.thymeleaf.org"
         lang="en">
 <head>
-    <link rel="stylesheet" th:href="@{/home.css}">
+    <link rel="stylesheet" th:href="@{/weather.css}">
     <meta charset="UTF-8">
-    <title>Погода - SkyCast</title>
+    <title th:text="${weather.location.name} + ' - SkyCast'"></title>
     <link rel="icon" th:href="@{/images/favicon.ico}">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,22 +36,28 @@
                        value="Главная"
                        class="Primary">
             </form>
-            <form th:action="@{/weather}"
+            <form th:action="@{/weather/returnWeather}"
                   method="GET">
                 <input type="submit"
                        value="Погода"
                        class="Weather">
             </form>
-            <a href="" class="About_us">
-                О нас
-            </a>
+            <form th:action="@{/weather/returnAbout}"
+                  method="GET">
+                <input type="submit"
+                       value="О нас"
+                       class="About_us">
+            </form>
         </div>
         <div class="Button_block">
+            <div></div>
             <div class="header-menu">
-                <a href="" class="botton_auth">Вход</a>
-            </div>
-            <div class="header-menu">
-                <a href="" class="botton_ar">Регистрация</a>
+                <form th:action="@{/weather/returnAccount}"
+                      method="GET">
+                    <input type="submit"
+                           value="Личный кабинет"
+                           class="button_acc">
+                </form>
             </div>
         </div>
     </div>
@@ -60,27 +68,296 @@
     <div class="elipse_1"></div>
     <div class="content">
         <div class="elipse_2"></div>
-        <div class="research">
-            <h1>Выберите город, в котором хотите узнать погоду:</h1>
-            <div class="research-bar">
-                <form class="search"
-                      th:action="@{/weather/current/get}"
-                      method="post"
-                      th:object="${weather}">
-                    <input type="search"
-                           th:field="*{cityName}"
-                           required>
-                    <button type="submit">Найти</button>
-                </form>
+        <div class="elipse_11"></div>
+            <div class="city_span">
+                <h1>Текущая погода в городе <span th:text="${weather.location.name}"
+                                                  class="city_name"></span></h1>
             </div>
-        </div>
+            <div class="weather_information_block_1">
+                <div class="data">
+                        <div class="time">Сейчас <span th:text="${weather.getTime()}" class="city_name" ></span></div>
+                        <span th:text="${weather.getDate()}" style="font-size: 35px"></span>
+                </div>
+                <div class = "line5"></div>
+                <div class = "temp">
+                        <div class="tempCurrent">
+
+                            <div class="temperature">Температура<div class="line6"></div></div>
+                            <div class="temp-card">
+                                <div class="temp-card-inner">
+                                    <span th:if="${weather.current.temp_c > 0}">
+                                        <div class="temp-main">
+                                            <span th:text="'+' + ${weather.current.temp_c} + '°'" class="temp-main"></span>
+                                            <img th:src="@{'http:'+ ${weather.current.condition.icon}}" class="weather_png" alt="">
+                                        </div>
+                                    </span>
+        <!-- <video class="weather_png" th:src="@{/images/sticker.webm}" controls autoplay loop muted style="border-radius: 20px"> </video>-->
+
+                                    <span th:unless="${weather.current.temp_c > 0}">
+                                        <div class="temp-main">
+                                            <span th:text="${weather.current.temp_c} + '°' " class="temp-main"></span>
+                                            <img th:src="@{'http:'+ ${weather.current.condition.icon}}" class="weather_png" alt="">
+                                        </div>
+                                    </span>
+
+
+                                <div class="tempFeelslike">
+                                    <span th:if="${weather.current.feelslike_c > 0}">
+                                        <span th:text="'Ощущается как +' + ${weather.current.feelslike_c} + '°'"></span>
+                                    </span>
+                                    <span th:unless="${weather.current.feelslike_c > 0}">
+                                        <span th:text="'Ощущается как ' + ${weather.current.feelslike_c} + '°'"></span>
+                                    </span>
+                                </div>
+                                <div class="text-weather"><span th:text="${weather.current.condition.text}"></span></div>
+                                </div>
+                            </div>
+                    </div>
+
+                <div class = "line"></div>
+                <div class="properties">
+                    <img th:src="@{https://yastatic.net/weather/i/icons/confident/dark/svg/ic_wind.svg}" class="wind_img">
+                        <span th:text="${weather.current.wind_kph} + ' км/ч, ' + ${weather.current.wind_dir}" class="wind_text">ㅤ</span>
+
+                    <img th:src="@{/images/kaplya.png}" class="properties_img">
+                        <span th:text="${weather.current.humidity} + '%'" class="humidity_text">ㅤㅤ</span>
+
+                    <img th:src="@{/images/barmetr.png}" class="properties_img">
+                        <span th:text="${#numbers.formatInteger(weather.current.pressure_in * 25.4, 3)} + ' мм рт. ст.'" class="pressure_text"></span>
+                </div>
+                <div class="line"></div>
+                <div class="forecast-hours_title">Прогноз погоды по <span class="forecast_title">ЧАСАМ</span><div class="line4"></div></div>
+                <div class = "line1"></div>
+
+                <div class="swiper hourForecastSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"
+                             th:each="forecastHour : ${weather.forecast.forecastDays[0].hours}">
+                            <div class="forecast-hours">
+                                <div class="time-card"><span th:text="${forecastHour.getTime()}"></span></div>
+                                <span th:if="${forecastHour.temp_c > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${forecastHour.condition.icon}}" alt=""></div>
+                                    <span th:text="'+' + ${forecastHour.temp_c} + '°'"></span>
+                                </span>
+
+                                <span th:unless="${forecastHour.temp_c > 0}">
+                                    <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${forecastHour.condition.icon}}" alt=""></div>
+                                    <span th:text="${forecastHour.temp_c} + '°'"></span>
+                                </span>
+                            </div>
+                            <div class="text-forecast"><span th:text="${forecastHour.condition.text}"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "line1"></div>
+                    <div class="line7"></div>
+                <div class="map_properties">
+                    <div class="map-block">
+                        <div class="text-geo">Геолокация города <span class="location_title" th:text="${weather.getLocation().getName()}"></span></div><div class = "line2"></div>
+
+                        <a th:href="@{https://yandex.ru/maps/?ll=}+ ${weather.getLocation().getLon()} + @{%2C} + ${weather.getLocation().getLat()} + @{&z=11}"><img class="map"
+                             th:src="@{https://static-maps.yandex.ru/v1?ll=} + ${weather.getLocation().getLon()} + ',' + ${weather.getLocation().getLat()}
+                        + @{&lang=ru_RU&size=650,450&z=9&apikey=c6fce154-a9a5-43ef-90a6-3332951a0507}"></a></div>
+
+                        <div class="properties_add">
+                            <div class="met-prop">Метеорологические характеристики <div class = "line3"></div></div>
+
+
+                            <div class="cloud"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Облачность: <span class="cloud_val" th:text="${weather.getCurrent().getCloud()} + '%'"></span></div>
+                            <div class="gust"> <img th:src="@{/images/gust.png}" class="gust_png" alt=""> Порывы ветра: <span class="gust_val" th:text=" ${weather.getCurrent().getGust_kph()} + ' км/ч'"></span></div>
+                            <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${weather.getCurrent().getPrecip_mm()} + ' мм'"></span></div>
+                            <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${weather.getCurrent().getVis_km()} + ' км'"></span></div>
+
+                            <form th:action="@{/favourite_city/add}"
+                                  method="post">
+                                <input type="submit"
+                                       value="В избранное"
+                                       class="favourites_button">
+                            </form>
+                        </div>
+                </div>
+                    <div class="line7"></div>
+            </div>
     </div>
-</div>
+        <h1>Прогноз погоды на <span class="city_name">2 ДНЯ</span> в городе <span th:text="${weather.getLocation().getName()}" class="city_name">2 дня</span>:</h1>
+        <div class="weather_information_block_2">
+            <div class="fix-swiper-td">
+                <div class = "line9"></div>
+                <div class="swiper twoDayForecastSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide"
+                             th:each="dayForecast, iterStat : ${weather.forecast.forecastDays}"
+                             th:if="${iterStat.index == 1 or iterStat.index == 2}">
+                            <div class="forecastTwoDay">
+                                <div class="tempAvgAndText">
+                                    <div class="tempCurrent">
+                                        <div class="temperature">Средняя температура<div class="line8"></div></div>
+                                        <div class="temp-card-forecast-two-day">
+                                            <div class="temp-card-inner-forecast-two-day">
+                                        <span th:if="${dayForecast.day.avgtemp_c > 0}">
+                                            <div class="temp-main">
+                                                <span th:text="'+' + ${dayForecast.day.avgtemp_c} + '°'" class="temp-main"></span>
+                                                <div>
+                                                    <img th:src="@{'http:'+ ${dayForecast.day.condition.icon}}" class="weather_png-TD" alt="">
+                                                </div>
+                                            </div>
+                                        </span>
+                                                <!-- <video class="weather_png" th:src="@{/images/sticker.webm}" controls autoplay loop muted style="border-radius: 20px"> </video>-->
+
+                                                <span th:unless="${dayForecast.day.avgtemp_c > 0}">
+                                            <div class="temp-main">
+                                                <span th:text="${dayForecast.day.avgtemp_c} + '°' " class="temp-main"></span>
+                                                <div>
+                                                    <img th:src="@{'http:'+ ${dayForecast.day.condition.icon}}" class="weather_png-TD" alt="">
+                                                </div>
+                                            </div>
+                                        </span>
+
+                                                <div class="text-weather-two-Day"><span th:text="${dayForecast.day.condition.text}"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="meteoProps">
+                                    <div class="properties_add-two-day">
+                                        <div class="date-row">Дата: <span th:text="${dayForecast.getDateAndMonthName()}" class="city_name"></span></div>
+                                        <div class="met-prop">Метеорологические характеристики <div class = "line3"></div></div>
+                                        <div class="wind"><img th:src="@{https://yastatic.net/weather/i/icons/confident/dark/svg/ic_wind.svg}" class="wind_img"> Ветер: <span th:text="${dayForecast.day.maxwind_kph} + ' км/ч'" class="wind_text">ㅤ</span></div>
+                                        <div class="humidity"><img th:src="@{/images/kaplya.png}" class="properties_img"> Влажность: <span th:text="${dayForecast.day.avghumidity} + '%'" class="humidity_text"></span></div>
+                                        <div class="chance-rain"> <img th:src="@{/images/cloud.png}" class="cloud_png" alt=""> Вероятность дождя: <span class="cloud_val" th:text="${dayForecast.day.daily_chance_of_rain} + '%'"></span></div>
+                                        <div class="precip"> <img th:src="@{/images/precip.png}" class="precip_png" alt=""> Осадки: <span class="precip_val" th:text=" ${dayForecast.day.totalprecip_mm} + ' мм'"></span></div>
+                                        <div class="vis"> <img th:src="@{/images/eye.png}" class="vis_png" alt=""> Видимость: <span class="vis_val" th:text=" ${dayForecast.day.avgvis_km} + ' км'"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="hourForecastSwiperTwoDay">
+                                <div class="swiper hourForecastSwiper">
+                                    <div class="swiper-wrapper">
+
+                                        <div class="swiper-slide"
+                                             th:each="forecastHour : ${weather.forecast.forecastDays[iterStat.index].hours}">
+                                            <div class="forecast-hours">
+                                                <div class="time-card"><span th:text="${forecastHour.getTime()}"></span></div>
+                                                <span th:if="${forecastHour.temp_c > 0}">
+                                        <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${forecastHour.condition.icon}}" alt=""></div>
+                                        <span th:text="'+' + ${forecastHour.temp_c} + '°'"></span>
+                                    </span>
+
+                                                <span th:unless="${forecastHour.temp_c > 0}">
+                                        <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${forecastHour.condition.icon}}" alt=""></div>
+                                        <span th:text="${forecastHour.temp_c} + '°'"></span>
+                                    </span>
+                                            </div>
+                                            <div class="text-forecast"><span th:text="${forecastHour.condition.text}"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "line9"></div>
+            </div>
+
+        </div>
+
+
+        <h1>Прогноз погоды на <span class="city_name">7 ДНЕЙ</span> в городе <span th:text="${weather.getLocation().getName()}" class="city_name">2 дня</span>:</h1>
+        <div class="weather_information_block_3">
+
+            <div class="temperature-week">Средняя температура<div class="line8"></div></div>
+            <div class = "line1"></div>
+            <div class="swiper hourForecastSwiperWeek">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"
+                         th:each="dayForecast, iterStat : ${weather.forecast.forecastDays}">
+                        <div class="time-card"><span th:text="${dayForecast.getDateAndMonthName()}"></span></div>
+
+
+
+                        <span th:if="${dayForecast.day.avgtemp_c > 0}">
+                                        <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${dayForecast.day.condition.icon}}" alt=""></div>
+                                        <span th:text="'+' + ${dayForecast.day.avgtemp_c} + '°'" style="font-size: 35px"></span>
+                                    </span>
+
+                        <span th:unless="${dayForecast.day.avgtemp_c > 0}">
+                                        <div class="weather_forecast-hour_png"><img th:src="@{'http:'+ ${dayForecast.day.condition.icon}}" alt=""></div>
+                                        <span th:text="${dayForecast.day.avgtemp_c} + '°'" style="font-size: 35px"></span>
+                                    </span>
+                        <div class="text-forecast"><span th:text="${dayForecast.day.condition.text}"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class = "line1"></div>
+
+        </div>
+</div><div class="elipse_10"></div>
+
+
+<!-- Swiper JS -->
+<script th:inline="javascript" th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
+
+<!-- Initialize Swiper -->
+<script th:inline="javascript">
+    var swiper = new Swiper(".hourForecastSwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        slidesPerGroup: 4,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+    var swiper = new Swiper(".hourForecastSwiperWeek", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        slidesPerGroup: 4,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+    var swiper = new Swiper(".twoDayForecastSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+</script>
+
+
+
+
 
 <div class="footer">
 
     <!-- FOOTER -->
-
 
     <div class="Footer_ar">
         <div class="navigate_bar">
@@ -89,26 +366,11 @@
             </a>
             <div class="inf_1">
                 <div class="useful_assistant">Полезный помощник в вашем кармане</div>
-                <div class="social_logo">
-
-                    <div class="vk">
-                        <a th:href="@{https://vk.com/club225712381}">
-                            <img th:src="@{/images/vk.png}" alt="">
-                        </a>
-                    </div>
-
-                    <div class="tg">
-                        <a th:href="@{https://t.me/SkyCastApp}">
-                            <img th:src="@{/images/tg.png}" alt="">
-                        </a>
-                    </div>
-
-                </div>
             </div>
             <div class="inf_2">
                 <div class="communication">Связь с нами:</div>
                 <div class="number">Тел: 8-(960)-874-87-93</div>
-                <div class="email_communication">Email: skycastapp@gmail.com</div>
+                <div class="email_communication">Email: skycast2024@gmail.com</div>
             </div>
             <div class="inf_3">
                 <div class="cmw">Написать нам:</div>
@@ -128,11 +390,35 @@
             <div class="inf_4">
                 <div class="repost">Поделитесь с друзьями</div>
                 <div class="button_repost">
-                    <a href="" class="botton_ar">
-                        Поделиться
-                    </a>
+                    <form>
+                        <input type="hidden" id="hidden-value" value="https://t.me/SkyCastApp">
+                    </form>
+                    <button class="button_acc" onclick="copyHiddenValue()">Поделиться</button>
                 </div>
             </div>
+            <script>
+                function copyHiddenValue() {
+                    // Получаем значение из скрытого поля
+                    var hiddenValue = document.getElementById("hidden-value").value;
+
+                    // Создаем временный элемент input
+                    var tempInput = document.createElement("input");
+                    tempInput.value = hiddenValue;
+                    document.body.appendChild(tempInput);
+
+                    // Выделяем текст в элементе input
+                    tempInput.select();
+
+                    // Копируем выделенный текст
+                    document.execCommand("copy");
+
+                    // Удаляем временный элемент
+                    document.body.removeChild(tempInput);
+
+                    // Вывод сообщения (необязательно)
+                    alert("Ссылка скопирована!");
+                }
+            </script>
         </div>
         <div class="OpenWeatherApiInf">
             <div class="logo_ow">
@@ -144,5 +430,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </body>

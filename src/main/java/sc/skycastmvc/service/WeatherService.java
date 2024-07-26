@@ -1,40 +1,60 @@
 package sc.skycastmvc.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import sc.skycastmvc.misc.WeatherServiceProps;
+import sc.skycastmvc.model.Location;
+import sc.skycastmvc.model.current.CurrentClimateData;
+import sc.skycastmvc.model.forecast.DayClimate;
+import sc.skycastmvc.model.forecast.ForecastClimateData;
+import sc.skycastmvc.model.forecast.ForecastDay;
+import sc.skycastmvc.model.forecast.ForecastHour;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 @Data
+@Slf4j
 public class WeatherService {
 
-    private WeatherServiceProps props;
+    private final ObjectMapper objectMapper;
 
-    public WeatherService(WeatherServiceProps props) {
+    private final WeatherServiceProps props;
+
+    public WeatherService(WeatherServiceProps props, ObjectMapper objectMapper) {
         this.props = props;
+        this.objectMapper = objectMapper;
     }
 
-    public JSONObject getCurrentWeather(String cityName)
+    /**
+     * Производит запрос к API и возвращает
+     * тело ответа в виде JSON
+     * @param cityName имя города, для которого производится запрос климатических данных
+     * @return <code>JSONObject</code>, содержащий тело ответа API
+     * @throws JSONException выбрасывается в случае, если запрос к API не может быть выполнен
+     * или запрос вернул код ошибки
+     */
+    public JSONObject getClimateDataJSON(String cityName)
             throws JSONException {
 
         OkHttpClient httpClient = new OkHttpClient();
 
-        // Формирование URL запроса к API
-        String url = props.getUrl() + "/current.json?" +
+        // Формирование запроса к API
+        String url = props.getUrl() + "/forecast.json?" +
                 "key=" + props.getApiKey() +
-                "&q=" + cityName;
+                "&q=" + cityName +
+                "&lang=" + props.getLang() +
+                "&days=" + "8";
+
         Request request = new Request.Builder()
                 .url(url)
                 .get()
@@ -42,15 +62,110 @@ public class WeatherService {
 
         // Выполнение запроса
         try (Response response = httpClient.newCall(request).execute()) {
+
+            log.info("Request executed: {}", request);
+
             // Обработка ответа API
             if (response.isSuccessful()) {
-                JSONObject json = new JSONObject(response.body().string());
-                return json.getJSONObject("current");
+                return new JSONObject(response.body().string());
             } else {
-                throw new JSONException("Weather request failed: " + response.code());
+                log.error("Request failed: {}", response.code());
+                throw new JSONException("Request failed: " + response.code());
             }
         } catch (IOException e) {
-            throw new JSONException("Weather request failed: " + e.getMessage());
+            log.error("Request can not be executed: {}", request);
+            throw new JSONException("Request can not be executed: " + e.getMessage());
         }
+    }
+
+    /**
+     * Парсит JSON-объект с климатическими данными
+     * и возвращает объект {@link Location}
+     * @param jsonObject климатические данные в формате <code>JSON</code>
+     * @return {@link Location}, содержащий данные о названии и местоположении города
+     */
+    public Location parseLocation(JSONObject jsonObject) {
+
+        // Парсинг JSON-объекта "location" из ответа API
+        JSONObject locationJson = jsonObject.getJSONObject("location");
+
+        Location location = new Location();
+        try {
+            // Маппинг атрибутов JSON-объекта на поля Location
+            location = objectMapper.readValue(locationJson.toString(), Location.class);
+        } catch (JsonProcessingException e) {
+            log.error("Location can not be parsed: {}", locationJson);
+        }
+        return location;
+    }
+
+    /**
+     * Парсит JSON-объект с климатическими данными
+     * и возвращает объект {@link CurrentClimateData}
+     * @param jsonObject климатические данные в формате <code>JSON</code>
+     * @return {@link CurrentClimateData}, содержащий данные о текущей погоде в городе
+     */
+    public CurrentClimateData parseCurrentClimateData(JSONObject jsonObject) {
+
+        // Парсинг JSON-объекта "current" из ответа API
+        JSONObject currentJson = jsonObject.getJSONObject("current");
+
+        CurrentClimateData currentClimateData = new CurrentClimateData();
+        try {
+            // Выполнение маппинга атрибутов JSON-объекта на поля CurrentClimateData
+            currentClimateData = objectMapper.readValue(currentJson.toString(), CurrentClimateData.class);
+        } catch (JsonProcessingException e) {
+            log.error("CurrentClimateData can not be parsed: {}", currentJson);
+        }
+        return currentClimateData;
+    }
+
+    /**
+     * Парсит JSON-объект с климатическими данными
+     * и возвращает объект {@link ForecastClimateData}
+     * @param jsonObject климатические данные в формате <code>JSON</code>
+     * @return {@link ForecastClimateData}, содержащий данные о прогнозе погоды в городе
+     */
+    public ForecastClimateData parseForecastClimateData(JSONObject jsonObject) {
+
+        // Парсинг объекта "forecast" из ответа API
+        JSONObject forecastJson = jsonObject.getJSONObject("forecast");
+
+        ForecastClimateData forecastClimateData = new ForecastClimateData();
+        try {
+
+            // Парсинг массива объектов "forecastday" из объекта "forecast"
+            JSONArray forecastDayJson = forecastJson.getJSONArray("forecastday");
+
+            ForecastDay[] forecastDays = new ForecastDay[forecastDayJson.length()];
+            for (int i = 0; i < forecastDayJson.length(); i++) {
+                // Парсинг очередного дня прогноза
+                JSONObject dayJson = forecastDayJson.getJSONObject(i);
+                // Парсинг средних значений климатических данных дня прогноза
+                JSONObject dayClimateJson = dayJson.getJSONObject("day");
+
+                ForecastDay forecastDay = new ForecastDay();
+
+                // Парсинг массива объектов "hour" с почасовым прогнозом
+                JSONArray forecastHourJson = dayJson.getJSONArray("hour");
+
+                ForecastHour[] forecastHours = new ForecastHour[forecastHourJson.length()];
+                for (int j = 0; j < forecastHourJson.length(); j++) {
+                    // Парсинг очередного часа дневного прогноза
+                    JSONObject hour = forecastHourJson.getJSONObject(j);
+                    forecastHours[j] = objectMapper.readValue(hour.toString(), ForecastHour.class);
+                }
+                // Маппинг атрибутов JSON-объектов на поля ForecastDay
+                forecastDays[i] = objectMapper.readValue(dayJson.toString(), ForecastDay.class);
+                forecastDays[i].setHours(forecastHours);
+                forecastDays[i].setDay(objectMapper.readValue(dayClimateJson.toString(), DayClimate.class));
+            }
+            forecastClimateData.setForecastDays(forecastDays);
+
+        } catch (JsonProcessingException e) {
+            log.error("ForecastClimateData can not be parsed: {}", forecastJson);
+        }
+
+        return forecastClimateData;
     }
 }

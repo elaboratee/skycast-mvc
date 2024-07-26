@@ -9,5 +9,15 @@
       "name": "weather.service.url",
       "type": "java.lang.String",
       "description": "Base URL for API requests."
-  }
+  },
+    {
+      "name": "weather.service.lang",
+      "type": "java.lang.String",
+      "description": "Weather description language."
+    },
+    {
+      "name": "weather.service.days",
+      "type": "java.lang.Integer",
+      "description": "Number of forecast days."
+    }
 ] }

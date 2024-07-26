@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:v='http://schemas.microsoft.com/visio/2003/SVGExtensions/' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' width='841.8898pt' height='595.2756pt' viewBox='0 0 841.8898 595.2756'>
+ <v:documentProperties>
+  <v:userDefs>
+   <v:ud v:nameU='msvNoAutoConnect' v:val='1'/>
+   <v:ud v:nameU='msvSubprocessMaster' v:val='Activity box'/>
+  </v:userDefs>
+ </v:documentProperties>
+ <g id='SFixTitle'/>
+ <g id='SContent'>
+  <g>
+   <g transform='matrix(1,0,0,-1,0,595.2756)'>
+    <g transform='matrix(1,0,0,1,35.433075,35.433075)' v:mID='1'>
+     <title>Title block</title>
+     <userDefs>
+      <ud nameU='PageOffset' val='0.4921259842519685'/>
+      <ud nameU='Scale' val='1'/>
+      <ud nameU='TitleHeight' val='0.2362204724409449'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <custProps>
+      <cp nameU='Node' lbl='Узел' type='0' langID='1033' val='A'/>
+      <cp nameU='Title' lbl='Заголовок' type='0' langID='1049' val='Получение и обработка климатических данных'/>
+      <cp nameU='Number' lbl='Номер' type='0' langID='1033' val='2'/>
+      <cp nameU='PageOffset' lbl='Поля страницы' type='1' langID='1049' val='12.5 mm'/>
+     </custProps>
+     <g transform='matrix(1,0,0,1,73.70079,0)' v:mID='2'>
+      <title>Sheet.2</title>
+      <path d='M0,0 L623.622009277,0 L623.622009277,0 L623.622009277,17.007873535 L623.622009277,17.007873535 L0,17.007873535 L0,17.007873535 L0,0 Z' stroke='#000000' stroke-width='0.75' stroke-linecap='round' fill='#FFFFFF'  fill-rule='evenodd'/>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='2' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,10.903937)'>ЗАГОЛОВОК:</text>
+      </g>
+     </g>
+     <g transform='matrix(1,0,0,1,0,0)' v:mID='3'>
+      <title>Sheet.3</title>
+      <path d='M0,0 L771.023620605,0 L771.023620605,0 L771.023620605,524.409423828 L771.023620605,524.409423828 L0,524.409423828 L0,524.409423828 L0,0 Z' stroke='#000000' stroke-width='0.75' stroke-linecap='round' fill='none'/>
+      <g transform='matrix(1,0,0,1,0,0)'/>
+     </g>
+     <g transform='matrix(1,0,0,1,-0,-0)' v:mID='4'>
+      <title>Sheet.4</title>
+      <path d='M0,0 L73.700790405,0 L73.700790405,0 L73.700790405,17.007873535 L73.700790405,17.007873535 L0,17.007873535 L0,17.007873535 L0,0 Z' stroke='#000000' stroke-width='0.75' stroke-linecap='round' fill='#FFFFFF'  fill-rule='evenodd'/>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='2' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,10.903937)'>УЗЕЛ:</text>
+      </g>
+     </g>
+     <g transform='matrix(1,0,0,1,697.3228,0)' v:mID='5'>
+      <title>Sheet.5</title>
+      <path d='M0,0 L73.700790405,0 L73.700790405,0 L73.700790405,17.007873535 L73.700790405,17.007873535 L0,17.007873535 L0,17.007873535 L0,0 Z' stroke='#000000' stroke-width='0.75' stroke-linecap='round' fill='#FFFFFF'  fill-rule='evenodd'/>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='2' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,10.903937)'>НОМЕР:</text>
+      </g>
+     </g>
+     <g transform='matrix(1,0,0,1,725.6693,0)' v:mID='6'>
+      <title>Sheet.6</title>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='20.64982' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,10.903937)'>2</text>
+      </g>
+     </g>
+     <g transform='matrix(1,0,0,1,39.685036,0)' v:mID='7'>
+      <title>Sheet.7</title>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='14.69342' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,10.903937)'>A</text>
+      </g>
+     </g>
+     <g transform='matrix(1,0,0,1,107.71655,0)' v:mID='8'>
+      <title>Sheet.8</title>
+      <userDefs>
+       <ud nameU='Offset' val='0.4724409448818898'/>
+      </userDefs>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='214.08244' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,10.903937)'>Получение и обработка климатических данных</text>
+      </g>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,501.6464,226.77168)' v:mID='9'>
+     <title>Activity box</title>
+     <userDefs>
+      <ud nameU='WHRatio' val='1.333333'/>
+      <ud nameU='CalcTxtHeight' val='0.75'/>
+      <ud nameU='Connections' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <custProps>
+      <cp nameU='Linked' lbl='Идентификатор подчиненной схемы' type='0' langID='1049'/>
+      <cp nameU='ID' lbl='Идентификатор процесса' type='0' langID='1049' val='2'/>
+      <cp nameU='Name' lbl='Имя процесса' type='0' langID='1049' val='Отправка запроса Weather API'/>
+     </custProps>
+     <g transform='matrix(1,0,0,1,0,0)' v:mID='10'>
+      <title>Sheet.10</title>
+      <path d='M0,0 L85.039375305,0 L85.039375305,0 L85.039375305,56.692913055 L85.039375305,56.692913055 L0,56.692913055 L0,56.692913055 L0,0 Z' stroke='#000000' stroke-width='0.75' stroke-linecap='round' fill='#FFFFFF'  fill-rule='evenodd'/>
+     </g>
+     <g transform='matrix(1,0,0,1,-6.5196877,0)' v:mID='11'>
+      <title>Sheet.11</title>
+      <g transform='matrix(1,0,0,1,-0,-0)'>
+       <text x='75.97101' y='6' class='TextStyle1' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.001819)'>2</text>
+      </g>
+     </g>
+     <g transform='matrix(1,0,0,1,-6.5196877,-16.003635)' v:mID='12'>
+      <title>Sheet.12</title>
+      <g transform='matrix(1,0,0,1,-0,-0)'/>
+     </g>
+     <g transform='matrix(1,0,0,1,0,12.003635)' v:mID='13'>
+      <title>Sheet.13</title>
+      <userDefs>
+       <ud nameU='TextOffset' val='0.7874015748031495'/>
+       <ud nameU='AntiScale' val='1'/>
+      </userDefs>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='19.572906' y='-6' class='TextStyle1' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,25.344637)'>Обработка</text>
+       <text x='10.398102' y='6' class='TextStyle1' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,25.344637)'>климатических</text>
+       <text x='26.49185' y='18' class='TextStyle1' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,25.344637)'>данных</text>
+      </g>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,240.94489,340.15747)' v:mID='14'>
+     <title>Блок действия.14</title>
+     <userDefs>
+      <ud nameU='WHRatio' val='1.333333'/>
+      <ud nameU='CalcTxtHeight' val='0.75'/>
+      <ud nameU='Connections' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <custProps>
+      <cp nameU='Linked' lbl='Идентификатор подчиненной схемы' type='0' langID='1049'/>
+      <cp nameU='ID' lbl='Идентификатор процесса' type='0' langID='1049' val='1'/>
+      <cp nameU='Name' lbl='Имя процесса' type='0' langID='1049' val='Формирование запроса'/>
+     </custProps>
+     <g transform='matrix(1,0,0,1,0,0)' v:mID='15'>
+      <title>Блок действия.15</title>
+      <path d='M0,0 L85.039375305,0 L85.039375305,0 L85.039375305,56.692913055 L85.039375305,56.692913055 L0,56.692913055 L0,56.692913055 L0,0 Z' stroke='#000000' stroke-width='0.75' stroke-linecap='round' fill='#FFFFFF'  fill-rule='evenodd'/>
+     </g>
+     <g transform='matrix(1,0,0,1,-6.5196877,0)' v:mID='16'>
+      <title>Блок действия.16</title>
+      <g transform='matrix(1,0,0,1,-0,-0)'>
+       <text x='75.97101' y='6' class='TextStyle1' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.001819)'>1</text>
+      </g>
+     </g>
+     <g transform='matrix(1,0,0,1,-6.5196877,-16.003635)' v:mID='17'>
+      <title>Блок действия.17</title>
+      <g transform='matrix(1,0,0,1,-0,-0)'/>
+     </g>
+     <g transform='matrix(1,0,0,1,0,12.003635)' v:mID='18'>
+      <title>Блок действия.18</title>
+      <userDefs>
+       <ud nameU='TextOffset' val='0.7874015748031495'/>
+       <ud nameU='AntiScale' val='1'/>
+      </userDefs>
+      <g transform='matrix(1,0,0,1,0,0)'>
+       <text x='4.524079' y='0' class='TextStyle1' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,25.344637)'>Отправка запроса</text>
+       <text x='35.783844' y='12' class='TextStyle1' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,25.344637)'>API</text>
+      </g>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,34.015747,368.50394)' v:mID='19'>
+     <title>1 legged connector</title>
+     <userDefs>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <path d='M201.169143677,-2.880000114 L206.929138184,0 L201.169143677,2.880000114 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(1,0,0,1,0,0)'/>
+     <path d='M0,0 L206.929138184,0 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+    </g>
+    <g transform='matrix(-0,-1,1,0,283.46457,561.2598)' v:mID='20'>
+     <title>1 legged connector.20</title>
+     <userDefs>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <path d='M158.64944458,-2.880000114 L164.409439087,0 L158.64944458,2.880000114 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(1,0,0,1,0,0)'/>
+     <path d='M0,0 L164.409439087,0 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+    </g>
+    <g transform='matrix(0,1,-1,-0,544.1661,51.53901)' v:mID='21'>
+     <title>Односторонняя соединительная линия.21</title>
+     <userDefs>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <path d='M169.47265625,-2.880000114 L175.232650757,0 L169.47265625,2.880000114 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(1,0,0,1,0,0)'/>
+     <path d='M0,0 L175.232650757,0 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+    </g>
+    <g transform='matrix(1,0,0,1,544.1661,139.15533)' v:mID='23'>
+     <title>IDEF0 connector</title>
+     <userDefs>
+      <ud nameU='txtBegXOffset' val='-0.1'/>
+      <ud nameU='TunnelIn' val='0'/>
+      <ud nameU='TunnelOut' val='0'/>
+      <ud nameU='OrientLeftRight' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(-0,-1,1,0,-14.173228,7.086614)' v:mID='24'>
+      <title>Sheet.24</title>
+      <userDefs>
+       <ud nameU='2Leg' val='1.5707963267949'/>
+       <ud nameU='Horizontal' val='0'/>
+       <ud nameU='FlipY' val='0'/>
+      </userDefs>
+     </g>
+     <g transform='matrix(1,0,0,1,0,0)' v:mID='25'>
+      <title>Sheet.25</title>
+      <path d='M-266.461517334,198.122161865 L-260.701507568,201.002151489 L-266.461517334,203.882141113 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(0,1,-1,-0,-59.699356,461.70367)'/>
+      <path d='M0,0 L-26.070150375,0 L-26.070150375,0 L-26.070150375,0 L-26.070150375,0 L-26.070150375,0 L-26.070150375,0 L-256.449554443,0 L-256.449554443,0 C-257.576812744,0.00000225 -258.659057617,0.448284149 -259.45614624,1.245378733 L-259.45614624,1.245378733 C-260.253234863,2.042473316 -260.701507568,3.124717474 -260.701507568,4.251976967 L-260.701507568,4.251968384 L-260.701507568,201.002151489 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+     </g>
+     <g transform='matrix(1,0,0,1,-267.78812,186.82892)' v:mID='26'>
+      <title>Sheet.26</title>
+      <userDefs>
+       <ud nameU='2Leg' val='0'/>
+       <ud nameU='Horizontal' val='0'/>
+       <ud nameU='FlipY' val='0'/>
+      </userDefs>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,586.6857,274.01575)' v:mID='27'>
+     <title>Односторонняя соединительная линия.27</title>
+     <userDefs>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <path d='M213.16053772,-2.880000114 L218.920532227,0 L213.16053772,2.880000114 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(1,0,0,1,0,0)'/>
+     <path d='M0,0 L218.920532227,0 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+    </g>
+    <g transform='matrix(1,0,0,1,325.98425,368.50397)' v:mID='36'>
+     <title>Соединительная линия IDEF0.36</title>
+     <userDefs>
+      <ud nameU='txtBegXOffset' val='0.1'/>
+      <ud nameU='TunnelIn' val='0'/>
+      <ud nameU='TunnelOut' val='0'/>
+      <ud nameU='OrientLeftRight' val='1'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(-0,-1,1,0,-0,7.086614)' v:mID='37'>
+      <title>Соединительная линия IDEF0.37</title>
+      <userDefs>
+       <ud nameU='2Leg' val='0'/>
+       <ud nameU='Horizontal' val='1'/>
+       <ud nameU='FlipY' val='0'/>
+      </userDefs>
+     </g>
+     <g transform='matrix(1,0,0,1,0,0)' v:mID='38'>
+      <title>Соединительная линия IDEF0.38</title>
+      <path d='M169.902145386,-116.265830994 L175.662139893,-113.38583374 L169.902145386,-110.505836487 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(1,0,0,1,0,0)'/>
+      <path d='M0,0 L83.579101563,0 L83.579101563,-0 C84.706359863,0.000000042 85.788604736,-0.448279768 86.585700989,-1.245372772 L86.585700989,-1.245372772 C87.382789612,-2.042465687 87.831069946,-3.124708652 87.831069946,-4.251968384 L87.831069946,-4.251968384 L87.831069946,-56.69291687 L87.831069946,-56.69291687 L87.831069946,-56.69291687 L87.831069946,-56.69291687 L87.831069946,-109.133857727 L87.831069946,-109.133857727 C87.831069946,-110.261116028 88.279342651,-111.343353271 89.076438904,-112.140449524 L89.076438904,-112.140449524 C89.873527527,-112.937538147 90.955780029,-113.385826111 92.083030701,-113.385826111 L92.083030701,-113.38583374 L175.662139893,-113.38583374 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+     </g>
+     <g transform='matrix(0,1,-1,-0,175.66214,-120.47245)' v:mID='39'>
+      <title>Соединительная линия IDEF0.39</title>
+      <userDefs>
+       <ud nameU='2Leg' val='0'/>
+       <ud nameU='Horizontal' val='1'/>
+       <ud nameU='FlipY' val='0'/>
+      </userDefs>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,544.1661,120.056885)' v:mID='40'>
+     <title>Label</title>
+     <userDefs>
+      <ud nameU='SquiggleWidth' val='0.05905511811023623'/>
+      <ud nameU='Squiggle' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(1,0,0,1,-0.9651995,13.998228)'>
+      <path d='M2.906004429,-2.817187309 L27.370849609,-2.817187309 L27.370849609,6.948437214 L2.906004429,6.948437214 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,9.201781)'/>
+      <text x='2.9060044' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.201781)'>Сервер</text>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,153.92825,352.056)' v:mID='41'>
+     <title>Подпись.41</title>
+     <userDefs>
+      <ud nameU='SquiggleWidth' val='0.05905511811023623'/>
+      <ud nameU='Squiggle' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(1,0,0,1,-62.703487,16.447933)'>
+      <path d='M2.905943394,-2.817187309 L89.605163574,-2.817187309 L89.605163574,6.948437214 L2.905943394,6.948437214 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,9.201781)'/>
+      <text x='2.9059434' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.201781)'>Сформированный запрос</text>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,355.72656,354.5057)' v:mID='42'>
+     <title>Подпись.42</title>
+     <userDefs>
+      <ud nameU='SquiggleWidth' val='0.05905511811023623'/>
+      <ud nameU='Squiggle' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(1,0,0,1,-28.671894,13.998228)'>
+      <path d='M13.468168259,-7.6171875 L72.222068787,-7.6171875 L72.222068787,2.148437023 L13.468168259,2.148437023 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,14.001763)'/>
+      <text x='13.468168' y='0' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,14.001763)'>Необработанные</text>
+      <path d='M2.905668736,1.982812881 L82.784576416,1.982812881 L82.784576416,11.748437881 L2.905668736,11.748437881 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,14.001763)'/>
+      <text x='2.9056687' y='9.6' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,14.001763)'>климатические данные</text>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,283.4646,479.0551)' v:mID='43'>
+     <title>Подпись.43</title>
+     <userDefs>
+      <ud nameU='SquiggleWidth' val='0.05905511811023623'/>
+      <ud nameU='Squiggle' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(1,0,0,1,-0.8128071,2.8346379)'>
+      <path d='M2.905973434,-2.817187309 L44.073944092,-2.817187309 L44.073944092,6.948437214 L2.905973434,6.948437214 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,9.201781)'/>
+      <text x='2.9059734' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.201781)'>Weather API</text>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,677.4803,269.29132)' v:mID='44'>
+     <title>Подпись.44</title>
+     <userDefs>
+      <ud nameU='SquiggleWidth' val='0.05905511811023623'/>
+      <ud nameU='Squiggle' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(1,0,0,1,-18.15036,4.7244253)'>
+      <path d='M2.905943394,-2.817187309 L70.726257324,-2.817187309 L70.726257324,6.948437214 L2.905943394,6.948437214 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,9.201781)'/>
+      <text x='2.9059434' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.201781)'>Координаты города</text>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,586.6857,236.22237)' v:mID='45'>
+     <title>1 legged connector.45</title>
+     <userDefs>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <path d='M213.16053772,-2.880000114 L218.920532227,0 L213.16053772,2.880000114 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(1,0,0,1,0,0)'/>
+     <path d='M0,0 L218.920532227,0 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+    </g>
+    <g transform='matrix(1,0,0,1,694.48816,184.25197)' v:mID='46'>
+     <title>Label.46</title>
+     <userDefs>
+      <ud nameU='SquiggleWidth' val='0.05905511811023623'/>
+      <ud nameU='Squiggle' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(1,0,0,1,-56.845383,51.97041)'>
+      <path d='M2.905591488,-2.817187309 L114.100906372,-2.817187309 L114.100906372,6.948437214 L2.905591488,6.948437214 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,9.201781)'/>
+      <text x='2.9055915' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.201781)'>Текущие климатические данные</text>
+     </g>
+    </g>
+    <g transform='matrix(1,0,0,1,586.6857,255.11813)' v:mID='49'>
+     <title>1 legged connector.49</title>
+     <userDefs>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <path d='M213.16053772,-2.880000114 L218.920532227,0 L213.16053772,2.880000114 Z' stroke='#000000' stroke-width='0.2376' fill='#000000'  fill-rule='evenodd' transform='matrix(1,0,0,1,0,0)'/>
+     <path d='M0,0 L218.920532227,0 ' stroke='#000000' stroke-width='0.2376' stroke-linecap='round' fill='none'/>
+    </g>
+    <g transform='matrix(1,0,0,1,666.1418,248.03148)' v:mID='50'>
+     <title>Label.50</title>
+     <userDefs>
+      <ud nameU='SquiggleWidth' val='0.05905511811023623'/>
+      <ud nameU='Squiggle' val='0'/>
+      <ud nameU='visVersion' val='15'/>
+     </userDefs>
+     <g transform='matrix(1,0,0,1,-19.33303,7.0866294)'>
+      <path d='M2.905715942,-2.817187309 L95.768989563,-2.817187309 L95.768989563,6.948437214 L2.905715942,6.948437214 Z' stroke='none' stroke-width='0' fill='#FFFFFF'  fill-rule='evenodd' transform='matrix(1,0,0,-1,0,9.201781)'/>
+      <text x='2.905716' y='4.8' class='TextStyle0' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,9.201781)'>Данные о прогнозе погоды</text>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+ <style type='text/css'><![CDATA[ .TextStyle0 {font-family:Calibri;font-size:8px;}.TextStyle1 {font-family:Calibri;font-size:10px;} ]]></style>
+</svg>

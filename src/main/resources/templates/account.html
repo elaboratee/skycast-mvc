@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/account.css}">
+    <meta charset="UTF-8">
+    <title>Личный кабинет - SkyCast</title>
+    <link rel="icon" th:href="@{/images/favicon.ico}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="Header">
+    <div class="Header_index">
+        <a href="" class="Logo_link">
+            <div class="Logo">
+                <img th:src="@{/images/Logo_bar.png}" alt="">
+            </div>
+        </a>
+        <div class="menu-bar">
+
+            <form th:action="@{/}"
+                  method="GET">
+                <input type="submit"
+                       value="Главная"
+                       class="Primary">
+            </form>
+            <form th:action="@{/search}"
+                  method="GET">
+                <input type="submit"
+                       value="Погода"
+                       class="Weather">
+            </form>
+            <form th:action="@{/about}"
+                  method="GET">
+                <input type="submit"
+                       value="О нас"
+                       class="About_us">
+            </form>
+        </div>
+        <div class="Button_block">
+            <div></div>
+            <form th:action="@{/account}"
+                  method="GET">
+                <input type="submit"
+                       value="Личный кабинет" class="button_acc">
+            </form>
+        </div>
+    </div>
+</header>
+
+
+<div class="app-wrapper">
+    <div class="elipse_1"></div>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-xl-6 col-md-12">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                                <div class="card-block text-center text-white">
+                                    <div class="group">
+                                        Личный кабинет
+                                    </div>
+
+                                    <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Информация</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Имя пользователя</p>
+                                            <h6 class="text-muted f-w-400">
+                                                <span th:text="${username}"></span>
+                                            </h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Пароль</p>
+                                            <h6 class="text-muted f-w-400">
+                                            </h6>
+                                            <form th:action="@{/account/change_password}"
+                                                  th:object="${passwordChangeForm}"
+                                                  id="passwordChangeForm"
+                                                  method="post">
+                                                <div class="name_form_password_repeat">Изменить пароль:
+                                                    <div class="inputNewPassword">
+                                                        <input type="password"
+                                                               name="newPassword"
+                                                               id="newPassword"
+                                                               th:field="*{newPassword}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="validation_error_block">
+                                                    <span class="validation_error"
+                                                          th:if="${#fields.hasErrors('newPassword')}"
+                                                          th:errors="*{newPassword}">Ошибка нового пароля</span>
+                                                </div>
+
+                                                <input type="submit"
+                                                       value="Изменить пароль"
+                                                        class="button_input"/>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logout">
+                    <form th:action="@{/logout}" method="get">
+                        <input type="submit" class="button_logout" value="Выйти из аккаунта">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+
+    <!-- FOOTER -->
+
+
+    <div class="Footer_ar">
+        <div class="navigate_bar">
+            <a class="Logo_footer">
+                <img th:src="@{/images/footer.png}" alt="">
+            </a>
+            <div class="inf_1">
+                <div class="useful_assistant">Полезный помощник в вашем кармане</div>
+
+            </div>
+            <div class="inf_2">
+                <div class="communication">Связь с нами:</div>
+                <div class="number">Тел: 8-(960)-874-87-93</div>
+                <div class="email_communication">Email: skycast2024@gmail.com</div>
+            </div>
+            <div class="inf_3">
+                <div class="cmw">Написать нам:</div>
+                <div class='social_logo'>
+                    <div class="vk">
+                        <a th:href="@{https://vk.com/club225712381}">
+                            <img th:src="@{/images/vk.png}" alt="">
+                        </a>
+                    </div>
+                    <div class="tg">
+                        <a th:href="@{https://t.me/SkyCastApp}">
+                            <img th:src="@{/images/tg.png}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="inf_4">
+                <div class="repost">Поделитесь с друзьями</div>
+                <div class="button_repost">
+                    <form>
+                        <input type="hidden" id="hidden-value" value="https://t.me/SkyCastApp">
+                    </form>
+                    <button class="button_acc" onclick="copyHiddenValue()">Поделиться</button>
+                </div>
+            </div>
+            <script>
+                function copyHiddenValue() {
+                    // Получаем значение из скрытого поля
+                    var hiddenValue = document.getElementById("hidden-value").value;
+
+                    // Создаем временный элемент input
+                    var tempInput = document.createElement("input");
+                    tempInput.value = hiddenValue;
+                    document.body.appendChild(tempInput);
+
+                    // Выделяем текст в элементе input
+                    tempInput.select();
+
+                    // Копируем выделенный текст
+                    document.execCommand("copy");
+
+                    // Удаляем временный элемент
+                    document.body.removeChild(tempInput);
+
+                    // Вывод сообщения (необязательно)
+                    alert("Ссылка скопирована!");
+                }
+            </script>
+        </div>
+        <div class="OpenWeatherApiInf">
+            <div class="logo_ow">
+                <img th:src="@{/images/ow.png}" alt="">
+            </div>
+            <div class="informaitionAPI">
+                С использованием WeatherAPI – ведущим поставщиком данных о погоде, предоставляющий обширный
+                набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
+            </div>
+        </div>
+    </div>
+</div>
+</body>

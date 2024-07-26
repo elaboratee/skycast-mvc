@@ -1,13 +1,45 @@
 spring:
-  datasource:
-    generate-unique-name: false
-    name: skycast
-
-logging:
-  level:
-    root: INFO
+  profiles:
+    active: dev
 
 weather:
   service:
-    api-key: 59a483515dfa42b2b54122033241105
+    api-key: 16f1d682ca8647a0b9b211336241206
     url: http://api.weatherapi.com/v1
+    lang: ru
+    days: 8
+
+---
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:devDB
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+  config:
+    activate:
+      on-profile: dev
+
+---
+spring:
+  datasource:
+    username: elaborate
+    password: G_3mA@7F
+    url: jdbc:postgresql://localhost:5432/skycast
+    driver-class-name: org.postgresql.Driver
+
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+  config:
+    activate:
+      on-profile: prod

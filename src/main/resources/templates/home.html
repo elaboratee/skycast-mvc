@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html
         xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org"
+        xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
         lang="en">
 <head>
     <link rel="stylesheet" th:href="@{/home.css}">
     <meta charset="UTF-8">
-    <title>SkyCast</title>
+    <title>Главная - SkyCast</title>
     <link rel="icon" th:href="@{/images/favicon.ico}">
 
 
@@ -36,23 +36,36 @@
                        value="Главная"
                        class="Primary">
             </form>
-            <form th:action="@{/weather}"
+            <form th:action="@{/search}"
                   method="GET">
                 <input type="submit"
                        value="Погода"
                        class="Weather">
             </form>
-            <a href="" class="About_us">
-                О нас
-            </a>
+            <form th:action="@{/about}"
+                  method="GET">
+                <input type="submit"
+                       value="О нас"
+                       class="About_us">
+            </form>
         </div>
-        <div class="Button_block">
+        <div class="Button_block" sec:authorize="isAnonymous()">
             <div class="header-menu">
-                <a href="" class="botton_auth">Вход</a>
+                <a th:href="@{/login}" class="botton_auth">Вход</a>
             </div>
             <div class="header-menu">
-                <a href="" class="botton_ar">Регистрация</a>
+                <a th:href="@{/register}" class="botton_ar">Регистрация</a>
             </div>
+        </div>
+
+        <div class="Button_block" sec:authorize="isAuthenticated()">
+            <div></div>
+            <form th:action="@{/account}"
+                  method="GET">
+                <input type="submit"
+                       value="Личный кабинет"
+                       class="button_acc">
+            </form>
         </div>
     </div>
 </header>
@@ -71,7 +84,7 @@
                     SKYCAST
                 </div>
                 <div class="skycast_info">
-                    Это ваш персональный метеоролог и аналитик климата
+                    Ваш персональный метеоролог и аналитик климата
                 </div>
                 <div class="arrow">
                     <img th:src="@{/images/arrow.png}" alt="">
@@ -84,10 +97,10 @@
                         </div>
 
                         <div class="right_block">
-                            <div class="title_info">С SkyCast вы сможете:</div>
+                            <div class="title_info">Со SkyCast вы можете</div>
 
                             <div class="info_text_rain_1">
-                                <div class="info-text">Получить точные прогнозы погоды:</div>
+                                <div class="info-text">Получать точные прогнозы погоды:</div>
                                 <div class="text_for_info">
                                     Мы предоставляем актуальные данные о погоде в любом городе мира,
                                     включая температуру, осадки, ветер, влажность, давление и многое другое.
@@ -113,7 +126,7 @@
                                 </div>
                             </div>
                             <div class="info_text_city_2">
-                                <div class="info-text">Сравнить климат разных городов:</div>
+                                <div class="info-text">Сравнивать климат разных городов:</div>
                                 <div class="text_for_info">
                                     Планируете поездку или переезд?
                                     Сравните климатические условия разных городов, чтобы выбрать оптимальное время для
@@ -128,10 +141,31 @@
                     </div>
                 </div>
 
+                <div class="weather_check">
+                    <div class="check_now">
+                        Узнайте текущую погоду
+                    </div>
+                    <div class="check_now_text_1">
+                        Введите свой город
+                    </div>
+                    <div class="check_now_text_2">
+                        или город, в котором хотите узнать погоду
+                    </div>
+                </div>
+
+                <!-- WEATHER_BLOCK -->
+            </div>
+            <div class="button_weather">
+                <form th:action="@{/start}" method="GET">
+                    <input type="submit" value="Узнать погоду" class="main_weather">
+                </form>
+            </div>
+            <div class="elipse_3"></div>
+
 
                 <div class="OpenWeatherInf">
                     <div class="API">
-                        API который мы используем
+                        API, который мы используем
                     </div>
                     <div class="API_block">
                         <div class="first_row_API">
@@ -139,14 +173,14 @@
                                 <img th:src="@{/images/ow.png}" alt="">
                             </div>
                             <div class="text_for_info_API_1">
-                                * Разнообразие источников данных: WeatherAPI использует данные из различных
+                                Разнообразие источников данных: WeatherAPI использует данные из различных
                                 источников, включая наземные метеостанции,
-                                спутники и радары, чтобы обеспечить точность и надежность информации.
+                                спутники и радары, чтобы обеспечить точность и достоверность информации.
                             </div>
                         </div>
                         <div class="last_row_API">
                             <div class="text_for_info_API_2">
-                                *Широкий спектр данных: WeatherAPI предоставляет доступ к широкому спектру данных,
+                                Широкий спектр данных: WeatherAPI предоставляет доступ к широкому спектру данных,
                                 включая текущую погоду, почасовые и ежедневные прогнозы,
                                 исторические данные, карты погоды, данные о загрязнении воздуха и многое другое.
                             </div>
@@ -154,61 +188,44 @@
                     </div>
                 </div>
 
-                <div class="weather_check">
-                    <div class="check_now">
-                        Посмотрите погоду сейчас
-                    </div>
-                    <div class="check_now_text_1">
-                        Введите свой город или город,
-                    </div>
-                    <div class="check_now_text_2">
-                        в котором вы хотите просмотреть погоду
-                    </div>
-                </div>
+<!--                <div class="weather_check">-->
+<!--                    <div class="check_now">-->
+<!--                        Узнайте текущую погоду-->
+<!--                    </div>-->
+<!--                    <div class="check_now_text_1">-->
+<!--                        Введите свой город-->
+<!--                    </div>-->
+<!--                    <div class="check_now_text_2">-->
+<!--                        или город, в котором хотите узнать погоду-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
 
-        <!-- WEATHER_BLOCK -->
-    </div>
-    <div class="button_weather">
-        <form th:action="@{/start}" method="GET">
-            <input type="submit" value="Посмотреть погоду" class="main_weather">
-        </form>
-    </div>
-    <div class="elipse_3"></div>
+<!--        &lt;!&ndash; WEATHER_BLOCK &ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="button_weather">-->
+<!--        <form th:action="@{/start}" method="GET">-->
+<!--            <input type="submit" value="Узнать погоду" class="main_weather">-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <div class="elipse_3"></div>-->
 
     <div class="footer">
 
         <!-- FOOTER -->
-
-
         <div class="Footer_ar">
             <div class="navigate_bar">
                 <a class="Logo_footer">
                     <img th:src="@{/images/footer.png}" alt="">
                 </a>
                 <div class="inf_1">
-                    <div class="useful_assistant">Полезный помощник в вашем кармане</div>
-                    <div class="social_logo">
-
-                        <div class="vk">
-                            <a th:href="@{https://vk.com/club225712381}">
-                                <img th:src="@{/images/vk.png}" alt="">
-                            </a>
-                        </div>
-
-                        <div class="tg">
-                            <a th:href="@{https://t.me/SkyCastApp}">
-                                <img th:src="@{/images/tg.png}" alt="">
-                            </a>
-                        </div>
-
-                    </div>
+                    <div class="useful_assistant">Полезный помощник в кармане</div>
                 </div>
                 <div class="inf_2">
                     <div class="communication">Связь с нами:</div>
-                    <div class="number">Тел: 8-(960)-874-87-93</div>
-                    <div class="email_communication">Email: skycastapp@gmail.com</div>
+                    <div class="number">Тел: 8 (960) 874-87-93</div>
+                    <div class="email_communication">Email: skycast2024@gmail.com</div>
                 </div>
                 <div class="inf_3">
                     <div class="cmw">Написать нам:</div>
@@ -219,7 +236,7 @@
                             </a>
                         </div>
                         <div class="tg">
-                            <a href={'https://t.me/SkyCastApp'}>
+                            <a th:href=@{https://t.me/SkyCastApp}>
                                 <img th:src="@{/images/tg.png}" alt="">
                             </a>
                         </div>
@@ -228,20 +245,35 @@
                 <div class="inf_4">
                     <div class="repost">Поделитесь с друзьями</div>
                     <div class="button_repost">
-                        <a href="" class="botton_ar">
-                            Поделиться
-                        </a>
+                        <form>
+                            <input type="hidden" id="hidden-value" value="https://t.me/SkyCastApp">
+                        </form>
+                        <button class="button_acc" onclick="copyHiddenValue()">Поделиться</button>
                     </div>
                 </div>
-            </div>
-            <div class="OpenWeatherApiInf">
-                <div class="logo_ow">
-                    <img th:src="@{/images/ow.png}" alt="">
-                </div>
-                <div class="informaitionAPI">
-                    С использованием WeatherAPI – ведущим поставщиком данных о погоде, предоставляющий обширный
-                    набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
-                </div>
+                <script>
+                    function copyHiddenValue() {
+                        // Получаем значение из скрытого поля
+                        var hiddenValue = document.getElementById("hidden-value").value;
+
+                        // Создаем временный элемент input
+                        var tempInput = document.createElement("input");
+                        tempInput.value = hiddenValue;
+                        document.body.appendChild(tempInput);
+
+                        // Выделяем текст в элементе input
+                        tempInput.select();
+
+                        // Копируем выделенный текст
+                        document.execCommand("copy");
+
+                        // Удаляем временный элемент
+                        document.body.removeChild(tempInput);
+
+                        // Вывод сообщения (необязательно)
+                        alert("Ссылка скопирована!");
+                    }
+                </script>
             </div>
         </div>
     </div>

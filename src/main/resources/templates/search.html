@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/search.css}">
+    <meta charset="UTF-8">
+    <title>Погода - SkyCast</title>
+    <link rel="icon" th:href="@{/images/favicon.ico}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="Header">
+    <div class="Header_index">
+        <a href="" class="Logo_link">
+            <div class="Logo">
+                <img th:src="@{/images/Logo_bar.png}" alt="">
+            </div>
+        </a>
+        <div class="menu-bar">
+
+            <form th:action="@{/}"
+                  method="GET">
+                <input type="submit"
+                       value="Главная"
+                       class="Primary">
+            </form>
+            <form th:action="@{/search}"
+                  method="GET">
+                <input type="submit"
+                       value="Погода"
+                       class="Weather">
+            </form>
+            <form th:action="@{/about}"
+                  method="GET">
+                <input type="submit"
+                       value="О нас"
+                       class="About_us">
+            </form>
+        </div>
+        <div class="Button_block" sec:authorize="isAnonymous()">
+            <div class="header-menu">
+                <a th:href="@{/login}" class="botton_auth">Вход</a>
+            </div>
+            <div class="header-menu">
+                <a th:href="@{/register}" class="botton_ar">Регистрация</a>
+            </div>
+        </div>
+
+        <div class="Button_block" sec:authorize="isAuthenticated()">
+            <div></div>
+            <form th:action="@{/account}"
+                  method="GET">
+                <input type="submit"
+                       value="Личный кабинет"
+                       class="button_acc">
+            </form>
+        </div>
+    </div>
+</header>
+
+
+<div class="app-wrapper">
+    <div class="elipse_1"></div>
+    <div class="content">
+        <div class="elipse_2"></div>
+        <div class="research">
+            <h1>Выберите город, в котором хотите узнать погоду:</h1>
+            <div class="research-bar">
+                <form class="search"
+                      th:action="@{/weather/get}"
+                      method="post"
+                      th:object="${weather}">
+                    <input type="search"
+                           id="cityInput"
+                           th:field="*{cityName}"
+                           required>
+                    <button type="submit">Найти</button>
+                </form>
+
+                <div th:if="${favouriteCities.size() > 0}">
+                    <h4>Список избранных городов:</h4>
+                    <div class="favouriteCityBlock"  th:each="favouriteCity : ${favouriteCities}">
+                        <button class="favouriteCity" th:data-keyword="${favouriteCity.cityName}">
+                            • <span class="favouriteCityText" th:text="${favouriteCity.cityName}"></span>
+                        </button>
+                        <form th:action="@{/favourite_city/delete}"
+                              method="POST">
+                            <input type="hidden"
+                                   th:name="cityToDelete"
+                                   th:value="${favouriteCity.cityName}">
+                            <input type="submit"
+                                   value="✖"
+                                   class="deleteFavouriteCity">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const buttons = document.querySelectorAll('button[data-keyword]');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            document.getElementById("cityInput").value = button.dataset.keyword;
+        });
+    });
+</script>
+
+<div class="footer">
+    <!-- FOOTER -->
+    <div class="Footer_ar">
+        <div class="navigate_bar">
+            <a class="Logo_footer">
+                <img th:src="@{/images/footer.png}" alt="">
+            </a>
+            <div class="inf_1">
+                <div class="useful_assistant">Полезный помощник в вашем кармане</div>
+            </div>
+            <div class="inf_2">
+                <div class="communication">Связь с нами:</div>
+                <div class="number">Тел: 8-(960)-874-87-93</div>
+                <div class="email_communication">Email: skycast2024@gmail.com</div>
+            </div>
+            <div class="inf_3">
+                <div class="cmw">Написать нам:</div>
+                <div class='social_logo'>
+                    <div class="vk">
+                        <a th:href="@{https://vk.com/club225712381}">
+                            <img th:src="@{/images/vk.png}" alt="">
+                        </a>
+                    </div>
+                    <div class="tg">
+                        <a th:href="@{https://t.me/SkyCastApp}">
+                            <img th:src="@{/images/tg.png}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="inf_4">
+                <div class="repost">Поделитесь с друзьями</div>
+                <div class="button_repost">
+                    <form>
+                        <input type="hidden" id="hidden-value" value="https://t.me/SkyCastApp">
+                    </form>
+                    <button class="button_acc" onclick="copyHiddenValue()">Поделиться</button>
+                </div>
+            </div>
+            <script>
+                function copyHiddenValue() {
+                    // Получаем значение из скрытого поля
+                    var hiddenValue = document.getElementById("hidden-value").value;
+
+                    // Создаем временный элемент input
+                    var tempInput = document.createElement("input");
+                    tempInput.value = hiddenValue;
+                    document.body.appendChild(tempInput);
+
+                    // Выделяем текст в элементе input
+                    tempInput.select();
+
+                    // Копируем выделенный текст
+                    document.execCommand("copy");
+
+                    // Удаляем временный элемент
+                    document.body.removeChild(tempInput);
+
+                    // Вывод сообщения (необязательно)
+                    alert("Ссылка скопирована!");
+                }
+            </script>
+        </div>
+        <div class="OpenWeatherApiInf">
+            <div class="logo_ow">
+                <img th:src="@{/images/ow.png}" alt="">
+            </div>
+            <div class="informaitionAPI">
+                С использованием WeatherAPI – ведущим поставщиком данных о погоде, предоставляющий обширный
+                набор API и инструментов для разработчиков и компаний, работающих с метеорологическими данными
+            </div>
+        </div>
+    </div>
+</div>
+</body>
